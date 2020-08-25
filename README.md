@@ -3,3 +3,4 @@ Projeto desenvolvido na matéria de Projeto Integrador do terceiro semestre do c
 
 #### Intregrantes:
 - Douglas Cardoso Ferreira
+- Carlos Eduardo Silva 
