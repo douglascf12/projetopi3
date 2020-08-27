@@ -1,5 +1,5 @@
 ### Projeto PI 3
-Projeto desenvolvido na matéria de Projeto Integrador do terceiro semestre do curso Tecnólogo em Análise e Desenvolvimento de Sistemas do Senac | SP
+Projeto desenvolvido na matéria de Projeto Integrador do terceiro semestre do curso Tecnólogo em Análise e Desenvolvimento de Sistemas do SENAC-SP.
 
 #### Integrantes:
 - Andrea Pereira dos Santos
