@@ -3,7 +3,7 @@ Projeto desenvolvido na matéria de Projeto Integrador do terceiro semestre do c
 
 #### Intregrantes:
 - Andrea Pereira dos Santos
-- Carlos Eduardo Silva 
-- Douglas Cardoso Ferreira
+- Carlos Eduardo Silva
 - Débora Ramos Teixeira Souza
+- Douglas Cardoso Ferreira
 - Francisco Washington de Almeida Oliveira
