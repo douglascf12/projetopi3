@@ -5,3 +5,4 @@ Projeto desenvolvido na matéria de Projeto Integrador do terceiro semestre do c
 - Andrea Pereira dos Santos
 - Carlos Eduardo Silva 
 - Douglas Cardoso Ferreira
+- Débora Ramos Teixeira Souza
