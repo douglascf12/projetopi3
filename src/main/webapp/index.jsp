@@ -15,9 +15,14 @@
     </head>
     <body>
         <h1>Menu</h1>
+<<<<<<< HEAD:src/main/webapp/WEB-INF/index.jsp
         <a href="listaClientes.jsp">Lista Clientes</a><br/>
         <a href="cadastrarCliente.jsp">Cadastrar Clientes</a>
         <a href="listaProdutos.jsp">Listar Produtos</a><br/>
         <a href="cadastrarProduto.jsp">Cadastrar Produtos</a>
+=======
+        <a href="listaProdutos.jsp">Listar Produtos</a><br/>
+        <a href="cadastrarCliente.jsp">Cadastrar Produtos</a>
+>>>>>>> 121e8cee116a6c302eb635f13fb66f5a58dd1440:src/main/webapp/index.jsp
     </body>
 </html>
