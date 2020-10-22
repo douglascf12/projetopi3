@@ -61,7 +61,7 @@ public class ProdutoDAO {
 
     public static void deletaProduto(int cod_produto) throws ClassNotFoundException, SQLException {
         Connection con = ConexaoDB.getConexao();
-        String query = "delete from produto where nome_produto=?";
+        String query = "delete from produto where cod_produto=?";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setInt(1, cod_produto);
         ps.execute();

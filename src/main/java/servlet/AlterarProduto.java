@@ -31,7 +31,7 @@ public class AlterarProduto extends HttpServlet {
             throws ServletException, IOException {
         int cod_produto = Integer.parseInt(request.getParameter("cod_produto"));
         Produto produto = ProdutoDAO.getProduto(cod_produto);
-        request.setAttribute("Produto", produto);
+        request.setAttribute("produto", produto);
          RequestDispatcher rd = 
                  getServletContext().getRequestDispatcher("/AlterarProduto.jsp");
          rd.forward(request, response);

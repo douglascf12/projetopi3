@@ -14,18 +14,15 @@
 
         <script lang="text/javascript">
 
-            function mostrarModalExclusao(preco, descricao, qtd_estoque, nome_produto) {
-//                $("#cod_produto").val(cod_produto);
-                $("#preco").val(preco);
-                $("#descricao").html(descricao);
-                $("#qtd_estoque").val(qtd_estoque);
-                $("#nome_produto").html(nome_produto);
+            function mostrarModalExclusao(cod_produto, nome_produto) {
+                 $("#nome_produto").html(nome_produto);
+                $("#cod_produto").val(cod_produto);
                 $('#modalExclusao').modal('show');
             }
 
             function excluirProduto() {
-                var nome_produto = $("#nome_produto").html();
-                $.get("ExcluirProduto?nome_produto=" + nome_produto, function (resposta) {
+                var cod_produto = $("#cod_produto").val();
+                $.get("ExcluirProduto?cod_produto=" + cod_produto, function (resposta) {
                     $('#modalExclusao').modal('hide')
                     if (resposta === "true") {
                         console.log("Funfou!");
@@ -75,8 +72,8 @@
                 </button>
             </div>
             <div class="modal-body">
-                Confirmar exclusão do Produto  <label id="nome_produto"></label> ?
-                <input id="nome_produto" hidden="true" />
+                Confirmar exclusão do Produto  <label id="cod_produto"></label> ?
+                <input id="cod_produto" hidden="true" />
 
             </div>
             <div class="modal-footer">

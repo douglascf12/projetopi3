@@ -28,7 +28,7 @@ public class ExcluirProduto extends HttpServlet {
    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int cod_produto = Integer.getInteger(request.getParameter("nome_produto"));
+        int cod_produto = Integer.parseInt(request.getParameter("cod_produto"));
        try {
            ProdutoDAO.deletaProduto(cod_produto);
            response.getWriter().print(true);

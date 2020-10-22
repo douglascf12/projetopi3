@@ -17,8 +17,7 @@ import java.util.logging.Logger;
  */
 public class ConexaoDB {
     
-    
-    static{
+        static{
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
@@ -33,4 +32,6 @@ public class ConexaoDB {
         return DriverManager.getConnection(url, user , passoword);
         
     }
+    
+
 }
