@@ -17,6 +17,14 @@ public class Produto {
         this.preco = preco;
     }
     
+    public Produto(String descricao, String nome_produto, int qtd_estoque, float preco) {
+      
+        this.descricao = descricao;
+        this.nome_produto = nome_produto;
+        this.qtd_estoque = qtd_estoque;
+        this.preco = preco;
+    }
+    
 
     public int getCod_produto() {
         return cod_produto;
