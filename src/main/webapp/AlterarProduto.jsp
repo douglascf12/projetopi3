@@ -13,8 +13,10 @@
         <title>Alterar Produto</title>
     </head>
     <body>
-        <h1>Alteração Cadastro de Produto: ${produto.cod_produto}</h1>
+        <h1>Alteração Cadastro de Produto: <br/>Codigo:${produto.cod_produto}</h1>
         <form action="AlterarProduto" method="POST">
+            <p>Código</p>
+            <input name="cod_produto" value="${produto.cod_produto}" readonly="true" /><br/>
             <p>Preco</p>
             <input name="preco" value="${produto.preco}"/><br/>
             <p>Descricao</p>
@@ -23,6 +25,7 @@
             <input name="qtd_estoque" value="${produto.qtd_estoque}" /><br/>
             <p>Nome Produto</p>
             <input name="nome_produto" value="${produto.nome_produto}" /><br/>
+            
             
             
             <button type="submit">Enviar</button>

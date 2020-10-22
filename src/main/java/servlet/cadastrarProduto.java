@@ -9,11 +9,11 @@ import dao.ProdutoDAO;
 import entidade.Produto;
 import utils.Utils;
 import java.io.IOException;
-import java.io.PrintWriter;
+
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -28,13 +28,12 @@ public class cadastrarProduto extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int cod_produto = Integer.parseInt(request.getParameter("cod_produto"));
         float preco = Float.parseFloat(request.getParameter("preco"));
         String descricao = request.getParameter("descricao");
         int qtd_estoque = Integer.parseInt(request.getParameter("qtd_estoque"));
         String nome_produto = request.getParameter("nome_produto");
 
-        Produto produto = new Produto(cod_produto,descricao, nome_produto, qtd_estoque, preco);
+        Produto produto = new Produto(descricao, nome_produto, qtd_estoque, preco);
        
         try {
             ProdutoDAO.addProduto(produto);
