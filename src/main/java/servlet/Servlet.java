@@ -36,13 +36,13 @@ public class Servlet extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
         
         try(PrintWriter out = response.getWriter()){
-            
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title> servlet Servlet</title>");
-            out.println("</head>");
-            out.println("<body>");
+//            
+//            out.println("<!DOCTYPE html>");
+//            out.println("<html>");
+//            out.println("<head>");
+//            out.println("<title> servlet Servlet</title>");
+//            out.println("</head>");
+//            out.println("<body>");
             
             List<Produto> listaProduto = ProdutoDAO.getProdutos();
             for (Produto produto: listaProduto) {
