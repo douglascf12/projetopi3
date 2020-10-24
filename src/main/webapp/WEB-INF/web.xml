@@ -28,6 +28,18 @@
         <servlet-name>DetalharVenda</servlet-name>
         <servlet-class>servlet.DetalharVenda</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PesquisarCliente</servlet-name>
+        <servlet-class>servlet.PesquisarCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PesquisarProduto</servlet-name>
+        <servlet-class>servlet.PesquisarProduto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VendaServlet</servlet-name>
+        <servlet-class>servlet.VendaServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Servlet</servlet-name>
         <url-pattern>/Servlet</url-pattern>
@@ -95,6 +107,18 @@
     <servlet-mapping>
         <servlet-name>DetalharVenda</servlet-name>
         <url-pattern>/DetalharVenda</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PesquisarCliente</servlet-name>
+        <url-pattern>/PesquisarCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PesquisarProduto</servlet-name>
+        <url-pattern>/PesquisarProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VendaServlet</servlet-name>
+        <url-pattern>/VendaServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
