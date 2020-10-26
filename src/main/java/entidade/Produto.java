@@ -8,21 +8,35 @@ public class Produto {
     private String nome_produto;
     private int qtd_estoque;
     private float preco;
+    private String categoria;
+    
+    
+    
 
-    public Produto(int cod_produto, String descricao, String nome_produto, int qtd_estoque, float preco) {
+    public Produto(int cod_produto, String descricao, String nome_produto, int qtd_estoque, float preco, String categoria) {
         this.cod_produto = cod_produto;
         this.descricao = descricao;
         this.nome_produto = nome_produto;
         this.qtd_estoque = qtd_estoque;
         this.preco = preco;
+        this.categoria = categoria;
     }
     
-    public Produto(String descricao, String nome_produto, int qtd_estoque, float preco) {
+    public Produto(String descricao, String nome_produto, int qtd_estoque, float preco, String categoria) {
       
         this.descricao = descricao;
         this.nome_produto = nome_produto;
         this.qtd_estoque = qtd_estoque;
         this.preco = preco;
+        this.categoria = categoria;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
     
 
@@ -64,6 +78,40 @@ public class Produto {
 
     public void setPreco(float preco) {
         this.preco = preco;
+    }
+    
+    public enum Categoria{
+        
+        CAMA("Cama"), MESA("Mesa"), BANHO("Banho");
+        
+        String categoria;
+
+        private Categoria(String categoria) {
+            this.categoria = categoria;
+        }
+
+        public String getCategoria() {
+            return categoria;
+        }
+
+        public void setCategoria(String categoria) {
+            this.categoria = categoria;
+        }
+
+        public static Categoria getCAMA() {
+            return CAMA;
+        }
+
+        public static Categoria getMESA() {
+            return MESA;
+        }
+
+        public static Categoria getBANHO() {
+            return BANHO;
+        }
+        
+        
+        
     }
     
     

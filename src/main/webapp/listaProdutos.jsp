@@ -43,6 +43,7 @@
             <th>Descricao</th>
             <th>Quantidade</th>
             <th>Nome</th>
+            <th>Categoria</th>
         </thead>
         <tbody> 
             <c:forEach var="produto" items="${listaProdutos}">
@@ -52,6 +53,7 @@
                     <td>${produto.descricao}</td>
                     <td>${produto.qtd_estoque}</td>
                     <td>${produto.nome_produto}</td>
+                    <td>${produto.categoria}</td>
                     <td><a href="AlterarProduto?cod_produto=${produto.cod_produto}">Alterar</a></td>
                     <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao(${produto.cod_produto}, '${produto.nome_produto}')">Excluir</button></td>
                 </tr>
