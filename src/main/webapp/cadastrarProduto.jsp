@@ -13,7 +13,7 @@
         <title>Cadastrar Produto</title>
     </head>
     <body class="container">
-        <h1>Cadastro</h1>
+        <h1>Cadastro de Produto</h1>
         <form action="cadastrarProduto" method="POST">
             <p>preco</p>
             <input name="preco" class="form-control" required="true"/><br/>
@@ -23,9 +23,16 @@
             <input name="qtd_estoque" class="form-control" required="true"/><br/>
             <p>nome_produto</p>
             <input name="nome_produto" class="form-control" required="true"/><br/>
-            
-            <button type="submit" class="btn btn-primary">Enviar</button>
-            
-        </form>
-    </body>
+            <p>categoria</p>
+            <select name="categoria" class="form-control" required="true"/><br/>
+            <option value="Cama">Cama</option>
+            <option value="Mesa">Mesa</option>
+            <option value="Banho">Banho</option>
+        </select>
+
+        <br/>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+
+    </form>
+</body>
 </html>

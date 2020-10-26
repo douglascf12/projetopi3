@@ -7,6 +7,7 @@ package servlet;
 
 import dao.ProdutoDAO;
 import entidade.Produto;
+import entidade.Produto.Categoria;
 import utils.Utils;
 import java.io.IOException;
 
@@ -32,9 +33,11 @@ public class cadastrarProduto extends HttpServlet {
         String descricao = request.getParameter("descricao");
         int qtd_estoque = Integer.parseInt(request.getParameter("qtd_estoque"));
         String nome_produto = request.getParameter("nome_produto");
+        String categoria = request.getParameter("categoria");
+       // Categoria cat = Enum.valueOf(Categoria.class, categoria);
+        
+        Produto produto = new Produto(descricao, nome_produto, qtd_estoque, preco,categoria);
 
-        Produto produto = new Produto(descricao, nome_produto, qtd_estoque, preco);
-       
         try {
             ProdutoDAO.addProduto(produto);
             response.sendRedirect("sucesso.jsp");
