@@ -61,7 +61,7 @@
                 <form action="PesquisarProduto" method="GET" class="form-inline">
                     <div class="col-12 form-group mb-2">
                         <label type="text" for="codigo" class="input-group-text">Código</label>
-                        <input type="search" id="codigo" name="cod_produto" size="5" value="${produto.cod_produto}" class="form-control" onclick="pesquisarProduto(produto.cod_produto), pesquisarCliente(cliente.cpf_cliente);"/>
+                        <input type="search" id="codigo" name="cod_produto" size="5" value="${produto.cod_produto}" class="form-control" required="required" onclick="pesquisarProduto(produto.cod_produto), pesquisarCliente(cliente.cpf_cliente);"/>
                         <button type="submit" class="btn btn-primary">&#128269;</button><br/>
                     </div>
                     <div class="col-12 form-group mb-2">
@@ -75,7 +75,7 @@
                         </div>
                         <div class="col-6 input-group mb-2">
                             <label for="prdouto-quantidade">Quantidade</label>
-                            <input name="qtd_produto" class="form-control"/><br/>
+                            <input name="qtd_produto" class="form-control" required="required" /><br/>
                         </div>
                     </div>
                 </form>
@@ -95,12 +95,12 @@
                     <th>Quantidade</th>
                 </thead>
                 <tbody id="tbody"> 
-                    <c:forEach var="produto" items="${produtos}">
+                    <c:forEach var="item" items="${itens}">
                         <tr>
-                            <td>${produto.cod_produto}</td>
-                            <td>${produto.nome_produto}</td>
-                            <td>${produto.preco}</td>
-                            <td><label valor="qtd_produto"></label></td>
+                            <td>${item.produto.cod_produto}</td>
+                            <td>${item.produto.nome_produto}</td>
+                            <td>${item.produto.preco}</td>
+                            <td>${item.quantidade}</td>
                         </tr>
                     </c:forEach>
                 </tbody>

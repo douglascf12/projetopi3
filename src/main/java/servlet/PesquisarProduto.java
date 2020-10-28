@@ -1,6 +1,7 @@
 package servlet;
 
 import dao.ProdutoDAO;
+import entidade.Item;
 import entidade.Produto;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,21 +19,27 @@ import javax.servlet.http.HttpServletResponse;
 public class PesquisarProduto extends HttpServlet {
 
 	private static final long serialVersionUID = 7003999203515802659L;
-	private List<Produto> produtos;
+	private List<Item> itens;
 	
 	public PesquisarProduto(){
-		produtos = new ArrayList<>();
+		itens = new ArrayList<>();
 	}
 	
 	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	
         int cod_produto = Integer.parseInt(request.getParameter("cod_produto"));
+        int qtd_produto = Integer.parseInt(request.getParameter("qtd_produto"));
+        
         Produto produto = ProdutoDAO.getProduto(cod_produto);
         
-        produtos.add(produto);
+        Item item = new Item();
+        item.setProduto(produto);
+        item.setQuantidade(qtd_produto);
         
-        request.setAttribute("produtos", produtos);
+        itens.add(item);
+        
+        request.setAttribute("itens", itens);
         
         RequestDispatcher rd = getServletContext().getRequestDispatcher("/venda.jsp");
         rd.forward(request, response);
