@@ -40,6 +40,26 @@
         <servlet-name>VendaServlet</servlet-name>
         <servlet-class>servlet.VendaServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AlterarFuncionario</servlet-name>
+        <servlet-class>servlet.AlterarFuncionario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>cadastrarFuncionario</servlet-name>
+        <servlet-class>servlet.cadastrarFuncionario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExcluirFuncionario</servlet-name>
+        <servlet-class>servlet.ExcluirFuncionario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListarFuncionario</servlet-name>
+        <servlet-class>servlet.ListarFuncionario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletFunc</servlet-name>
+        <servlet-class>servlet.ServletFunc</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Servlet</servlet-name>
         <url-pattern>/Servlet</url-pattern>
@@ -119,6 +139,26 @@
     <servlet-mapping>
         <servlet-name>VendaServlet</servlet-name>
         <url-pattern>/VendaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarFuncionario</servlet-name>
+        <url-pattern>/AlterarFuncionario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>cadastrarFuncionario</servlet-name>
+        <url-pattern>/cadastrarFuncionario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirFuncionario</servlet-name>
+        <url-pattern>/ExcluirFuncionario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarFuncionario</servlet-name>
+        <url-pattern>/ListarFuncionario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletFunc</servlet-name>
+        <url-pattern>/ServletFunc</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
