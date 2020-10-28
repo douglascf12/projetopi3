@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
     <%@include file="header.jsp" %>
@@ -94,7 +95,7 @@
                     <th>Quantidade</th>
                 </thead>
                 <tbody id="tbody"> 
-                    <c:forEach var="produto" items="${listaProdutos}">
+                    <c:forEach var="produto" items="${produtos}">
                         <tr>
                             <td>${produto.cod_produto}</td>
                             <td>${produto.nome_produto}</td>
