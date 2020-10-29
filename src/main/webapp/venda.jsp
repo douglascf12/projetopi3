@@ -1,9 +1,3 @@
-<%-- 
-    Document   : venda
-    Created on : 23/10/2020, 14:30:42
-    Author     : Douglas
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -12,23 +6,6 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Realizar Venda</title>
-        <script lang="text/javascript">
-            function pesquisarCliente(cpf) {
-                $("#cpf_cliente").val(cpf);
-                $.get("PesquisarCliente?cpf_cliente=" + cpf);
-            }
-            
-            function pesquisarProduto(codigo) {
-                $("#cod_produto").val(codigo);
-                $.get("PesquisarProduto?cod_produto=" + codigo);
-            }
-            
-            function cadastrarCliente() {
-                $.get("ListaCliente?cpf_cliente=" + cpf);
-            }
-            
-            
-        </script>
     </head>
     <body class="container">
         <div class="card mt-3 w-100">

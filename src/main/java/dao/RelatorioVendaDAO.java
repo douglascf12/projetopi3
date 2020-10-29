@@ -38,8 +38,10 @@ public class RelatorioVendaDAO {
                 double total_venda = rs.getDouble("total_venda");
                 String cpf_cliente = rs.getString("cpf_cliente");
                 String cpf_func = rs.getString("cpf_func");
+                int cod_filial = rs.getInt("cod_filial");
+                Date data_venda = rs.getDate("data_venda");
 
-                listaVendas.add(new Venda(id_venda, total_venda, cpf_cliente, cpf_func));
+                listaVendas.add(new Venda(id_venda, total_venda, cpf_cliente, cpf_func, cod_filial, data_venda));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Servlet.class.getName()).

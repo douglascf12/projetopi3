@@ -72,6 +72,30 @@
         <servlet-name>ListarFilial</servlet-name>
         <servlet-class>servlet.ListarFilial</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PesquisarClienteFilial</servlet-name>
+        <servlet-class>servlet.VendaPesquisarCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VendaPesquisarFilial</servlet-name>
+        <servlet-class>servlet.VendaPesquisarFilial</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VendaPedido</servlet-name>
+        <servlet-class>servlet.VendaPedido</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VendaProduto</servlet-name>
+        <servlet-class>servlet.VendaProduto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VendaGerarPedido</servlet-name>
+        <servlet-class>servlet.VendaGerarPedido</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VendaInserirProduto</servlet-name>
+        <servlet-class>servlet.VendaInserirProduto</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Servlet</servlet-name>
         <url-pattern>/Servlet</url-pattern>
@@ -183,6 +207,26 @@
     <servlet-mapping>
         <servlet-name>ListarFilial</servlet-name>
         <url-pattern>/ListarFilial</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VendaPesquisarFilial</servlet-name>
+        <url-pattern>/VendaPesquisarFilial</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VendaPedido</servlet-name>
+        <url-pattern>/VendaPedido</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VendaProduto</servlet-name>
+        <url-pattern>/VendaProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VendaGerarPedido</servlet-name>
+        <url-pattern>/VendaGerarPedido</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VendaInserirProduto</servlet-name>
+        <url-pattern>/VendaInserirProduto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
