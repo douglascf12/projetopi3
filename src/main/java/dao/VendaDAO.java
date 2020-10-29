@@ -11,6 +11,9 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.Servlet;
 
 public class VendaDAO {
 
@@ -45,6 +48,20 @@ public class VendaDAO {
         }
 
         return venda;
+    }
+    
+    public static void finalizarVenda(double valorTotal, int codVenda) {
+        try {
+            Connection con = ConexaoDB.getConexao();
+            String query = "update venda set total = ? where codVenda=?";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setDouble(1, valorTotal);
+            ps.setInt(2, codVenda);
+            ps.execute();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Servlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

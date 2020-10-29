@@ -3,24 +3,23 @@ package entidade;
 public class ItemVenda {
     
     private int idItem;
-    private String nomeProduto;
-    private String marcaProduto;
-    private double valorProduto;
+    private String nome;
+    private double preco;
+    private int quantidade;
     private int codVenda;
     private int codProduto;
-    private int quantidade;
     private double subTotal;
 
     public ItemVenda() {
     }
 
-    public ItemVenda(int id, int codProduto, String nomeProduto, String marcaProduto, int quantidade, double valorProduto, double subTotal) {
-        this.idItem = id;
-        this.nomeProduto = nomeProduto;
-        this.marcaProduto = marcaProduto;
-        this.valorProduto = valorProduto;
-        this.codProduto = codProduto;
+    public ItemVenda(int idItem, String nome, double preco, int quantidade, int codVenda, int codProduto, double subTotal) {
+        this.idItem = idItem;
+        this.nome = nome;
+        this.preco = preco;
         this.quantidade = quantidade;
+        this.codVenda = codVenda;
+        this.codProduto = codProduto;
         this.subTotal = subTotal;
     }
 
@@ -31,32 +30,33 @@ public class ItemVenda {
         this.subTotal = subTotal;
     }
 
+    public ItemVenda(int idItem, int codProduto, String nome, int quantidade, double preco, double subTotal) {
+        this.idItem = idItem;
+        this.codProduto = codProduto;
+        this.nome = nome;
+        this.quantidade = quantidade;
+        this.preco = preco;
+        this.subTotal = subTotal;
+    }
+
     public int getIdItem() {
         return idItem;
     }
 
-    public double getValorProduto() {
-        return valorProduto;
+    public double getPreco() {
+        return preco;
     }
 
-    public void setValorProduto(double valorProduto) {
-        this.valorProduto = valorProduto;
+    public void setPreco(double preco) {
+        this.preco = preco;
     }
 
-    public String getNomeProduto() {
-        return nomeProduto;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomeProduto(String nomeProduto) {
-        this.nomeProduto = nomeProduto;
-    }
-
-    public String getMarcaProduto() {
-        return marcaProduto;
-    }
-
-    public void setMarcaProduto(String marcaProduto) {
-        this.marcaProduto = marcaProduto;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public void setIdItem(int idItem) {

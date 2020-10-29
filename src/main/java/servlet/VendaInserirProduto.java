@@ -27,8 +27,8 @@ public class VendaInserirProduto extends HttpServlet {
         try {
             ItemVenda item = new ItemVenda(idVenda, codigoProduto, quantidade, subTotal);
             ItemVendaDAO.inserirItemVenda(item);
-            request.setAttribute("codFilial", codigoFilial);
-            request.setAttribute("codVenda", idVenda);
+            request.setAttribute("codigoFilial", codigoFilial);
+            request.setAttribute("idVenda", idVenda);
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/vendaProduto.jsp");
             rd.forward(request, response);
         } catch (SQLException ex) {

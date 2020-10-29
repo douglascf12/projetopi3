@@ -92,6 +92,12 @@
                 </div>
             </div>
         </form>
+        <br>
+        <form action="VendaCarrinho" method="POST" class="form-inline">
+            <input type="hidden" name="idVenda" value="${idVenda}"/>
+            <input type="hidden" name="codigoFilial" value="${codigoFilial}"/>
+            <button type="submit" class="btn btn-primary">Ver carrinho</button>
+        </form>
         <a href="index.jsp">Voltar</a>
     </body>
 </html>
