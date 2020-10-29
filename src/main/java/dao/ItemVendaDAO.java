@@ -19,13 +19,14 @@ public class ItemVendaDAO {
         PreparedStatement ps = null;
         try {
             Connection con = ConexaoDB.getConexao();
-            ps = con.prepareStatement("insert into tb_itemvenda (codVenda,codProduto,quantidade,subTotal) values (?,?,?,?)");
-
+            ps = con.prepareStatement("insert into item_venda (codigoVenda,codigoProduto,quantidade,subTotal) values (?,?,?,?)");
             ps.setInt(1, item.getCodVenda());
             ps.setInt(2, item.getCodProduto());
             ps.setInt(3, item.getQuantidade());
             ps.setDouble(4, item.getSubTotal());
             ps.executeUpdate();
+            
+            
 
         } catch (SQLException ex) {
             Logger.getLogger(Servlet.class.getName()).
@@ -39,21 +40,20 @@ public class ItemVendaDAO {
 
         try {
             Connection con = ConexaoDB.getConexao();
-            String query = "select tb_itemvenda.idItem, tb_itemvenda.codProduto, tb_produto.nomeProduto, tb_produto.marcaProduto,tb_itemvenda.quantidade, tb_produto.valorProduto, tb_itemvenda.subTotal\n"
-                    + "from tb_produto, tb_itemvenda\n"
-                    + "where tb_produto.codProduto = tb_itemvenda.codProduto and tb_itemvenda.codVenda = ?";
+            String query = "select item_venda.idItem, item_venda.codigoProduto, produto.nome_produto, item_venda.quantidade, produto.preco, item_venda.subTotal\n"
+                    + "from produto, item_venda\n"
+                    + "where produto.cod_produto = item_venda.codigoVenda and item_venda.codigoVenda = ?";
             ps = con.prepareStatement(query);
             ps.setInt(1, codVenda);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                int codItemVenda = rs.getInt("idItem");
-                int codProduto = rs.getInt("codProduto");
-                String nomeProduto = rs.getString("nomeProduto");
-                String marcaProduto = rs.getString("marcaProduto");
+                int idItem = rs.getInt("idItem");
+                int codigoProduto = rs.getInt("codigoProduto");
+                String nome_produto = rs.getString("nome_produto");
                 int quantidade = rs.getInt("quantidade");
-                double valorProduto = rs.getDouble("valorProduto");
+                double preco = rs.getDouble("preco");
                 double subTotal = rs.getDouble("subTotal");
-                listaItemVenda.add(new ItemVenda(codItemVenda, codProduto, nomeProduto, marcaProduto, quantidade, valorProduto, subTotal));
+                listaItemVenda.add(new ItemVenda(idItem, codigoProduto, nome_produto, quantidade, preco, subTotal));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Servlet.class.getName()).

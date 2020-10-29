@@ -96,6 +96,14 @@
         <servlet-name>VendaInserirProduto</servlet-name>
         <servlet-class>servlet.VendaInserirProduto</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VendaCarrinho</servlet-name>
+        <servlet-class>servlet.VendaCarrinho</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VendaFinalizar</servlet-name>
+        <servlet-class>servlet.VendaFinalizar</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Servlet</servlet-name>
         <url-pattern>/Servlet</url-pattern>
@@ -227,6 +235,14 @@
     <servlet-mapping>
         <servlet-name>VendaInserirProduto</servlet-name>
         <url-pattern>/VendaInserirProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VendaCarrinho</servlet-name>
+        <url-pattern>/VendaCarrinho</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VendaFinalizar</servlet-name>
+        <url-pattern>/VendaFinalizar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
