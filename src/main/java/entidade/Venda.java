@@ -1,31 +1,47 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package entidade;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
-import java.util.List;
 
-/**
- *
- * @author w_olv
- */
 public class Venda {
 
     int id_venda;
     double total_venda;
     String cpf_cliente;
     String cpf_func;
+    int cod_filial;
+    Date data_venda;
     ArrayList detalheVenda=new ArrayList<DetalheVenda>();
 
-    public Venda(int id_venda, double total_venda, String cpf_cliente, String cpf_func) {
+    public Venda(int id_venda, double total_venda, String cpf_cliente, String cpf_func, int cod_filial, Date data_venda) {
         this.id_venda = id_venda;
         this.total_venda = total_venda;
         this.cpf_cliente = cpf_cliente;
-        this.cpf_func = cpf_func;        
+        this.cpf_func = cpf_func;
+        this.cod_filial = cod_filial;
+        this.data_venda = data_venda;
+    }
+
+    public Venda(String cpf_cliente, int cod_filial, Date data_venda) {
+        this.cpf_cliente = cpf_cliente;
+        this.cod_filial = cod_filial;
+        this.data_venda = data_venda;
+    }
+
+    public int getCod_filial() {
+        return cod_filial;
+    }
+
+    public void setCod_filial(int cod_filial) {
+        this.cod_filial = cod_filial;
+    }
+
+    public Date getData_venda() {
+        return data_venda;
+    }
+
+    public void setData_venda(Date data_venda) {
+        this.data_venda = data_venda;
     }
 
     public void setId_venda(int id_venda) {
