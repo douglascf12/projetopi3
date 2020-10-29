@@ -20,7 +20,11 @@
         <a href="listaProduto">Listar Produtos</a><br/>
         <a href="cadastrarProduto.jsp">Cadastrar Produtos</a><br>
         <a href="ListarVendas">Listar Vendas</a><br>
-        <a href="VendaServlet">Venda</a>
+        <a href="VendaServlet">Venda</a><br>
+        <a href="ListarFuncionario">Lista Funcionários</a><br/>
+        <a href="cadastrarFuncionario.jsp">Cadastrar Funcionários</a><br/>
+        <a href="ListarFilial">Lista Filiais</a><br/>
+        <a href="cadastrarFilial.jsp">Cadastrar Filial</a><br/>
     </body>
 </html>
 
