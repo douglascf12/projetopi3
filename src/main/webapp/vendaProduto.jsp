@@ -26,8 +26,8 @@
                 <div class="card-body float-left w-100">
 
                     <div class="col-12 form-group mb-2">
-                        <input type="hidden" name="cpf" value="${cpf}"/>
-                        <input type="hidden" name="codigoFilial" value="${filial.codigo}"/>
+                        <input type="hidden" name="idVenda" value="${idVenda}"/>
+                        <input type="hidden" name="codigoFilial" value="${codigoFilial}"/>
                         <label type="text" class="input-group-text">Código</label>
                         <input type="search" id="codigo" name="codigoProduto" size="5" value="${produto.cod_produto}" class="form-control" required="required" />
                         <button type="submit" class="btn btn-primary">&#128269;</button><br/>
@@ -93,7 +93,7 @@
             </div>
         </form>
         <br>
-        <form action="VendaCarrinho" method="POST" class="form-inline">
+        <form action="VendaCarrinho" method="GET" class="form-inline">
             <input type="hidden" name="idVenda" value="${idVenda}"/>
             <input type="hidden" name="codigoFilial" value="${codigoFilial}"/>
             <button type="submit" class="btn btn-primary">Ver carrinho</button>

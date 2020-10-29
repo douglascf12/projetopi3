@@ -3,7 +3,6 @@ package servlet;
 import dao.ItemVendaDAO;
 import entidade.ItemVenda;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,9 +19,6 @@ public class VendaCarrinho extends HttpServlet {
         int idVenda = Integer.parseInt(request.getParameter("idVenda"));
         int codigoFilial = Integer.parseInt(request.getParameter("codigoFilial"));
 
-//        int codigoProduto = Integer.parseInt(request.getParameter("codigoProduto"));
-//        int quantidade = Integer.parseInt(request.getParameter("quantidade"));
-//        double subTotal = Double.parseDouble(request.getParameter("subTotal"));
         List<ItemVenda> listaItemVenda = ItemVendaDAO.getItemVenda(idVenda);
 
         request.setAttribute("listaItemVenda", listaItemVenda);
