@@ -60,6 +60,18 @@
         <servlet-name>ServletFunc</servlet-name>
         <servlet-class>servlet.ServletFunc</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CadastrarFilial</servlet-name>
+        <servlet-class>servlet.CadastrarFilial</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AlterarFilial</servlet-name>
+        <servlet-class>servlet.AlterarFilial</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListarFilial</servlet-name>
+        <servlet-class>servlet.ListarFilial</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Servlet</servlet-name>
         <url-pattern>/Servlet</url-pattern>
@@ -159,6 +171,18 @@
     <servlet-mapping>
         <servlet-name>ServletFunc</servlet-name>
         <url-pattern>/ServletFunc</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastrarFilial</servlet-name>
+        <url-pattern>/CadastrarFilial</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarFilial</servlet-name>
+        <url-pattern>/AlterarFilial</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarFilial</servlet-name>
+        <url-pattern>/ListarFilial</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
