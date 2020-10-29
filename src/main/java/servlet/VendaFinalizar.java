@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 public class VendaFinalizar extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int codVenda = Integer.parseInt(request.getParameter("codVenda"));
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int codVenda = Integer.parseInt(request.getParameter("idVenda"));
         double valorTotal = Double.parseDouble(request.getParameter("valorTotal"));
         VendaDAO.finalizarVenda(valorTotal, codVenda);
         response.sendRedirect("sucesso.jsp");

@@ -18,16 +18,16 @@ public class ItemVendaDAO {
 
         PreparedStatement ps = null;
         try {
+            
+            
             Connection con = ConexaoDB.getConexao();
             ps = con.prepareStatement("insert into item_venda (codigoVenda,codigoProduto,quantidade,subTotal) values (?,?,?,?)");
             ps.setInt(1, item.getCodVenda());
+            System.out.println(item.getCodVenda());
             ps.setInt(2, item.getCodProduto());
             ps.setInt(3, item.getQuantidade());
             ps.setDouble(4, item.getSubTotal());
             ps.executeUpdate();
-            
-            
-
         } catch (SQLException ex) {
             Logger.getLogger(Servlet.class.getName()).
                     log(Level.SEVERE, null, ex);
@@ -42,7 +42,7 @@ public class ItemVendaDAO {
             Connection con = ConexaoDB.getConexao();
             String query = "select item_venda.idItem, item_venda.codigoProduto, produto.nome_produto, item_venda.quantidade, produto.preco, item_venda.subTotal\n"
                     + "from produto, item_venda\n"
-                    + "where produto.cod_produto = item_venda.codigoVenda and item_venda.codigoVenda = ?";
+                    + "where produto.cod_produto = item_venda.codigoProduto and item_venda.codigoVenda = ?";
             ps = con.prepareStatement(query);
             ps.setInt(1, codVenda);
             ResultSet rs = ps.executeQuery();

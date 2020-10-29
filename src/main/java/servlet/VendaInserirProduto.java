@@ -27,6 +27,7 @@ public class VendaInserirProduto extends HttpServlet {
         try {
             ItemVenda item = new ItemVenda(idVenda, codigoProduto, quantidade, subTotal);
             ItemVendaDAO.inserirItemVenda(item);
+            //System.out.println(item.getCodVenda());
             request.setAttribute("codigoFilial", codigoFilial);
             request.setAttribute("idVenda", idVenda);
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/vendaProduto.jsp");

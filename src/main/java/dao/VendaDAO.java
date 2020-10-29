@@ -53,8 +53,10 @@ public class VendaDAO {
     public static void finalizarVenda(double valorTotal, int codVenda) {
         try {
             Connection con = ConexaoDB.getConexao();
-            String query = "update venda set total = ? where codVenda=?";
+            String query = "update venda set total_venda = ? where id_venda=?";
             PreparedStatement ps = con.prepareStatement(query);
+            System.out.println(valorTotal);
+            System.out.println(codVenda);
             ps.setDouble(1, valorTotal);
             ps.setInt(2, codVenda);
             ps.execute();

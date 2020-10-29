@@ -21,7 +21,6 @@ public class VendaProduto extends HttpServlet {
         
         Produto produto = ProdutoDAO.getProduto(codigoProduto);
         
-        
         request.setAttribute("codigoFilial", codigoFilial);
         request.setAttribute("idVenda", idVenda);
         request.setAttribute("produto", produto);
