@@ -26,13 +26,13 @@ public class PesquisarProduto extends HttpServlet {
 
         Produto produto = ProdutoDAO.getProduto(cod_produto);
 
-        ItemVenda item = new ItemVenda();
-        item.setProduto(produto);
-        item.setQuantidade(qtd_produto);
-
-        itens.add(item);
-
-        request.setAttribute("itens", itens);
+//        ItemVenda item = new ItemVenda();
+//        item.setProduto(produto);
+//        item.setQuantidade(qtd_produto);
+//
+//        itens.add(item);
+//
+//        request.setAttribute("itens", itens);
 
         RequestDispatcher rd = getServletContext().getRequestDispatcher("/venda.jsp");
         rd.forward(request, response);
