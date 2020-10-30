@@ -17,19 +17,57 @@ public class DetalheVenda {
     int cod_produto;
     Date data_venda;
     int qtd_vendida;
+    String Categoria;
+    String cpf_cliente;
+    int cod_filial;
 
-    public DetalheVenda(int cod_produto, Date data_venda, int qtd_vendida) {
+    public DetalheVenda(int cod_produto, Date data_venda, int qtd_vendida, String Categoria) {
         this.cod_produto = cod_produto;
         this.data_venda = data_venda;
         this.qtd_vendida = qtd_vendida;
+        this.Categoria = Categoria;
     }
-    public DetalheVenda(int cod_produto, int qtd_vendida) {
+
+    public DetalheVenda(int cod_produto, Date data_venda, int qtd_vendida, String Categoria, int cod_filial) {
         this.cod_produto = cod_produto;
         this.data_venda = data_venda;
         this.qtd_vendida = qtd_vendida;
+        this.Categoria = Categoria;
+        this.cod_filial = cod_filial;
     }
 
- 
+    public DetalheVenda(int cod_produto, Date data_venda, int qtd_vendida, String Categoria, String cpf_cliente) {
+        this.cod_produto = cod_produto;
+        this.data_venda = data_venda;
+        this.qtd_vendida = qtd_vendida;
+        this.Categoria = Categoria;
+        this.cpf_cliente = cpf_cliente;
+    }
+
+    public int getCod_filial() {
+        return cod_filial;
+    }
+
+    public void setCod_filial(int cod_filial) {
+        this.cod_filial = cod_filial;
+    }
+
+    public String getCpf_cliente() {
+        return cpf_cliente;
+    }
+
+    public void setCpf_cliente(String cpf_cliente) {
+        this.cpf_cliente = cpf_cliente;
+    }
+
+    public String getCategoria() {
+        return Categoria;
+    }
+
+    public void setCategoria(String Categoria) {
+        this.Categoria = Categoria;
+    }
+
     public void setId_venda(int id_venda) {
         this.id_venda = id_venda;
     }
@@ -62,5 +100,4 @@ public class DetalheVenda {
         this.qtd_vendida = qtd_vendida;
     }
 
-  
 }

@@ -23,21 +23,21 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author w_olv
  */
-public class DetalharVenda extends HttpServlet {
+public class DetalharVendaProduto extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        int id_venda = Integer.parseInt(request.getParameter("id_venda"));
+        String categoria = request.getParameter("Categoria");
         List<ItemVenda> detalheVendas = null;
         try {
-            detalheVendas = RelatorioVendaDAO.getDetalheRelatorioVenda(id_venda);
+            detalheVendas = RelatorioVendaDAO.getDetalheRelatorioVendaPorCategoria(categoria);
         } catch (SQLException ex) {
             Logger.getLogger(ListarVendas.class.getName()).log(Level.SEVERE, null, ex);
         }
         request.setAttribute("listaDetalheVendas", detalheVendas);
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/RelatorioDetalheVenda.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/RelatorioDetalheVendaProduto.jsp");
         requestDispatcher.forward(request, response);
     }
 }

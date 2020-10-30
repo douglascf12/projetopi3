@@ -104,6 +104,18 @@
         <servlet-name>VendaFinalizar</servlet-name>
         <servlet-class>servlet.VendaFinalizar</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DetalharVendaCliente</servlet-name>
+        <servlet-class>servlet.DetalharVendaCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DetalharVendaProduto</servlet-name>
+        <servlet-class>servlet.DetalharVendaProduto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DetalharVendaFilial</servlet-name>
+        <servlet-class>servlet.DetalharVendaFilial</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Servlet</servlet-name>
         <url-pattern>/Servlet</url-pattern>
@@ -243,6 +255,18 @@
     <servlet-mapping>
         <servlet-name>VendaFinalizar</servlet-name>
         <url-pattern>/VendaFinalizar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DetalharVendaCliente</servlet-name>
+        <url-pattern>/DetalharVendaCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DetalharVendaProduto</servlet-name>
+        <url-pattern>/DetalharVendaProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DetalharVendaFilial</servlet-name>
+        <url-pattern>/DetalharVendaFilial</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

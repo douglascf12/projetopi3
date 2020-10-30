@@ -9,6 +9,8 @@ public class ItemVenda {
     private int codVenda;
     private int codProduto;
     private double subTotal;
+    private String categoria;
+    private String cpf_cliente;
 
     public ItemVenda() {
     }
@@ -39,6 +41,38 @@ public class ItemVenda {
         this.subTotal = subTotal;
     }
 
+    public ItemVenda(int codVenda, int codProduto, int quantidade, Double subTotal, String categoria) {
+        this.codVenda = codVenda;
+        this.codProduto = codProduto;
+        this.quantidade = quantidade;
+        this.subTotal = subTotal;
+        this.categoria = categoria;   
+    }
+    public ItemVenda( int codProduto, int quantidade,  String categoria, String cpf_cliente) {
+
+        this.codProduto = codProduto;
+        this.quantidade = quantidade;
+        this.categoria = categoria;
+        this.cpf_cliente = cpf_cliente;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public String getCpf_cliente() {
+        return cpf_cliente;
+    }
+
+    public void setCpf_cliente(String cpf_cliente) {
+        this.cpf_cliente = cpf_cliente;
+    }
+
+    
     public int getIdItem() {
         return idItem;
     }

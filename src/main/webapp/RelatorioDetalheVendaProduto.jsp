@@ -16,15 +16,18 @@
     <body class="container">
         <table class="table">
             <thead>
+            <th>Categoria</th>
             <th>Cód. Produto</th>
             <th>Cód. Venda</th>
             <th>Qtd. Vendida</th>
             <th>Sub Total</th>
+
         </thead>
         <h4>Detalhes da Venda</h4> 
         <tbody>
             <c:forEach var="v" items="${listaDetalheVendas}">
                 <tr>
+                    <td>${v.categoria}</td>
                     <td>${v.codProduto}</td>
                     <td>${v.codVenda}</td>
                     <td>${v.quantidade}</td>                
@@ -34,6 +37,4 @@
         </tbody>
     </table>
     <a href="ListarVendas"><button type="button" class="btn btn-warning">Vendas</button></a></body>
-</body>
-
 </html>

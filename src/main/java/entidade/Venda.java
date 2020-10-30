@@ -11,7 +11,21 @@ public class Venda {
     String cpf_func;
     int cod_filial;
     Date data_venda;
-    ArrayList detalheVenda=new ArrayList<DetalheVenda>();
+    ArrayList detalheVenda = new ArrayList<DetalheVenda>();
+
+    public Venda(int id_venda, double total_venda, String cpf_cliente, int cod_filial) {
+        this.id_venda = id_venda;
+        this.total_venda = total_venda;
+        this.cpf_cliente = cpf_cliente;
+        this.cod_filial = cod_filial;
+    }
+
+    public Venda(int id_venda, double total_venda, String cpf_cliente, String cpf_func) {
+        this.id_venda = id_venda;
+        this.total_venda = total_venda;
+        this.cpf_cliente = cpf_cliente;
+        this.cpf_func = cpf_func;
+    }
 
     public Venda(int id_venda, double total_venda, String cpf_cliente, String cpf_func, int cod_filial, Date data_venda) {
         this.id_venda = id_venda;
