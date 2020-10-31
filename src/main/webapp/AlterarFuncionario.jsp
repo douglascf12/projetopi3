@@ -1,21 +1,15 @@
-<%-- 
-    Document   : AlterarFuncionario
-    Created on : 23/10/2020, 18:00:23
-    Author     : UsuÃ¡rio
---%>
+<%@include file="header.jsp" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <%@include file="header.jsp" %>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Alterar Cliente</title>
     </head>
-    <body class="container">
-        <h1>AlteraÃ§Ã£o de Cadastro do ${funcionario.nomeFunc}</h1>
+    <div class="container">
+        <h1>Alteração de Cadastro do ${funcionario.nomeFunc}</h1>
         <form action="AlterarFuncionario" method="POST">
-
             <div class="row form-group">
                 <div class="col-6">
                     <label for="cpf">Cpf do Funcionario</label>
@@ -35,13 +29,8 @@
                         <option value="op">Feminino</option>
 
                     </select>
-
                 </div>
             </div>
-
-
-
-
 
             <!--<div class="form-group">
                 <label for="cpf">Cpf do Funcionario</label>
@@ -51,8 +40,6 @@
                 <label>Nome do Funcioanrio</label>
                 <input class="form-control" name="nome" value="${funcionario.nomeFunc}" readonly="true"/><br/>
             </div>
-
-
 
             <div class="row form-group">
                 <div class="col-6">
@@ -72,11 +59,7 @@
                 <div class="col-6">
                     <input class="form-control" name="nome" value="${funcionario.telefoneFunc}" readonly="true"/><br/>
                 </div>
-
-            </div> 
-
-
-
+            </div>
 
             <!-- <div class="form-group">
                  <label>Data de Nascimento</label>
@@ -88,7 +71,7 @@
              </div>-->
 
             <div class="form-group">
-                <label>EndereÃ§o</label>
+                <label>Endereço</label>
                 <input class="form-control" name="nome" value="${funcionario.enderecoFunc}" readonly="true"/><br/>
             </div>
 
@@ -98,8 +81,5 @@
             </div>-->
 
             <button type="submit" class="btn btn-primary">Alterar</button>
-
-
         </form>
-    </body>
-</html>
+    </div>

@@ -1,19 +1,13 @@
-<%-- 
-    Document   : cadastrarFuncionario
-    Created on : 21/10/2020, 22:52:03
-    Author     : Usuário
---%>
+<%@include file="header.jsp" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-
-        <%@include file="header.jsp" %>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro de Cliente</title>
     </head>
-    <body class="container">
+    <div class="container">
         <h1>Cadastro de Funcionario</h1>
         </br>
         </br>
@@ -36,9 +30,7 @@
                         <option value="op">-</option>
                         <option value="op">Masculino</option>
                         <option value="op">Feminino</option>
-
                     </select>
-
                 </div>
             </div>
 
@@ -56,29 +48,21 @@
                     <label for="telefone">Telefone</label>
                 </div>
             </div>
-            
+
             <div class="row form-group">
                 <div class="col-6">
                     <input name="data_nasc" type="date" class="form-control" required="true" placeholder="YY/mm/dd"></input>
                 </div>
-                
                 <div class="col-6">
-                     <input name="telefone" class="form-control" required="true" placeholder="0000-0000"></input>
+                    <input name="telefone" class="form-control" required="true" placeholder="0000-0000"></input>
                 </div>
-     
             </div>  
 
             <div class="form-group">
-                <label for="endereco">Endereço</label>
+                <label for="endereco">Endere�o</label>
                 <input name="endereco" class="form-control" required="true"></input>
             </div>
-
             <br/>
             <button type="submit"  class="btn btn-primary">Enviar</button>
-
-
-
         </form>
-    </body>
-</html>
-
+    </div>

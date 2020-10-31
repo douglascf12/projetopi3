@@ -1,8 +1,8 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@include file="header.jsp" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
-    <%@include file="header.jsp" %>
     <script>
         $(function () {
             var valorT = 0;
@@ -18,8 +18,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Realizar Venda</title>
     </head>
-    <body class="container">
-        <h3>NÃºmero da venda: ${idVenda}</h3>
+    <div class="container">
+        <h3>Número da venda: ${idVenda}</h3>
         <div class="card mt-3 w-100">
             <div class="card-header text-center">
                 <b>Lista de Produtos</b>
@@ -27,10 +27,10 @@
             <div class="card-body float-left w-100">
                 <table class="table table-hover overflow-auto">
                     <thead>
-                    <th>CÃ³digo do Produto</th>
+                    <th>Código do Produto</th>
                     <th>Nome do Produto</th>
                     <th>Quantidade</th>
-                    <th>PreÃ§o</th>
+                    <th>Preço</th>
                     <th>Sub-Total</th>
                     <th>Excluir</th>
                     </thead>
@@ -45,22 +45,18 @@
                             </tr>                            
                         </c:forEach>
                     </tbody>
-
             </div>
-        </table>
-        <br>
-        <div class="col-12 form-group mb-2">
-            <label>Valor total da venda: </label>
-            <input size="5" class="form-control" id="valorTo" value="${valorT}" readonly="true"/>
+            </table>
+            <br>
+            <div class="col-4 form-group mb-2">
+                <label>Valor total da venda: </label>
+                <input size="5" class="form-control" id="valorTo" value="${valorT}" readonly="true"/>
+            </div>
         </div>
+        <br>
+        <form action="VendaFinalizar" method="POST" class="form-inline">
+            <input type="hidden" name="idVenda" value="${idVenda}"/>
+            <input type="hidden" name="valorTotal" id="valorTo2" value="${valorT}"/>
+            <button type="submit" class="btn btn-primary">Finalizar</button>
+        </form>
     </div>
-    <br>
-    <form action="VendaFinalizar" method="POST" class="form-inline">
-        <input  name="idVenda" value="${idVenda}"/>
-        <input  name="valorTotal" id="valorTo2" value="${valorT}"/>
-        <button type="submit" class="btn btn-primary">Finalizar</button>
-    </form>
-    <br>
-    <a href="index.jsp">Voltar</a>
-</body>
-</html>

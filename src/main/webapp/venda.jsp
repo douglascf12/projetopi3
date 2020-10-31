@@ -1,13 +1,13 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@include file="header.jsp" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
-    <%@include file="header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Realizar Venda</title>
     </head>
-    <body class="container">
+    <div class="container">
         <div class="card mt-3 w-100">
             <div class="card-header text-center">
                 <b>Dados do Cliente</b>
@@ -37,7 +37,7 @@
             <div class="card-body float-left w-100">
                 <form action="PesquisarProduto" method="GET" class="form-inline">
                     <div class="col-12 form-group mb-2">
-                        <label type="text" for="codigo" class="input-group-text">CÃ³digo</label>
+                        <label type="text" for="codigo" class="input-group-text">Código</label>
                         <input type="search" id="codigo" name="cod_produto" size="5" value="${produto.cod_produto}" class="form-control" required="required" onclick="pesquisarProduto(produto.cod_produto), pesquisarCliente(cliente.cpf_cliente);"/>
                         <button type="submit" class="btn btn-primary">&#128269;</button><br/>
                     </div>
@@ -47,7 +47,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-6 input-group mb-2">
-                            <label for="produto-preco">PreÃ§o unitÃ¡rio</label>
+                            <label for="produto-preco">Preço unitário</label>
                             <input name="preco" value="${produto.preco}" class="form-control"/><br/>
                         </div>
                         <div class="col-6 input-group mb-2">
@@ -65,22 +65,22 @@
             </div>
             <div class="card-body float-left w-100">
                 <table class="table table-hover overflow-auto">
-                <thead>
-                    <th>CÃ³digo</th>
+                    <thead>
+                    <th>Código</th>
                     <th>Nome</th>
-                    <th>Valor unitÃ¡rio</th>
+                    <th>Valor unitário</th>
                     <th>Quantidade</th>
-                </thead>
-                <tbody id="tbody"> 
-                    <c:forEach var="item" items="${itens}">
-                        <tr>
-                            <td>${item.produto.cod_produto}</td>
-                            <td>${item.produto.nome_produto}</td>
-                            <td>${item.produto.preco}</td>
-                            <td>${item.quantidade}</td>
-                        </tr>
-                    </c:forEach>
-                </tbody>
+                    </thead>
+                    <tbody id="tbody"> 
+                        <c:forEach var="item" items="${itens}">
+                            <tr>
+                                <td>${item.produto.cod_produto}</td>
+                                <td>${item.produto.nome_produto}</td>
+                                <td>${item.produto.preco}</td>
+                                <td>${item.quantidade}</td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -102,7 +102,4 @@
                 </form>
             </div>
         </div>
-        <br>
-        <a href="index.jsp">Voltar</a>
-    </body>
-</html>
+    </div>

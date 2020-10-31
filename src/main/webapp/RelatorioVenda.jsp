@@ -1,16 +1,9 @@
-<%-- 
-    Document   : relatorioVenda
-    Created on : 21/10/2020, 10:42:34
-    Author     : w_olv
---%>
+<%@include file="header.jsp" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
-    <%@include file="header.jsp" %>
     <head>
-
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Relatorios</title>
         <style>
@@ -70,7 +63,7 @@
         </script>
     </head>
 
-    <body class="container">
+    <div class="container">
         <div>
             <h6>Filtrar por:</h6>
             <select class="form-control col-5" id="filtro">
@@ -98,38 +91,36 @@
             </div>
         </div>  
         <div class="row" id="Filial">
-                <div class="col-1">
-                    <label type="text" class="input-group-text">ID</label>
-                    <input type="search" id="campoFilial" name="cpf_cliente" size="2" class="form-control"/>
-                    <button type="submit" onclick="filtraPorFilial()" class="btn btn-primary">&#128269;</button><br/>
-                </div>
-                     
+            <div class="col-1">
+                <label type="text" class="input-group-text">ID</label>
+                <input type="search" id="campoFilial" name="cpf_cliente" size="2" class="form-control"/>
+                <button type="submit" onclick="filtraPorFilial()" class="btn btn-primary">&#128269;</button><br/>
+            </div>
+
         </div>
 
-        <h4>Relt√≥rios de Vendas</h4>
-        <h6>Filtrar por per√≠odo</h6>
+        <h4>ReltÛrios de Vendas</h4>
+        <h6>Filtrar por perÌodo</h6>
 
         <table id="table" class="table">
             <thead>
-            <th>C√≥d. Venda</th>
+            <th>CÛd. Venda</th>
             <th>Cliente Cpf </th>
-            <th>Funcion√°rio Cpf</th>
+            <th>Funcion·rio Cpf</th>
             <th>Valor Total</th>
             <th>Detalhe Venda</th>
-        </thead>
-        <tbody>
-            <c:forEach var="v" items="${listaVendas}">
-                <tr>
-                    <td>${v.id_venda}</td>
-                    <td>${v.cpf_cliente}</td>
-                    <td>${v.cpf_func}</td>
-                    <td>${v.total_venda}</td>
-                    <td><a href="DetalharVenda?id_venda=${v.id_venda}"><button type="button" class="btn btn-danger">Detalhes</button></a></td>
-                </tr>
-            </c:forEach>
-        </tbody>
-        <button onclick="teste()" type="submit" class="btn btn-primary">&#128269;</button>
-    </table>    
-</table>
-</body>
-</html>
+            </thead>
+            <tbody>
+                <c:forEach var="v" items="${listaVendas}">
+                    <tr>
+                        <td>${v.id_venda}</td>
+                        <td>${v.cpf_cliente}</td>
+                        <td>${v.cpf_func}</td>
+                        <td>${v.total_venda}</td>
+                        <td><a href="DetalharVenda?id_venda=${v.id_venda}"><button type="button" class="btn btn-danger">Detalhes</button></a></td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+            <button onclick="teste()" type="submit" class="btn btn-primary">&#128269;</button>
+        </table>
+    </div>

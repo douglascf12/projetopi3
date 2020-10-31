@@ -1,21 +1,16 @@
-<%-- 
-    Document   : alterarProduto
-    Created on : Oct 2, 2020, 7:59:00 PM
-    Author     : tscarton
---%>
+<%@include file="header.jsp" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Alterar Produto</title>
     </head>
-       <body class="container">
-        <h1>AlteraÃ§Ã£o Cadastro de Produto: <br/></h1>
+    <div class="container">
+        <h1>Alteração Cadastro de Produto: <br/></h1>
         <form action="AlterarProduto" method="POST">
-            <p>CÃ³digo</p>
+            <p>Código</p>
             <input name="cod_produto" class="form-control" value="${produto.cod_produto}" readonly="true" /><br/>
             <p>Preco</p>
             <input name="preco" class="form-control"  value="${produto.preco}"/><br/>
@@ -30,13 +25,9 @@
             <option value="Cama">Cama</option>
             <option value="Mesa">Mesa</option>
             <option value="Banho">Banho</option>
-        </select>
-            
-            
+            </select>
             <br/>
             <br/>
             <button type="submit"class="btn btn-primary">Enviar</button>
-            
         </form>
-    </body>
-</html>
+    </div>

@@ -1,8 +1,8 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@include file="header.jsp" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
-    <%@include file="header.jsp" %>
     <script>
         function calcularSubTotal() {
             var qtd = parseInt(document.getElementById('quantidade').value, 10);
@@ -14,9 +14,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Realizar Venda</title>
     </head>
-    <body class="container">
+    <div class="container">
 
-        <h3>NÃºmero da venda: ${idVenda}</h3>
+        <h3>Número da venda: ${idVenda}</h3>
         <form action="VendaProduto" method="GET" class="form-inline">
             <div class="card mt-3 w-100">
                 <div class="card-header text-center">
@@ -28,7 +28,7 @@
                     <div class="col-12 form-group mb-2">
                         <input type="hidden" name="idVenda" value="${idVenda}"/>
                         <input type="hidden" name="codigoFilial" value="${codigoFilial}"/>
-                        <label type="text" class="input-group-text">CÃ³digo</label>
+                        <label type="text" class="input-group-text">Código</label>
                         <input type="search" id="codigo" name="codigoProduto" size="5" value="${produto.cod_produto}" class="form-control" required="required" />
                         <button type="submit" class="btn btn-primary">&#128269;</button><br/>
                     </div>
@@ -38,7 +38,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-6 input-group mb-2">
-                            <label for="produto-preco">PreÃ§o unitÃ¡rio</label>
+                            <label for="produto-preco">Preço unitário</label>
                             <input name="preco" value="${produto.preco}" size="5" class="form-control"/><br/>
                         </div>
                     </div>
@@ -52,9 +52,9 @@
                 <div class="card-body float-left w-100">
                     <table class="table table-hover overflow-auto">
                         <thead>
-                        <th>CÃ³digo</th>
+                        <th>Código</th>
                         <th>Nome</th>
-                        <th>Valor unitÃ¡rio</th>
+                        <th>Valor unitário</th>
                         <th>Estoque</th>
                         </thead>
                         <tbody id="tbody"> 
@@ -98,6 +98,4 @@
             <input type="hidden" name="codigoFilial" value="${codigoFilial}"/>
             <button type="submit" class="btn btn-primary">Ver carrinho</button>
         </form>
-        <a href="index.jsp">Voltar</a>
-    </body>
-</html>
+    </div>
