@@ -1,17 +1,13 @@
-<%-- 
-    Document   : sucesso
-    Created on : 19/10/2020, 15:23:32
-    Author     : User
---%>
+<%@include file="header.jsp" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Sucesso</title>
-     <body>
-        <h1>OperaÃ§Ã£o executada com sucesso!</h1><br/>
+    </head>
+    <div class="container">
+        <h1>Operação executada com sucesso!</h1><br/>
         <a href="index.jsp">Voltar</a>
-    </body>
-</html>
+    </div>

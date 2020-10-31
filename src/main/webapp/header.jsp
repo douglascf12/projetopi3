@@ -48,8 +48,8 @@
                             Colaborador
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="ListarFuncionario">Cadastrar Colaborador</a>
-                            <a class="dropdown-item" href="cadastrarFuncionario.jsp">Listar Colaboradores</a>
+                            <a class="dropdown-item" href="ListarFuncionario">Listar Colaboradores</a>
+                            <a class="dropdown-item" href="cadastrarFuncionario.jsp">Cadastrar Colaborador</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">

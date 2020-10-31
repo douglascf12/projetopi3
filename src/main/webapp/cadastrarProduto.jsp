@@ -1,18 +1,13 @@
-<%-- 
-    Document   : cadastrarProduto
-    Created on : Sep 25, 2020, 9:26:59 PM
-    Author     : tscarton
---%>
+<%@include file="header.jsp" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastrar Produto</title>
     </head>
-    <body class="container">
+    <div class="container">
         <h1>Cadastro de Produto</h1>
         <form action="cadastrarProduto" method="POST">
             <p>preco</p>
@@ -28,11 +23,10 @@
             <option value="Cama">Cama</option>
             <option value="Mesa">Mesa</option>
             <option value="Banho">Banho</option>
-        </select>
+            </select>
 
-        <br/>
-        <button type="submit" class="btn btn-primary">Enviar</button>
+            <br/>
+            <button type="submit" class="btn btn-primary">Enviar</button>
 
-    </form>
-</body>
-</html>
+        </form>
+    </div>

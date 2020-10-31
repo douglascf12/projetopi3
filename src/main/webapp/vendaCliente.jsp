@@ -1,13 +1,13 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@include file="header.jsp" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
-    <%@include file="header.jsp" %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Realizar Venda</title>
     </head>
-    <body class="container">
+    <div class="container">
         <div class="card mt-3 w-100">
             <div class="card-header text-center">
                 <b>Dados do Cliente</b>
@@ -26,11 +26,8 @@
                 </form>
                 <form action="VendaServlet" method="POST" class="form-inline">
                     <input type="hidden" name="cpf" value="${cliente.cpf_cliente}"/>
-                    <button type="submit" class="btn btn-primary">PrÃ³ximo</button>
+                    <button type="submit" class="btn btn-primary">Próximo</button>
                 </form>
             </div>
         </div>
-        <br>
-        <a href="index.jsp">Voltar</a>
-    </body>
-</html>
+    </div>
