@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,7 +6,7 @@
         <link rel="stylesheet" href="css/estilo.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="index.jsp">TáLigado</a>
+            <a class="navbar-brand" href="protegido/index.jsp">TáLigado</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -53,20 +54,20 @@
                             Filial
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="ListarFilial">Listar Filiais</a>
-                            <a class="dropdown-item" href="cadastrarFilial.jsp">Cadastrar Filiais</a>
+                            <a class="dropdown-item" href="<c:url value="/ListarFilial"/>">Listar Filiais</a>
+                            <a class="dropdown-item" href="<c:url value="/cadastrarFilial.jsp"/>">Cadastrar Filiais</a>
                         </div>
                     </li>
                 </ul>
                 <ul class="navbar-nav navbar-right">
                     <li class="nav-item">
-                        <a class="nav-link">Seja bem-vindo(a)</a>
+                        <a class="nav-link">Seja bem-vindo(a) ${funcionario.nomeFunc}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link">|</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Logout</a>
+                        <a class="nav-link" href="<c:url value="/SairServlet"/>">Sair</a>
                     </li>
                 </ul>
             </div>

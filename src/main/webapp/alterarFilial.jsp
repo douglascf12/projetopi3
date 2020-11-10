@@ -37,7 +37,7 @@
                                 <input name="cidade" class="form-control"  value="${filial.cidade}"/>
                             </div>
                         </div>
-                        <button type="submit"class="btn btn-primary">Enviar</button>
+                        <button type="submit"class="btn btn-primary">Atualizar</button>
                     </form>
                 </div>
             </div>

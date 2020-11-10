@@ -92,6 +92,35 @@ public class FuncionarioDAO {
         }
         return funcionario;
     }
+    
+    public static Funcionario getFunc(String usuario, String senha) {
+        Funcionario funcionario = null;
+        try {
+            java.sql.Connection con = ConexaoDB.getConexao();
+            String query = "select * from funcionario where usuario=? and senha=?";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, usuario);
+            ps.setString(2, senha);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                String cpfStr = rs.getString("cpf_func");
+                int cpf = Integer.parseInt(cpfStr);
+                String nome = rs.getString("nome");
+                //String codFilialStr = rs.getString("cod_filial");
+                //int codFilial = Integer.parseInt(codFilialStr);
+                String cargo = rs.getString("cargo");
+                //String datanasc = rs.getString("data_nasc");
+                //String telefoneStr = rs.getString("telefone");
+                //int telefone = Integer.parseInt(telefoneStr);
+                //String endereco = rs.getString("endereco");
+                //String sexo = rs.getString("sexo");
+                funcionario = new Funcionario(cpf, nome, cargo, usuario);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ServletFunc.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return funcionario;
+    }
 
     public static boolean addFuncionario(Funcionario funcionario) {
         try {

@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <filter>
+        <filter-name>AutorizacaoFilter</filter-name>
+        <filter-class>filter.AutorizacaoFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AutorizacaoFilter</filter-name>
+        <url-pattern>/protegido/*</url-pattern>
+    </filter-mapping>
     <servlet>
         <servlet-name>Servlet</servlet-name>
         <servlet-class>servlet.Servlet</servlet-class>
@@ -119,6 +127,14 @@
     <servlet>
         <servlet-name>ExcluirFilial</servlet-name>
         <servlet-class>servlet.ExcluirFilial</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SairServlet</servlet-name>
+        <servlet-class>servlet.SairServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Servlet</servlet-name>
@@ -276,6 +292,14 @@
         <servlet-name>ExcluirFilial</servlet-name>
         <url-pattern>/ExcluirFilial</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SairServlet</servlet-name>
+        <url-pattern>/SairServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
@@ -289,4 +313,7 @@
         <error-code>403</error-code>
         <location>/acessoProibido.jsp</location>
     </error-page>
+    <welcome-file-list>
+        <welcome-file>protegido/index.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>
