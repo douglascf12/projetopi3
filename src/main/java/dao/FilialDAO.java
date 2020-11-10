@@ -25,7 +25,7 @@ public class FilialDAO {
 
             while (rs.next()) {
                 int codigo = rs.getInt("cod_filial");
-                String nome = rs.getString("nome_filial");
+                String nome = rs.getString("nome");
                 String estado = rs.getString("estado");
                 String cidade = rs.getString("cidade");
                 listaFiliais.add(new Filial(codigo, nome, estado, cidade));
@@ -41,7 +41,7 @@ public class FilialDAO {
 
         Connection con = ConexaoDB.getConexao();
 
-        String query = "insert into filial(nome_filial, estado, cidade) values (?,?,?)";
+        String query = "insert into filial(nome, estado, cidade) values (?,?,?)";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, filial.getNome());
         ps.setString(2, filial.getEstado());
@@ -51,7 +51,7 @@ public class FilialDAO {
 
     public static void updateFilial(Filial filial) throws ClassNotFoundException, SQLException {
         Connection con = ConexaoDB.getConexao();
-        String query = "update filial set nome_filial=?, estado=?, cidade=? where cod_filial=?";
+        String query = "update filial set nome=?, estado=?, cidade=? where cod_filial=?";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, filial.getNome());
         ps.setString(2, filial.getEstado());
@@ -60,7 +60,7 @@ public class FilialDAO {
         ps.execute();
     }
 
-    public static void deletaFilial(int codigo) throws ClassNotFoundException, SQLException {
+    public static void deletarFilial(int codigo) throws ClassNotFoundException, SQLException {
         Connection con = ConexaoDB.getConexao();
         String query = "delete from filial where cod_filial=?";
         PreparedStatement ps = con.prepareStatement(query);
@@ -77,7 +77,7 @@ public class FilialDAO {
             ps.setInt(1, codigo);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                String nome = rs.getString("nome_filial");
+                String nome = rs.getString("nome");
                 String estado = rs.getString("estado");
                 String cidade = rs.getString("cidade");
                 filial = new Filial(codigo, nome, estado, cidade);

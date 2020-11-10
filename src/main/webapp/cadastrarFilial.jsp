@@ -5,17 +5,36 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastrar Filial</title>
+        <title>TáLigado - Cadastrar Filial</title>
     </head>
-    <div class="container">
-        <h1>Cadastro</h1>
-        <form action="CadastrarFilial" method="POST">
-            <p>Nome</p>
-            <input name="nome" class="form-control" required="true"/><br/>            
-            <p>Estado</p>
-            <input name="estado" class="form-control" required="true"/><br/>
-            <p>Cidade</p>
-            <input name="cidade" class="form-control" required="true"/><br/>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-        </form>
-    </div>
+    <body>
+        <center>
+            <div class="card w-50">
+                <h5 class="card-header">Cadastro de Filial</h5>
+                <div class="card-body">
+                    <form action="CadastrarFilial" method="POST">
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Nome</label>
+                            <div class="col-sm-10">
+                                <input name="nome" class="form-control" required="true"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Estado</label>
+                            <div class="col-sm-10">
+                                <input name="estado" class="form-control" required="true"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Cidade</label>
+                            <div class="col-sm-10">
+                                <input name="cidade" class="form-control" required="true"/>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </center>
+    </body>
+</html>
