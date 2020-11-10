@@ -116,6 +116,10 @@
         <servlet-name>DetalharVendaFilial</servlet-name>
         <servlet-class>servlet.DetalharVendaFilial</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ExcluirFilial</servlet-name>
+        <servlet-class>servlet.ExcluirFilial</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Servlet</servlet-name>
         <url-pattern>/Servlet</url-pattern>
@@ -267,6 +271,10 @@
     <servlet-mapping>
         <servlet-name>DetalharVendaFilial</servlet-name>
         <url-pattern>/DetalharVendaFilial</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirFilial</servlet-name>
+        <url-pattern>/ExcluirFilial</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
