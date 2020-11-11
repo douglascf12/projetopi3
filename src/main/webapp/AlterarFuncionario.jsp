@@ -75,6 +75,52 @@
                 <input class="form-control" name="nome" value="${funcionario.enderecoFunc}" readonly="true"/><br/>
             </div>
 
+            <div class="row form-group">
+                <div class="col-6">
+                    <label for="cargo">Cargo do Funcionário</label>
+                </div>
+                
+                <div class="col-6">
+                    <label for="filial">Filial que Trabalha</label>
+                </div>
+
+            </div>
+            
+            <div class="row form-group">
+              <div class="col-6">
+                    <input class="form-control" name="cargo" value="${funcionario.cargoFunc}" readonly="true"/><br/>
+                    
+              </div>
+                <div class="col-6">
+                     <input class="form-control" name="filial" value="${funcionario.codFilial}" readonly="true"/><br/>
+                </div>
+            
+            
+            </div>
+                
+                <div class="row form-group">
+                <div class="col-6">
+                    <label for="usuario">Usuário</label>
+                </div>
+                
+                <div class="col-6">
+                    <label for="senha">Senha</label>
+                </div>
+
+            </div>
+            
+            <div class="row form-group">
+              <div class="col-6">
+                    <input class="form-control" name="usuario" value="${funcionario.usuarioFunc}" readonly="true"/><br/>
+                    
+              </div>
+                <div class="col-6">
+                     <input class="form-control" name="senha" value="${funcionario.senhaFunc}" readonly="true"/><br/>
+                </div>
+            
+            
+            </div>
+
             <!--<div class="form-group">
                 <label>Sexo</label>
                 <input class="form-control" name="email" value="${funcionario.sexoFunc}"/><br/>

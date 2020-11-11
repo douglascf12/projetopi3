@@ -62,6 +62,43 @@
                 <label for="endereco">Endereço</label>
                 <input name="endereco" class="form-control" required="true"></input>
             </div>
+            
+            <div class="row form-group">
+                <div class="col-6">
+                    <label for="cargo">Cargo do Funcionario</label>                    
+                </div>
+
+                <div class="col-6">
+                    <label for="cod_filial">Filial que Trabalha</label>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col-6">
+                    <input name="cargo" class="form-control" required="true" ></input>
+                </div>
+                <div class="col-6">
+                    <input name="cod_filial" class="form-control" required="true" ></input>
+                </div>
+            </div>  
+             <div class="row form-group">
+                <div class="col-6">
+                    <label for="cargo">Usuário</label>                    
+                </div>
+
+                <div class="col-6">
+                    <label for="cod_filial">Senha</label>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col-6">
+                    <input name="usuario" class="form-control" required="true" ></input>
+                </div>
+                <div class="col-6">
+                    <input name="senha" class="form-control" required="true" type="password" ></input>
+                </div>
+            </div>   
             <br/>
             <button type="submit"  class="btn btn-primary">Enviar</button>
         </form>

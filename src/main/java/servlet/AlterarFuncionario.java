@@ -31,20 +31,29 @@ public class AlterarFuncionario extends HttpServlet {
         String cpfStr = request.getParameter("cpf_func");
         int cpf = Integer.parseInt(cpfStr);
         String nome = request.getParameter("nome");
-        String datanasc = request.getParameter("data_nasc");
+        String codFiliStr = request.getParameter("cod_filial");
+        int codFili = Integer.parseInt(codFiliStr);
+        String cargo = request.getParameter("cargo");
         String telefoneStr = request.getParameter("telefone"); 
         int telefone = Integer.parseInt(telefoneStr);
         String endereco = request.getParameter("endereco");
+        String datanasc = request.getParameter("data_nasc"); 
         String sexo = request.getParameter("sexo");
+        String usuario = request.getParameter("usuario");
+        String senha = request.getParameter("senha");
         
         Funcionario funcionario = FuncionarioDAO.getFunc(nome);
         
         funcionario.setCpfFunc(cpf);
         funcionario.setNomeFunc(nome);
-        funcionario.setDataNascFunc(datanasc);
+        funcionario.setCodFilial(codFili);
+        funcionario.setCargo(cargo);
         funcionario.setTelefoneFunc(telefone);
         funcionario.setEnderecoFunc(endereco);
+        funcionario.setDataNascFunc(datanasc);
         funcionario.setSexoFunc(sexo);
+        funcionario.setUsuario(usuario);
+        funcionario.setSenha(senha);
         
         FuncionarioDAO.updateFuncionario(funcionario);
         response.sendRedirect("sucesso.jsp");
