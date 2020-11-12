@@ -2,45 +2,43 @@ package entidade;
 
 public class Funcionario {
 
-    int cpfFunc;
+    String cpfFunc;
     String nomeFunc;
     int codFilial;
-    String cargoFunc;
-    int telefoneFunc;
+    String cargo;
+    String telefoneFunc;
     String enderecoFunc;
     String dataNascFunc;    
     String sexoFunc;
-    String usuarioFunc;
-    String senhaFunc;
-    
-    
+    String usuario;
+    String senha;
 
-    public Funcionario(int cpfFunc, String nomeFunc, int codFilial, String cargo, int telefoneFunc, String enderecoFunc, String dataNascFunc, String sexoFunc, String usuario, String senha) {
+    public Funcionario(String cpfFunc, String nomeFunc, int codFilial, String cargo, String telefoneFunc, String enderecoFunc, String dataNascFunc, String sexoFunc, String usuario, String senha) {
         this.cpfFunc = cpfFunc;
         this.nomeFunc = nomeFunc;
         this.codFilial = codFilial;
-        this.cargoFunc = cargo;
+        this.cargo = cargo;
         this.telefoneFunc = telefoneFunc;
         this.enderecoFunc = enderecoFunc;
         this.dataNascFunc = dataNascFunc;
         this.sexoFunc = sexoFunc;
-        this.usuarioFunc = usuario;
-        this.senhaFunc = senha;
+        this.usuario = usuario;
+        this.senha = senha;
     }
     
-    public Funcionario(int cpfFunc, String nomeFunc, int codFilial, String cargo, int telefoneFunc, String enderecoFunc, String dataNascFunc, String sexoFunc, String usuario) {
+    public Funcionario(String cpfFunc, String nomeFunc, int codFilial, String cargo, String telefoneFunc, String enderecoFunc, String dataNascFunc, String sexoFunc, String usuario) {
         this.cpfFunc = cpfFunc;
         this.nomeFunc = nomeFunc;
         this.codFilial = codFilial;
-        this.cargoFunc = cargo;
+        this.cargo = cargo;
         this.telefoneFunc = telefoneFunc;
         this.enderecoFunc = enderecoFunc;
         this.dataNascFunc = dataNascFunc;
         this.sexoFunc = sexoFunc;
-        this.usuarioFunc = usuario;
+        this.usuario = usuario;
     }
 
-    public Funcionario(int cpfFunc, String nomeFunc, String dataNascFunc, int telefoneFunc, String enderecoFunc, String sexoFunc) {
+    public Funcionario(String cpfFunc, String nomeFunc, String dataNascFunc, String telefoneFunc, String enderecoFunc, String sexoFunc) {
         this.cpfFunc = cpfFunc;
         this.nomeFunc = nomeFunc;
         this.telefoneFunc = telefoneFunc;
@@ -49,22 +47,22 @@ public class Funcionario {
         this.sexoFunc = sexoFunc;
     }
 
-    public Funcionario(int cpf, String nome, String cargo, String usuario) {
+    public Funcionario(String cpf, String nome, String cargo, String usuario) {
         this.cpfFunc = cpf;
         this.nomeFunc = nome;
-        this.cargoFunc= cargo;
-        this.usuarioFunc = usuario;
+        this.cargo = cargo;
+        this.usuario = usuario;
     }
     
     public boolean isAdmin() {
-        return this.cargoFunc.equalsIgnoreCase("admin");
+        return this.cargo.equalsIgnoreCase("admin");
     }
 
-    public int getCpfFunc() {
+    public String getCpfFunc() {
         return cpfFunc;
     }
 
-    public void setCpfFunc(int cpfFunc) {
+    public void setCpfFunc(String cpfFunc) {
         this.cpfFunc = cpfFunc;
     }
 
@@ -85,18 +83,18 @@ public class Funcionario {
     }
 
     public String getCargo() {
-        return cargoFunc;
+        return cargo;
     }
 
     public void setCargo(String cargo) {
-        this.cargoFunc = cargo;
+        this.cargo = cargo;
     }
 
-    public int getTelefoneFunc() {
+    public String getTelefoneFunc() {
         return telefoneFunc;
     }
 
-    public void setTelefoneFunc(int telefoneFunc) {
+    public void setTelefoneFunc(String telefoneFunc) {
         this.telefoneFunc = telefoneFunc;
     }
 
@@ -125,19 +123,19 @@ public class Funcionario {
     }
 
     public String getUsuario() {
-        return usuarioFunc;
+        return usuario;
     }
 
     public void setUsuario(String usuario) {
-        this.usuarioFunc = usuario;
+        this.usuario = usuario;
     }
 
     public String getSenha() {
-        return senhaFunc;
+        return senha;
     }
 
     public void setSenha(String senha) {
-        this.senhaFunc = senha;
+        this.senha = senha;
     }
     
 }

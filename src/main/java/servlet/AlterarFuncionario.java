@@ -3,7 +3,9 @@ package servlet;
 import dao.FuncionarioDAO;
 import entidade.Funcionario;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,11 +17,11 @@ public class AlterarFuncionario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        String cpf = request.getParameter("cpf");
+        Funcionario func = FuncionarioDAO.getFunc(cpf);
 
-        String nome = request.getParameter("nome");
-        Funcionario funcionario = FuncionarioDAO.getFunc(nome);
-
-        request.setAttribute("funcionario", funcionario);
+        request.setAttribute("func", func);
         RequestDispatcher rd = getServletContext().getRequestDispatcher("/AlterarFuncionario.jsp");
         rd.forward(request, response);
     }
@@ -28,36 +30,34 @@ public class AlterarFuncionario extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String cpfStr = request.getParameter("cpf_func");
-        int cpf = Integer.parseInt(cpfStr);
+        String cpf = request.getParameter("cpf_func");
         String nome = request.getParameter("nome");
-        String codFiliStr = request.getParameter("cod_filial");
-        int codFili = Integer.parseInt(codFiliStr);
+        int codFilial = Integer.parseInt(request.getParameter("cod_filial"));
         String cargo = request.getParameter("cargo");
-        String telefoneStr = request.getParameter("telefone"); 
-        int telefone = Integer.parseInt(telefoneStr);
+        String telefone = request.getParameter("telefone"); 
         String endereco = request.getParameter("endereco");
         String datanasc = request.getParameter("data_nasc"); 
         String sexo = request.getParameter("sexo");
         String usuario = request.getParameter("usuario");
         String senha = request.getParameter("senha");
         
-        Funcionario funcionario = FuncionarioDAO.getFunc(nome);
+        Funcionario func = FuncionarioDAO.getFunc(cpf);
+        func.setNomeFunc(nome);
+        func.setCodFilial(codFilial);
+        func.setCargo(cargo);
+        func.setTelefoneFunc(telefone);
+        func.setEnderecoFunc(endereco);
+        func.setDataNascFunc(datanasc);
+        func.setSexoFunc(sexo);
+        func.setUsuario(usuario);
+        func.setSenha(senha);
         
-        funcionario.setCpfFunc(cpf);
-        funcionario.setNomeFunc(nome);
-        funcionario.setCodFilial(codFili);
-        funcionario.setCargo(cargo);
-        funcionario.setTelefoneFunc(telefone);
-        funcionario.setEnderecoFunc(endereco);
-        funcionario.setDataNascFunc(datanasc);
-        funcionario.setSexoFunc(sexo);
-        funcionario.setUsuario(usuario);
-        funcionario.setSenha(senha);
-        
-        FuncionarioDAO.updateFuncionario(funcionario);
+        try {
+            FuncionarioDAO.updateFuncionario(func);
+        } catch (SQLException ex) {
+            Logger.getLogger(AlterarProduto.class.getName()).log(Level.SEVERE, null, ex);
+        }
         response.sendRedirect("sucesso.jsp");
-        
     }
-
+    
 }

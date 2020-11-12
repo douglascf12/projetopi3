@@ -3,43 +3,44 @@ package servlet;
 import dao.FuncionarioDAO;
 import entidade.Funcionario;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import utils.Utils;
 
-/**
- *
- * @author Usuário
- */
 public class cadastrarFuncionario extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String cpfStr = request.getParameter("cpf_cliente");
-        int cpf = Integer.parseInt(cpfStr);
+        String cpf = request.getParameter("cpf");
+        //int cpf = Integer.parseInt(cpfStr);
         String nome = request.getParameter("nome");
-        String codFiliStr = request.getParameter("cod_filial");
-        int codFili = Integer.parseInt(codFiliStr);
+        int codFilial = Integer.parseInt(request.getParameter("cod_filial"));
+//        String codFiliStr = request.getParameter("cod_filial");
+//        int codFili = Integer.parseInt(codFiliStr);
         String cargo = request.getParameter("cargo");
-        String telefoneStr = request.getParameter("telefone");
-        int telefone = Integer.parseInt(telefoneStr);
+        String telefone = request.getParameter("telefone");
+        //int telefone = Integer.parseInt(telefoneStr);
         String endereco = request.getParameter("endereco");
         String dataNasc = request.getParameter("data_nasc");
         String sexo = request.getParameter("sexo");
         String usuario = request.getParameter("usuario");
         String senha = request.getParameter("senha");
 
-        Funcionario funcionario = new Funcionario(cpf, nome , codFili , cargo, telefone, endereco, dataNasc,  sexo , usuario , senha);
-        boolean ok = FuncionarioDAO.addFuncionario(funcionario);
+        Funcionario funcionario = new Funcionario(cpf, nome, codFilial, cargo, telefone, endereco, dataNasc,  sexo , usuario , senha);
 
-        if (ok) {
+        try {
+            FuncionarioDAO.addFuncionario(funcionario);
             response.sendRedirect("sucesso.jsp");
-        } else {
-            response.sendRedirect("erro.jsp");
+        } catch(SQLException ex) {
+            Logger.getLogger(cadastrarProduto.class.getName()).log(Level.SEVERE, null, ex);
+            Utils.mostrarTelaErro(ex, request, response);
         }
 
     }

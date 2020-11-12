@@ -8,7 +8,7 @@
         <title>Alterar Cliente</title>
     </head>
     <div class="container">
-        <h1>Alteração de Cadastro do ${funcionario.nomeFunc}</h1>
+        <h1>Alteração de Cadastro do ${func.nomeFunc}</h1>
         <form action="AlterarFuncionario" method="POST">
             <div class="row form-group">
                 <div class="col-6">
@@ -20,10 +20,10 @@
             </div>
             <div class="row form-group">
                 <div class="col-6 " > 
-                    <input class="form-control" name="nome" value="${funcionario.cpfFunc}" readonly="true"/><br/>
+                    <input class="form-control" name="cpf_func" value="${func.cpfFunc}" readonly="true"/><br/>
                 </div>
                 <div class="col-6 " > 
-                    <select class="form-control"  id="filtro">
+                    <select name="sexo" class="form-control"  id="sexo">
                         <option value="op">-</option>
                         <option value="op">Masculino</option>
                         <option value="op">Feminino</option>
@@ -34,11 +34,11 @@
 
             <!--<div class="form-group">
                 <label for="cpf">Cpf do Funcionario</label>
-                <input class="form-control" name="nome" value="${funcionario.cpfFunc}" readonly="true"/><br/>
+                <input class="form-control" name="nome" value="${func.cpfFunc}" readonly="true"/><br/>
             </div>-->
             <div class="form-group">
                 <label>Nome do Funcioanrio</label>
-                <input class="form-control" name="nome" value="${funcionario.nomeFunc}" readonly="true"/><br/>
+                <input class="form-control" name="nome" value="${func.nomeFunc}"/><br/>
             </div>
 
             <div class="row form-group">
@@ -53,26 +53,26 @@
 
             <div class="row form-group">
                 <div class="col-6">
-                    <input class="form-control" type="date" name="nome" value="${funcionario.dataNascFunc}" readonly="true"/><br/>  
+                    <input class="form-control" type="date" name="data_nasc" value="${func.dataNascFunc}"/><br/>  
                 </div>
 
                 <div class="col-6">
-                    <input class="form-control" name="nome" value="${funcionario.telefoneFunc}" readonly="true"/><br/>
+                    <input class="form-control" name="telefone" value="${func.telefoneFunc}"/><br/>
                 </div>
             </div>
 
             <!-- <div class="form-group">
                  <label>Data de Nascimento</label>
-                 <input class="form-control" name="nome" value="${funcionario.dataNascFunc}" readonly="true"/><br/>
+                 <input class="form-control" name="nome" value="${func.dataNascFunc}" readonly="true"/><br/>
              </div>-->
             <!-- <div class="form-group">
                  <label>Telefone</label>
-                 <input class="form-control" name="nome" value="${funcionario.telefoneFunc}" readonly="true"/><br/>
+                 <input class="form-control" name="nome" value="${func.telefoneFunc}" readonly="true"/><br/>
              </div>-->
 
             <div class="form-group">
                 <label>Endereço</label>
-                <input class="form-control" name="nome" value="${funcionario.enderecoFunc}" readonly="true"/><br/>
+                <input class="form-control" name="endereco" value="${func.enderecoFunc}"/><br/>
             </div>
 
             <div class="row form-group">
@@ -88,11 +88,11 @@
             
             <div class="row form-group">
               <div class="col-6">
-                    <input class="form-control" name="cargo" value="${funcionario.cargoFunc}" readonly="true"/><br/>
+                    <input class="form-control" name="cargo" value="${func.cargo}"/><br/>
                     
               </div>
                 <div class="col-6">
-                     <input class="form-control" name="filial" value="${funcionario.codFilial}" readonly="true"/><br/>
+                     <input class="form-control" name="cod_filial" value="${func.codFilial}"/><br/>
                 </div>
             
             
@@ -111,11 +111,11 @@
             
             <div class="row form-group">
               <div class="col-6">
-                    <input class="form-control" name="usuario" value="${funcionario.usuarioFunc}" readonly="true"/><br/>
+                    <input class="form-control" name="usuario" value="${func.usuario}" readonly="true"/><br/>
                     
               </div>
                 <div class="col-6">
-                     <input class="form-control" name="senha" value="${funcionario.senhaFunc}" readonly="true"/><br/>
+                     <input class="form-control" name="senha" value="${func.senha}" type="password"/><br/>
                 </div>
             
             
@@ -123,7 +123,7 @@
 
             <!--<div class="form-group">
                 <label>Sexo</label>
-                <input class="form-control" name="email" value="${funcionario.sexoFunc}"/><br/>
+                <input class="form-control" name="email" value="${func.sexoFunc}"/><br/>
             </div>-->
 
             <button type="submit" class="btn btn-primary">Alterar</button>

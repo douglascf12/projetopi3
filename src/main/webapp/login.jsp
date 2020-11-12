@@ -45,7 +45,7 @@
     body {
         margin: 0;
         padding: 0;
-        background:#d3d3d3;
+        background: #d3d3d3;
         display: flex;
         justify-content: center;
         align-items: center;
