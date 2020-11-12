@@ -26,7 +26,7 @@
                     <input name="cpf" class="form-control" required="true" placeholder="000.000.000-00"></input>
                 </div>
                 <div class="col-6 " > 
-                    <select class="form-control"  id="filtro">
+                    <select name="sexo" class="form-control" id="sexo">
                         <option value="op">-</option>
                         <option value="op">Masculino</option>
                         <option value="op">Feminino</option>
