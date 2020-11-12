@@ -1,5 +1,6 @@
 package filter;
 
+import entidade.Funcionario;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
@@ -36,6 +37,13 @@ public class AutorizacaoFilter implements Filter {
         
         if(sessao.getAttribute("funcionario") == null) {
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/login.jsp");
+        }
+        
+        // verifica se usuário logado tem permissão
+        Funcionario funcionario = (Funcionario) sessao.getAttribute("funcionario");
+        String url = httpRequest.getRequestURI();
+        if(url.contains("/admin/") && !funcionario.isAdmin()) {
+            httpResponse.sendRedirect(httpRequest.getContextPath() + "/acessoNaoAutorizado.jsp");
         }
         
     }    
