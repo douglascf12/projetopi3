@@ -36,6 +36,15 @@ public class Venda {
         this.data_venda = data_venda;
     }
 
+    public Venda(double total_venda, String cpf_cliente, String cpf_func, int cod_filial, Date data_venda) {
+        this.total_venda = total_venda;
+        this.cpf_cliente = cpf_cliente;
+        this.cpf_func = cpf_func;
+        this.cod_filial = cod_filial;
+        this.data_venda = data_venda;
+    }
+    
+
     public Venda(String cpf_cliente, int cod_filial, Date data_venda) {
         this.cpf_cliente = cpf_cliente;
         this.cod_filial = cod_filial;
