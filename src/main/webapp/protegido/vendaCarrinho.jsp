@@ -9,24 +9,18 @@
             var preco = parseFloat(document.getElementById('preco').value, 10);
             document.getElementById('subTotal').value = qtdVendida * preco;
         }
-        function mostrarModalExclusao() {
-            var total_venda=calculavalorTotal();
-            $("#total_venda").html(total_venda);
-                $('#modalVenda').modal('show');
-            }
-        
-        function calculavalorTotal(){
-            var tabela = document.getElementById('tbCarrinho');
-            var linhas = tabela.rows.length;
-            var soma=0;
-            for (var i = 1; i < linhas; i++) {
-                var campo = document.querySelectorAll("tr");
-                var soma2=Number.parseFloat(campo[i].cells[4].innerText);
-                soma=soma+soma2;
-                console.log(soma2);
-            }      
-            return soma;
+        function mostrarModalVenda() {
+            $('#modalVenda').modal('show');
         }
+
+        $(function () {
+            var valorT = 0;
+            $(".valorTotal").each(function () {
+                valorT += parseFloat($(this).text());
+            });
+            $("#total_venda").html(valorT);            
+        })
+
         function adicionarProdutoNaSessao(codigo) {
             var qtdVendida = parseInt(document.getElementById('qtdVendida').value, 10);
             var subTotal = parseFloat(document.getElementById('subTotal').value, 10);
@@ -47,6 +41,9 @@
                 console.log(campo[i].cells[4]);
                 console.log(cpfFuncionario);
                 console.log(filialFuncionario);
+                $.get("CarrinhoServlet?codigo=" + codigo + "&qtdVendida=" + qtdVendida + "&subTotal=" + subTotal, function (resposta) {
+                $('.toast').toast('show');
+            })
             }
 
         }
@@ -125,15 +122,15 @@
                                     <td>${p.nome_produto}</td>
                                     <td>${p.preco}</td>
                                     <td>${p.qtd_vendida}</td>
-                                    <td>${p.subTotal}</td>
+                                    <td class="valorTotal">${p.subTotal}</td>
                                     <td>
                                         <a href="AlterarFilial?codigo=${filial.codigo}"><img src="imagens/icon_editar.png" alt="Editar"></a>
-                                        <a><img onclick="mostrarModalExclusao(${filial.codigo}, '${filial.nome}')" src="imagens/icon_excluir.png" alt="Excluir"></a>
+                                        <a><img onclick="mostrarModalVenda(${filial.codigo}, '${filial.nome}')" src="imagens/icon_excluir.png" alt="Excluir"></a>
                                     </td>
                                 </tr>
                             </c:forEach>
                         </tbody>
-                        <button type="button" class="btn btn-primary" onclick="mostrarModalExclusao()">Finalizar</button>
+                        <button type="button" class="btn btn-primary" onclick="mostrarModalVenda()">Finalizar</button>
                     </table>
                 </div>
             </div>
@@ -147,26 +144,26 @@
 
 <br>
 <div class="modal fade" id="modalVenda" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Valor total: <label id="total_venda"></label></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Confirmar ?
-                    <input id="cod_produto" hidden="true" />
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Valor total: <label id="total_venda"></label></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Confirmar ?
+                <input id="cod_produto" hidden="true" />
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" >Confirmar</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" >Confirmar</button>
             </div>
         </div>
     </div>
+</div>
 <form action="VendaInserirProduto" method="POST" class="form-inline">
     <div class="card mt-3 w-100">
         <div class="col-12 form-group mb-2">
