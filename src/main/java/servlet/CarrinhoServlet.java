@@ -3,6 +3,7 @@ package servlet;
 import dao.ProdutoDAO;
 import entidade.Produto;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -17,16 +18,16 @@ public class CarrinhoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession sessao = request.getSession();
-        
+        DecimalFormat df = new DecimalFormat("000.00");
+
         int codProduto = Integer.parseInt(request.getParameter("codigo"));
-        Produto produto = ProdutoDAO.getProduto(codProduto);
-        
         int qtdVendida = Integer.parseInt(request.getParameter("qtdVendida"));
-        sessao.setAttribute("qtdVendida", qtdVendida);
-        
         float subTotal = Float.parseFloat(request.getParameter("subTotal"));
-        sessao.setAttribute("subTotal", subTotal);
         
+        Produto produto = ProdutoDAO.getProduto(codProduto);
+        produto.setQtd_vendida(qtdVendida);
+        produto.setSubTotal(subTotal);
+
         List<Produto> listaProdutos;
         if (sessao.getAttribute("listaProdutos") == null) {
             listaProdutos = new ArrayList<>();
@@ -36,7 +37,7 @@ public class CarrinhoServlet extends HttpServlet {
         if (!listaProdutos.contains(produto)) {
             listaProdutos.add(produto);
         }
-        
+
         sessao.setAttribute("listaProdutos", listaProdutos);
     }
 

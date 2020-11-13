@@ -1,18 +1,18 @@
 package entidade;
 
+import java.text.DecimalFormat;
 
 public class Produto {
-    
+
     private int cod_produto;
     private String descricao;
     private String nome_produto;
     private int qtd_estoque;
     private float preco;
     private String categoria;
+    private int qtd_vendida;
+    private float subTotal;
     
-    
-    
-
     public Produto(int cod_produto, String descricao, String nome_produto, int qtd_estoque, float preco, String categoria) {
         this.cod_produto = cod_produto;
         this.descricao = descricao;
@@ -21,14 +21,31 @@ public class Produto {
         this.preco = preco;
         this.categoria = categoria;
     }
-    
+
     public Produto(String descricao, String nome_produto, int qtd_estoque, float preco, String categoria) {
-      
+
         this.descricao = descricao;
         this.nome_produto = nome_produto;
         this.qtd_estoque = qtd_estoque;
         this.preco = preco;
         this.categoria = categoria;
+    }
+
+    public float getSubTotal() {
+        return subTotal;
+    }
+
+    public void setSubTotal(float subTotal) {
+        this.subTotal = subTotal;
+    }
+
+    
+    public int getQtd_vendida() {
+        return qtd_vendida;
+    }
+
+    public void setQtd_vendida(int qtd_vendida) {
+        this.qtd_vendida = qtd_vendida;
     }
 
     public String getCategoria() {
@@ -38,7 +55,6 @@ public class Produto {
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
-    
 
     public int getCod_produto() {
         return cod_produto;
@@ -79,11 +95,11 @@ public class Produto {
     public void setPreco(float preco) {
         this.preco = preco;
     }
-    
-    public enum Categoria{
-        
+
+    public enum Categoria {
+
         CAMA("Cama"), MESA("Mesa"), BANHO("Banho");
-        
+
         String categoria;
 
         private Categoria(String categoria) {
@@ -109,10 +125,7 @@ public class Produto {
         public static Categoria getBANHO() {
             return BANHO;
         }
-        
-        
-        
+
     }
-    
-    
+
 }
