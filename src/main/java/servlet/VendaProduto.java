@@ -15,17 +15,12 @@ public class VendaProduto extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         
-        String codigoFilial = request.getParameter("codigoFilial");
-        String idVenda = request.getParameter("idVenda");
-        int codigoProduto = Integer.parseInt(request.getParameter("codigoProduto"));
+        int codProduto = Integer.parseInt(request.getParameter("codProduto"));
+        Produto produto = ProdutoDAO.getProduto(codProduto);
         
-        Produto produto = ProdutoDAO.getProduto(codigoProduto);
-        
-        request.setAttribute("codigoFilial", codigoFilial);
-        request.setAttribute("idVenda", idVenda);
-        request.setAttribute("produto", produto);
+        request.setAttribute("produto", produto);        
 
-        RequestDispatcher rd = getServletContext().getRequestDispatcher("/vendaProduto.jsp");
+        RequestDispatcher rd = getServletContext().getRequestDispatcher("/protegido/vendaCarrinho.jsp");
         rd.forward(request, response);
     }
 

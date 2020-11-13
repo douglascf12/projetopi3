@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="css/estilo.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <c:choose>
-            <c:when test="${sessionScope.funcionario.cargo eq 'admin'}">
+            <c:when test="${sessionScope.user.cargo eq 'admin'}">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="protegido/index.jsp">T·Ligado</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,7 +62,7 @@
                     </ul>
                     <ul class="navbar-nav navbar-right">
                         <li class="nav-item">
-                            <a class="nav-link">Seja bem-vindo(a) ${funcionario.nomeFunc}</a>
+                            <a class="nav-link">Seja bem-vindo(a) ${user.nomeFunc}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link">|</a>
@@ -74,7 +74,7 @@
                 </div>
             </nav>
         </c:when>
-        <c:when test="${sessionScope.funcionario.cargo eq 'vendedor'}">
+        <c:when test="${sessionScope.user.cargo eq 'vendedor'}">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="protegido/index.jsp">T·Ligado</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -111,7 +111,7 @@
                     </ul>
                     <ul class="navbar-nav navbar-right">
                         <li class="nav-item">
-                            <a class="nav-link">Seja bem-vindo(a) ${funcionario.nomeFunc}</a>
+                            <a class="nav-link">Seja bem-vindo(a) ${user.nomeFunc}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link">|</a>

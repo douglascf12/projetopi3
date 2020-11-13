@@ -35,14 +35,14 @@ public class AutorizacaoFilter implements Filter {
         
         HttpSession sessao = httpRequest.getSession();
         
-        if(sessao.getAttribute("funcionario") == null) {
+        if(sessao.getAttribute("user") == null) {
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/login.jsp");
         }
         
         // verifica se usuário logado tem permissão
-        Funcionario funcionario = (Funcionario) sessao.getAttribute("funcionario");
+        Funcionario user = (Funcionario) sessao.getAttribute("user");
         String url = httpRequest.getRequestURI();
-        if(url.contains("/admin/") && !funcionario.isAdmin()) {
+        if(url.contains("/admin/") && !user.isAdmin()) {
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/acessoNaoAutorizado.jsp");
         }
         

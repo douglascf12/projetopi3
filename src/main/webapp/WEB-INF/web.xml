@@ -136,6 +136,10 @@
         <servlet-name>SairServlet</servlet-name>
         <servlet-class>servlet.SairServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CarrinhoServlet</servlet-name>
+        <servlet-class>servlet.CarrinhoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Servlet</servlet-name>
         <url-pattern>/Servlet</url-pattern>
@@ -300,9 +304,13 @@
         <servlet-name>SairServlet</servlet-name>
         <url-pattern>/SairServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CarrinhoServlet</servlet-name>
+        <url-pattern>/CarrinhoServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
-            300
+            30
         </session-timeout>
     </session-config>
     <error-page>

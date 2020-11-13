@@ -17,6 +17,7 @@
     <div class="container">
 
         <h3>Número da venda: ${idVenda}</h3>
+        <label>Filial: ${user.codFilial}</label>
         <form action="VendaProduto" method="GET" class="form-inline">
             <div class="card mt-3 w-100">
                 <div class="card-header text-center">

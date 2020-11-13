@@ -97,8 +97,13 @@ public class FuncionarioDAO {
             if (rs.next()) {
                 String cpf = rs.getString("cpf_func");
                 String nome = rs.getString("nome");
+                int codFilial = rs.getInt("cod_filial");
                 String cargo = rs.getString("cargo");
-                funcionario = new Funcionario(cpf, nome, cargo, usuario);
+                String telefone = rs.getString("telefone");
+                String endereco = rs.getString("endereco");
+                String datanasc = rs.getString("data_nasc");
+                String sexo = rs.getString("sexo");
+                funcionario = new Funcionario(cpf, nome, codFilial, cargo, telefone, endereco, datanasc, sexo, usuario, senha);
             }
         } catch (SQLException ex) {
             Logger.getLogger(ServletFunc.class.getName()).log(Level.SEVERE, null, ex);
