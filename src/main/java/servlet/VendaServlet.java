@@ -18,7 +18,7 @@ public class VendaServlet extends HttpServlet {
         Cliente cliente = ClienteDAO.getCliente(cpf);
         request.setAttribute("cliente", cliente);
 
-        RequestDispatcher rd = getServletContext().getRequestDispatcher("/vendaCliente.jsp");
+        RequestDispatcher rd = getServletContext().getRequestDispatcher("/protegido/venda.jsp");
         rd.forward(request, response);
     }
     
@@ -27,7 +27,7 @@ public class VendaServlet extends HttpServlet {
             throws ServletException, IOException {
         String cpf = request.getParameter("cpf");
         request.setAttribute("cpf", cpf);
-        RequestDispatcher rd = getServletContext().getRequestDispatcher("/vendaFilial.jsp");
+        RequestDispatcher rd = getServletContext().getRequestDispatcher("/protegido/vendaCarrinho.jsp");
         rd.forward(request, response);
     }
 

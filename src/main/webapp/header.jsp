@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="css/estilo.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <c:choose>
-            <c:when test="${funcionario.cargo == 'admin'}">
+            <c:when test="${sessionScope.user.cargo eq 'admin'}">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="protegido/index.jsp">TáLigado</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,8 +19,8 @@
                                 Cliente
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="ListaCliente">Listar Clientes</a>
-                                <a class="dropdown-item" href="cadastrarCliente.jsp">Cadastrar Cliente</a>
+                                <a class="dropdown-item" href="<c:url value="/ListaCliente"/>">Listar Clientes</a>
+                                <a class="dropdown-item" href="<c:url value="/cadastrarCliente.jsp"/>">Cadastrar Cliente</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -28,8 +28,8 @@
                                 Produto
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="listaProduto">Listar Produtos</a>
-                                <a class="dropdown-item" href="cadastrarProduto.jsp">Cadastrar Produto</a>
+                                <a class="dropdown-item" href="<c:url value="/listaProduto"/>">Listar Produtos</a>
+                                <a class="dropdown-item" href="<c:url value="/cadastrarProduto.jsp"/>">Cadastrar Produto</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -37,8 +37,8 @@
                                 Venda
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="VendaServlet">Realizar Venda</a>
-                                <a class="dropdown-item" href="ListarVendas">Relatórios de Vendas</a>
+                                <a class="dropdown-item" href="<c:url value="/VendaServlet"/>">Realizar Venda</a>
+                                <a class="dropdown-item" href="<c:url value="/ListarVendas"/>">Relatórios de Vendas</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -56,13 +56,13 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="<c:url value="/ListarFilial"/>">Listar Filiais</a>
-                                <a class="dropdown-item" href="<c:url value="/cadastrarFilial.jsp"/>">Cadastrar Filiais</a>
+                                <a class="dropdown-item" href="<c:url value="/protegido/admin/cadastrarFilial.jsp"/>">Cadastrar Filiais</a>
                             </div>
                         </li>
                     </ul>
                     <ul class="navbar-nav navbar-right">
                         <li class="nav-item">
-                            <a class="nav-link">Seja bem-vindo(a) ${funcionario.nomeFunc}</a>
+                            <a class="nav-link">Seja bem-vindo(a) ${user.nomeFunc}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link">|</a>
@@ -74,7 +74,7 @@
                 </div>
             </nav>
         </c:when>
-        <c:when test="${funcionario.cargo == 'vendedor'}">
+        <c:when test="${sessionScope.user.cargo eq 'vendedor'}">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="protegido/index.jsp">TáLigado</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,8 +87,8 @@
                                 Cliente
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="ListaCliente">Listar Clientes</a>
-                                <a class="dropdown-item" href="cadastrarCliente.jsp">Cadastrar Cliente</a>
+                                <a class="dropdown-item" href="<c:url value="/ListaCliente"/>">Listar Clientes</a>
+                                <a class="dropdown-item" href="<c:url value="/cadastrarCliente.jsp"/>">Cadastrar Cliente</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -96,7 +96,8 @@
                                 Produto
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="listaProduto">Listar Produtos</a>
+                                <a class="dropdown-item" href="<c:url value="/listaProduto"/>">Listar Produtos</a>
+                                <a class="dropdown-item" href="<c:url value="/cadastrarProduto.jsp"/>">Cadastrar Produto</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -104,13 +105,13 @@
                                 Venda
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="VendaServlet">Realizar Venda</a>
+                                <a class="dropdown-item" href="<c:url value="/VendaServlet"/>">Realizar Venda</a>
                             </div>
                         </li>
                     </ul>
                     <ul class="navbar-nav navbar-right">
                         <li class="nav-item">
-                            <a class="nav-link">Seja bem-vindo(a) ${funcionario.nomeFunc}</a>
+                            <a class="nav-link">Seja bem-vindo(a) ${user.nomeFunc}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link">|</a>
