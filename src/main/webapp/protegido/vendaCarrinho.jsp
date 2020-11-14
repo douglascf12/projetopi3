@@ -4,23 +4,24 @@
 <!DOCTYPE html>
 <html>
     <script>
-        function calcularSubTotal() {
-            var qtdVendida = parseInt(document.getElementById('qtdVendida').value, 10);
-            var preco = parseFloat(document.getElementById('preco').value, 10);
-            document.getElementById('subTotal').value = qtdVendida * preco;
-        }
-        function mostrarModalVenda() {
-            $('#modalVenda').modal('show');
-        }
-
         $(function () {
             var valorT = 0;
             $(".valorTotal").each(function () {
                 valorT += parseFloat($(this).text());
             });
-            $("#totalVenda").html(valorT);
-            $("#totalVenda").value(valorT);
+            document.getElementById('valorTo').value = valorT;
+            document.getElementById('valorTo2').value = valorT;
         })
+
+        function calcularSubTotal() {
+            var qtdVendida = parseInt(document.getElementById('qtdVendida').value, 10);
+            var preco = parseFloat(document.getElementById('preco').value, 10);
+            document.getElementById('subTotal').value = qtdVendida * preco;
+        }
+
+        function mostrarModalVenda() {
+            $('#modalVenda').modal('show');
+        }
 
         function adicionarProdutoNaSessao(codigo) {
             var qtdVendida = parseInt(document.getElementById('qtdVendida').value, 10);
@@ -31,9 +32,10 @@
             })
             window.location.reload();
         }
-        function cadastrarVendaServlet() {
-            var total_venda = parseFloat(document.getElementById('totalVenda').value, 10);
-            $.get("CadastrarVendaServlet?valorTotal=" + total_venda, function (resposta) {
+
+        function cadastrarVendaServlet(totalVenda) {
+            //var totalVenda = parseFloat(document.getElementById('totalVenda').value, 10);
+            $.get("CadastrarVendaServlet?valorVenda=" + totalVenda, function (resposta) {
                 $('.toast').toast('show');
             })
             window.location.reload();
@@ -98,6 +100,7 @@
                     <label class="col-sm-2 col-form-label">Quantidade</label>
                     <div class="col-sm-10">
                         <input class="form-control" id="qtdVendida" name="qtdVendida"  value="0" onfocus="calcularSubTotal()" required="required" />
+                        <input type="hidden" id="preco" name="preco" value="${produto.preco}" onblur="calcularSubTotal()"/>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -126,21 +129,27 @@
                         <tbody> 
                             <c:forEach var="p" items="${listaProdutos}">
                                 <tr>
-                            <input type="hidden" name="totalVenda" id="totalVenda"  value="${totalVenda}/>
-                            <td>${p.cod_produto}</td>
-                            <td>${p.nome_produto}</td>
-                            <td>${p.preco}</td>
-                            <td>${p.qtd_vendida}</td>
-                            <td class="valorTotal">${p.subTotal}</td>
-                            <td>
-                                <a href="AlterarFilial?codigo=${filial.codigo}"><img src="imagens/icon_editar.png" alt="Editar"></a>
-                                <a><img onclick="mostrarModalVenda(${filial.codigo}, '${filial.nome}')" src="imagens/icon_excluir.png" alt="Excluir"></a>
-                            </td>
-                            </tr>
-                        </c:forEach>
+                                    <td>${p.cod_produto}</td>
+                                    <td>${p.nome_produto}</td>
+                                    <td>${p.preco}</td>
+                                    <td>${p.qtd_vendida}</td>
+                                    <td class="valorTotal">${p.subTotal}</td>
+                                    <td>
+                                        <a href="AlterarFilial?codigo=${filial.codigo}"><img src="imagens/icon_editar.png" alt="Editar"></a>
+                                        <a><img onclick="mostrarModalVenda(${filial.codigo}, '${filial.nome}')" src="imagens/icon_excluir.png" alt="Excluir"></a>
+                                    </td>
+                                </tr>
+                            </c:forEach>
                         </tbody>
-                        <button type="button" class="btn btn-primary" onclick="mostrarModalVenda()">Finalizar</button>
                     </table>
+                    <div class="col-4 form-group mb-2">
+                        <label>Valor total da venda: </label>
+                        <input size="5" class="form-control" id="valorTo" value="${valorT}" readonly="true"/>
+                    </div>
+                    <form action="CadastrarVendaServlet" method="POST">
+                        <input type="hidden" name="valorTotal" id="valorTo2" value="${valorT}"/>
+                        <button type="submit" class="btn btn-primary">Finalizar</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -148,15 +157,12 @@
 </body>
 </html>
 
-<br>
-<br>
-
-<br>
+<!-- Modal venda -->
 <div class="modal fade" id="modalVenda" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Valor total: <label id="totalVenda"></label></h5>
+                <h5 class="modal-title" id="exampleModalLabel">Valor total: ${valorTotal}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -164,32 +170,14 @@
             <div class="modal-body">
                 Confirmar ?
                 <input id="cod_produto" hidden="true" />
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" onclick="cadastrarVendaServlet()"class="btn btn-primary" >Confirmar</button>
+                <form action="CadastrarVendaServlet" method="POST">
+                    <button type="button" class="btn btn-primary" >Confirmar</button>
+                </form>
+
             </div>
         </div>
     </div>
 </div>
-<form action="VendaInserirProduto" method="POST" class="form-inline">
-    <div class="card mt-3 w-100">
-        <div class="col-12 form-group mb-2">
-            <input type="hidden" name="idVenda" value="${idVenda}"/>
-            <input type="hidden" name="codigoFilial" value="${codigoFilial}">
-            <input type="hidden" name="codigoProduto" value="${produto.cod_produto}"/>
-            <label>Quantidade</label>
-            <input size="5" class="form-control" id="quantidade" name="quantidade"  value="1" onfocus="calcularSubTotal()" required="required"/><br/>
-            <input type="hidden" id="preco" name="preco" value="${produto.preco}" onblur="calcularSubTotal()"/>
-        </div>
-        <div class="col-12 form-group mb-2">
-            <label>Total: </label>
-            <input size="5" class="form-control" id="total" name="total" readonly="true"/>
-        </div>
-        <div class="col-12 form-group mb-2">
-            <button type="submit" onclick="calculavalorTotal()" class="btn btn-primary">Adicionar ao carrinho</button>
-        </div>
-    </div>
-</form>
-<br>

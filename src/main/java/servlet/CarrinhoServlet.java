@@ -3,7 +3,6 @@ package servlet;
 import dao.ProdutoDAO;
 import entidade.Produto;
 import java.io.IOException;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -18,11 +17,12 @@ public class CarrinhoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession sessao = request.getSession();
-        DecimalFormat df = new DecimalFormat("000.00");
 
         int codProduto = Integer.parseInt(request.getParameter("codigo"));
         int qtdVendida = Integer.parseInt(request.getParameter("qtdVendida"));
         float subTotal = Float.parseFloat(request.getParameter("subTotal"));
+        float valorTotal = subTotal;
+        valorTotal += subTotal;
         
         Produto produto = ProdutoDAO.getProduto(codProduto);
         produto.setQtd_vendida(qtdVendida);
@@ -39,6 +39,7 @@ public class CarrinhoServlet extends HttpServlet {
         }
 
         sessao.setAttribute("listaProdutos", listaProdutos);
+        sessao.setAttribute("valorTotal", valorTotal);
     }
 
 }
