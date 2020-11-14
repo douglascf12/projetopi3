@@ -10,7 +10,7 @@ import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.sql.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.Servlet;
@@ -23,18 +23,16 @@ public class VendaDAO {
         Connection con = ConexaoDB.getConexao();
 
         try {
-            
 
-            ps = con.prepareStatement("insert into venda (cpf_cliente,cod_filial,data_venda) values (?,?,?)", Statement.RETURN_GENERATED_KEYS);
+            ps = con.prepareStatement("insert into venda (cpf_cliente,cpf_func, cod_filial, data_venda, total_venda) values (?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
+            SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");       
 
             ps.setString(1, venda.getCpf_cliente());
-            ps.setInt(2, venda.getCod_filial());
+            ps.setString(2, venda.getCpf_func());
+            ps.setInt(3, venda.getCod_filial());
+            ps.setString(4, format1.format(venda.getData_venda()));
+            ps.setDouble(5, venda.getTotal_venda());
 
-            Date date = venda.getData_venda();
-            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            String strDate = dateFormat.format(date);
-
-            ps.setString(3, strDate);
             ps.executeUpdate();
 
             ResultSet generatedKeys = ps.getGeneratedKeys();
@@ -49,7 +47,7 @@ public class VendaDAO {
 
         return venda;
     }
-    
+
     public static void finalizarVenda(double valorTotal, int codVenda) {
         try {
             Connection con = ConexaoDB.getConexao();
