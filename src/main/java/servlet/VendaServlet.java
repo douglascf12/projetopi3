@@ -8,9 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import dao.ClienteDAO;
 import entidade.Cliente;
-import entidade.Venda;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import javax.servlet.http.HttpSession;
 
 public class VendaServlet extends HttpServlet {
@@ -18,7 +15,6 @@ public class VendaServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         String cpf = request.getParameter("cpf");
         Cliente cliente = ClienteDAO.getCliente(cpf);
         HttpSession sessao = request.getSession();
@@ -35,10 +31,6 @@ public class VendaServlet extends HttpServlet {
         request.setAttribute("cpf", cpf);
         RequestDispatcher rd = getServletContext().getRequestDispatcher("/protegido/vendaCarrinho.jsp");
         rd.forward(request, response);
-
-        /**/
     }
-
     
-
 }

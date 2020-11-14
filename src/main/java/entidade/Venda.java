@@ -10,7 +10,7 @@ public class Venda {
     String cpf_cliente;
     String cpf_func;
     int cod_filial;
-    Date data_venda;
+    String data_venda;
     ArrayList detalheVenda = new ArrayList<DetalheVenda>();
 
     public Venda(int id_venda, double total_venda, String cpf_cliente, int cod_filial) {
@@ -27,7 +27,7 @@ public class Venda {
         this.cpf_func = cpf_func;
     }
 
-    public Venda(int id_venda, double total_venda, String cpf_cliente, String cpf_func, int cod_filial, Date data_venda) {
+    public Venda(int id_venda, double total_venda, String cpf_cliente, String cpf_func, int cod_filial, String data_venda) {
         this.id_venda = id_venda;
         this.total_venda = total_venda;
         this.cpf_cliente = cpf_cliente;
@@ -36,16 +36,16 @@ public class Venda {
         this.data_venda = data_venda;
     }
 
-    public Venda(double total_venda, String cpf_cliente, String cpf_func, int cod_filial, Date data_venda) {
-        this.total_venda = total_venda;
+    public Venda(String cpf_cliente, String cpf_func, int cod_filial, String data_venda, double total_venda) {
         this.cpf_cliente = cpf_cliente;
         this.cpf_func = cpf_func;
         this.cod_filial = cod_filial;
         this.data_venda = data_venda;
+        this.total_venda = total_venda;
     }
     
 
-    public Venda(String cpf_cliente, int cod_filial, Date data_venda) {
+    public Venda(String cpf_cliente, int cod_filial, String data_venda) {
         this.cpf_cliente = cpf_cliente;
         this.cod_filial = cod_filial;
         this.data_venda = data_venda;
@@ -59,11 +59,11 @@ public class Venda {
         this.cod_filial = cod_filial;
     }
 
-    public Date getData_venda() {
+    public String getData_venda() {
         return data_venda;
     }
 
-    public void setData_venda(Date data_venda) {
+    public void setData_venda(String data_venda) {
         this.data_venda = data_venda;
     }
 
