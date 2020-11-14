@@ -11,6 +11,7 @@ import entidade.Cliente;
 import entidade.Venda;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import javax.servlet.http.HttpSession;
 
 public class VendaServlet extends HttpServlet {
 
@@ -20,8 +21,9 @@ public class VendaServlet extends HttpServlet {
 
         String cpf = request.getParameter("cpf");
         Cliente cliente = ClienteDAO.getCliente(cpf);
-        request.setAttribute("cliente", cliente);
-
+        HttpSession sessao = request.getSession();
+        sessao.setAttribute("cliente", cliente);
+        
         RequestDispatcher rd = getServletContext().getRequestDispatcher("/protegido/venda.jsp");
         rd.forward(request, response);
     }
@@ -34,21 +36,7 @@ public class VendaServlet extends HttpServlet {
         RequestDispatcher rd = getServletContext().getRequestDispatcher("/protegido/vendaCarrinho.jsp");
         rd.forward(request, response);
 
-        /*String cpfCliente = request.getParameter("cpf");
-        String cpfFuncionario = request.getParameter("cpf");
-        String valorTotal = request.getParameter("cpf");
-        int cod_filial = Integer.parseInt(request.getParameter("cpf"));
-        
-        //SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");       
-        //String formatted = format1.format(cal.getTime());
-        
-
-        Venda venda = new Venda(0, cpfCliente, cpfFuncionario, 0, Calendar.getInstance().getTime());
-        Cliente cliente = ClienteDAO.getCliente(cpf);
-        request.setAttribute("cliente", cliente);
-
-        RequestDispatcher rd = getServletContext().getRequestDispatcher("/protegido/venda.jsp");
-        rd.forward(request, response);*/
+        /**/
     }
 
     
