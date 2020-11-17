@@ -1,4 +1,4 @@
-<%@include file="header.jsp" %>
+<%@include file="../../header.jsp" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
@@ -6,7 +6,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>T·Ligado - Lista de Filiais</title>
-        <script lang="text/javascript">
+        <script>
             function mostrarModalExclusao(codigo, nome) {
                 $("#nome").html(nome);
                 $("#codigo").val(codigo);

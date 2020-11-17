@@ -21,25 +21,30 @@ public class CarrinhoServlet extends HttpServlet {
         int codProduto = Integer.parseInt(request.getParameter("codigo"));
         int qtdVendida = Integer.parseInt(request.getParameter("qtdVendida"));
         float subTotal = Float.parseFloat(request.getParameter("subTotal"));
-        float valorTotal = subTotal;
-        valorTotal += subTotal;
         
         Produto produto = ProdutoDAO.getProduto(codProduto);
         produto.setQtd_vendida(qtdVendida);
         produto.setSubTotal(subTotal);
 
         List<Produto> listaProdutos;
-        if (sessao.getAttribute("listaProdutos") == null) {
+        if(sessao.getAttribute("listaProdutos") == null) {
             listaProdutos = new ArrayList<>();
         } else {
             listaProdutos = (List<Produto>) sessao.getAttribute("listaProdutos");
         }
-        if (!listaProdutos.contains(produto)) {
+        
+        boolean contem = false;
+        for(Produto p: listaProdutos) {
+            if(p.getCod_produto() == codProduto) {
+                contem = true;
+                break;
+            }
+        }
+        if(!contem) {
             listaProdutos.add(produto);
         }
 
         sessao.setAttribute("listaProdutos", listaProdutos);
-        sessao.setAttribute("valorTotal", valorTotal);
     }
 
 }

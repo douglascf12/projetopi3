@@ -13,15 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 public class ListarFilial extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Filial> listaFiliais = FilialDAO.getFiliais();
         request.setAttribute("listaFiliais", listaFiliais);
 
-        RequestDispatcher requestDispatcher = getServletContext()
-                .getRequestDispatcher("/listaFiliais.jsp");
-        requestDispatcher.forward(request, response);
+        RequestDispatcher rd = getServletContext().getRequestDispatcher("/protegido/admin/listarFiliais.jsp");
+        rd.forward(request, response);
     }
 
 }
