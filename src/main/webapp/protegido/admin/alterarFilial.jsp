@@ -1,4 +1,4 @@
-<%@include file="header.jsp" %>
+<%@include file="../../header.jsp" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
@@ -12,7 +12,7 @@
             <div class="card w-50">
                 <h5 class="card-header">Alteração Cadastro de Filial</h5>
                 <div class="card-body">
-                    <form action="AlterarFilial" method="POST">
+                    <form action="<c:url value="/AlterarFilial"/>" method="POST">
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Código</label>
                             <div class="col-sm-10">

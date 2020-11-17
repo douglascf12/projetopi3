@@ -12,7 +12,7 @@
         <div class="card w-50">
             <h5 class="card-header">Cadastro de Filial</h5>
             <div class="card-body">
-                <form action="CadastrarFilial" method="POST">
+                <form action="<c:url value="/CadastrarFilial"/>" method="POST">
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Nome</label>
                         <div class="col-sm-10">

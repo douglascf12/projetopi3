@@ -16,6 +16,9 @@ public class VendaServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String cpf = request.getParameter("cpf");
+        if(cpf != null && cpf != "") {
+            cpf = cpf.replaceAll("[^0-9]", "");
+        }
         Cliente cliente = ClienteDAO.getCliente(cpf);
         HttpSession sessao = request.getSession();
         sessao.setAttribute("cliente", cliente);

@@ -15,22 +15,16 @@ import javax.servlet.http.HttpServletResponse;
 public class AlterarFilial extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int codigo = Integer.parseInt(request.getParameter("codigo"));
         Filial filial = FilialDAO.getFilial(codigo);
         request.setAttribute("filial", filial);
-        RequestDispatcher rd
-                = getServletContext().getRequestDispatcher("/alterarFilial.jsp");
+        RequestDispatcher rd = getServletContext().getRequestDispatcher("/protegido/admin/alterarFilial.jsp");
         rd.forward(request, response);
-
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int codigo = Integer.parseInt(request.getParameter("codigo"));
         String nome = request.getParameter("nome");
         String estado = request.getParameter("estado");
@@ -47,7 +41,6 @@ public class AlterarFilial extends HttpServlet {
             Logger.getLogger(AlterarProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
         response.sendRedirect("sucesso.jsp");
-
     }
 
 }

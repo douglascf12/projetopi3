@@ -52,7 +52,7 @@ public class CadastrarVendaServlet extends HttpServlet {
         } catch (ParseException ex) {
             Logger.getLogger(CadastrarVendaServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        sessao.removeAttribute("listaProdutos");
         response.sendRedirect("sucesso.jsp");
     }
 }

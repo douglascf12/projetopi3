@@ -29,7 +29,7 @@
             $.get("CarrinhoServlet?codigo=" + codigo + "&qtdVendida=" + qtdVendida + "&subTotal=" + subTotal, function (resposta) {
                 $('.toast').toast('show');
             });
-            
+
             window.location.reload();
         }
 
@@ -39,7 +39,14 @@
             $.post("CadastrarVendaServlet?valorTotal=" + valor, function () {
                 alert("success");
             });
-          //  location.href = "sucesso.jsp"
+            window.location.reload();
+            //  location.href = "sucesso.jsp"
+        }
+
+        function excluirProdutoCarrinho(codigo) {
+            $.get("ExcluirProdutoCarrinho?codigo=" + codigo, function (resposta) {
+            });
+            window.location.reload();
         }
 
         function teste(cpfFuncionario, filialFuncionario) {
@@ -125,7 +132,7 @@
                         <th>Preço</th>
                         <th>Quantidade</th>
                         <th>Sub-Total</th>
-                        <th>Ações</th>
+                        <th>Remover</th>
                         </thead>
                         <tbody> 
                             <c:forEach var="p" items="${listaProdutos}">
@@ -135,10 +142,7 @@
                                     <td>${p.preco}</td>
                                     <td>${p.qtd_vendida}</td>
                                     <td class="valorTotal">${p.subTotal}</td>
-                                    <td>
-                                        <a href="AlterarFilial?codigo=${filial.codigo}"><img src="imagens/icon_editar.png" alt="Editar"></a>
-                                        <a><img onclick="mostrarModalVenda(${filial.codigo}, '${filial.nome}')" src="imagens/icon_excluir.png" alt="Excluir"></a>
-                                    </td>
+                                    <td><a><img onclick="excluirProdutoCarrinho(${p.cod_produto})" src="imagens/icon_excluir.png" alt="Excluir"></a></td>
                                 </tr>
                             </c:forEach>
                         </tbody>
@@ -153,6 +157,29 @@
         </div>
     </center>
 </body>
+</html>
+
+<!-- Modal excluir produto do carrinho -->
+<div class="modal fade" id="modalExclusao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmar Exclusão</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Confirmar exclusão da Filial ${filial.codigo}?
+                <input name="codigo" id="codigo" hidden="true" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="excluirProduto()">Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Modal venda -->
 <div class="modal fade" id="modalVenda" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -179,4 +206,3 @@
     </div>
 </div>
 
-</html>
