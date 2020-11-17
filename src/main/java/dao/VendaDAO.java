@@ -1,6 +1,7 @@
 package dao;
 
 import bd.ConexaoDB;
+import entidade.DetalheVenda;
 import entidade.Venda;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -40,32 +41,45 @@ public class VendaDAO {
 //        }
 //        return venda;
 //    }
-    public static void finalizarVenda(Venda venda) throws SQLException, ParseException {
-        Connection con = ConexaoDB.getConexao();
-        String query = "insert into venda (cpf_cliente, cpf_func, cod_filial, data_venda, total_venda) values (?,?,?,?,?)";
-        PreparedStatement ps = con.prepareStatement(query);
-        ps.setString(1, venda.getCpf_cliente());
-        ps.setString(2, venda.getCpf_func());
-        ps.setInt(3, venda.getCod_filial());
-        ps.setString(4, venda.getData_venda());
-        ps.setDouble(5, venda.getTotal_venda());
-        ps.execute();
-    }
-
-    public static void finalizarVenda(double valorTotal, int codVenda) {
+    public static int finalizarVenda(Venda venda) throws SQLException, ParseException {
+        int cod_venda = 0;
         try {
             Connection con = ConexaoDB.getConexao();
-            String query = "update venda set total_venda = ? where id_venda=?";
+            String query = "insert into venda (cpf_cliente, cpf_func, cod_filial, data_venda, total_venda) values (?,?,?,?,?)";
+            PreparedStatement ps = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, venda.getCpf_cliente());
+            ps.setString(2, venda.getCpf_func());
+            ps.setInt(3, venda.getCod_filial());
+            ps.setString(4, venda.getData_venda());
+            ps.setDouble(5, venda.getTotal_venda());
+            ps.execute();
+
+            ResultSet generatedKeys = ps.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                cod_venda = generatedKeys.getInt(1);
+            } else {
+                throw new SQLException("Erro: Não foi possivel pegar o id da venda");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return cod_venda;
+    }
+
+    public static void finalizarDetalheVenda(DetalheVenda detalheVenda) throws SQLException, ParseException {
+        try {
+            Connection con = ConexaoDB.getConexao();
+            String query = "insert into detalhe_venda (id_venda, cod_produto, qtd_vendida, sub_total, nome) values (?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(query);
-            System.out.println(valorTotal);
-            System.out.println(codVenda);
-            ps.setDouble(1, valorTotal);
-            ps.setInt(2, codVenda);
+            ps.setInt(1, detalheVenda.getId_venda());
+            ps.setInt(2, detalheVenda.getCod_produto());
+            ps.setInt(3, detalheVenda.getQtd_vendida());
+            ps.setFloat(4, detalheVenda.getSubTotal());
+            ps.setString(5, detalheVenda.getNomeProduto());
             ps.execute();
 
         } catch (SQLException ex) {
-            Logger.getLogger(Servlet.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
         }
     }
-
 }

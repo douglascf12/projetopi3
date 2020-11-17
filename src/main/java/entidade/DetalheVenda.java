@@ -19,38 +19,34 @@ public class DetalheVenda {
     int qtd_vendida;
     String Categoria;
     String cpf_cliente;
-    int cod_filial;
+    float subTotal;
+    String nomeProduto;
 
-    public DetalheVenda(int cod_produto, Date data_venda, int qtd_vendida, String Categoria) {
+    public DetalheVenda(int id_venda, int cod_produto, int qtd_vendida, float subTotal, String nomeProduto) {
+        this.id_venda = id_venda;
         this.cod_produto = cod_produto;
-        this.data_venda = data_venda;
         this.qtd_vendida = qtd_vendida;
-        this.Categoria = Categoria;
+        this.subTotal = subTotal;
+        this.nomeProduto = nomeProduto;
     }
 
-    public DetalheVenda(int cod_produto, Date data_venda, int qtd_vendida, String Categoria, int cod_filial) {
-        this.cod_produto = cod_produto;
-        this.data_venda = data_venda;
-        this.qtd_vendida = qtd_vendida;
-        this.Categoria = Categoria;
-        this.cod_filial = cod_filial;
+    public float getSubTotal() {
+        return subTotal;
     }
 
-    public DetalheVenda(int cod_produto, Date data_venda, int qtd_vendida, String Categoria, String cpf_cliente) {
-        this.cod_produto = cod_produto;
-        this.data_venda = data_venda;
-        this.qtd_vendida = qtd_vendida;
-        this.Categoria = Categoria;
-        this.cpf_cliente = cpf_cliente;
+    public void setSubTotal(float subTotal) {
+        this.subTotal = subTotal;
     }
 
-    public int getCod_filial() {
-        return cod_filial;
+    public String getNomeProduto() {
+        return nomeProduto;
     }
 
-    public void setCod_filial(int cod_filial) {
-        this.cod_filial = cod_filial;
+    public void setNomeProduto(String nomeProduto) {
+        this.nomeProduto = nomeProduto;
     }
+    
+    
 
     public String getCpf_cliente() {
         return cpf_cliente;

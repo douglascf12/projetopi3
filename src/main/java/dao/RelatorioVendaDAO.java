@@ -149,7 +149,7 @@ public class RelatorioVendaDAO {
                 int qtd_vendida = rs.getInt("qtd_vendida");
                 String categoria = rs.getString("categoria");
                     
-                listaVendas.add(new DetalheVenda(cod_produto, data_venda, qtd_vendida, categoria, cod_filial));
+               // listaVendas.add(new DetalheVenda(cod_produto, data_venda, qtd_vendida, categoria, cod_filial));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Servlet.class.getName()).

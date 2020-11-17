@@ -10,8 +10,7 @@
                 valorT += parseFloat($(this).text());
             });
             document.getElementById('valorTo').value = valorT;
-            document.getElementById('valorTo2').value = valorT;
-        })
+        });
 
         function calcularSubTotal() {
             var qtdVendida = parseInt(document.getElementById('qtdVendida').value, 10);
@@ -29,16 +28,18 @@
             console.log(qtdVendida);
             $.get("CarrinhoServlet?codigo=" + codigo + "&qtdVendida=" + qtdVendida + "&subTotal=" + subTotal, function (resposta) {
                 $('.toast').toast('show');
-            })
+            });
+            
             window.location.reload();
         }
 
-        function cadastrarVendaServlet(totalVenda) {
-            //var totalVenda = parseFloat(document.getElementById('totalVenda').value, 10);
-            $.get("CadastrarVendaServlet?valorVenda=" + totalVenda, function (resposta) {
-                $('.toast').toast('show');
-            })
-            window.location.reload();
+        function cadastrarVendaServlet() {
+            var valor = document.getElementById("valorTo").value;
+            console.log(valor);
+            $.post("CadastrarVendaServlet?valorTotal=" + valor, function () {
+                alert("success");
+            });
+          //  location.href = "sucesso.jsp"
         }
 
         function teste(cpfFuncionario, filialFuncionario) {
@@ -146,16 +147,12 @@
                         <label>Valor total da venda: </label>
                         <input size="5" class="form-control" id="valorTo" value="${valorT}" readonly="true"/>
                     </div>
-                    <form action="CadastrarVendaServlet" method="POST">
-                        <input type="hidden" name="valorTotal" id="valorTo2" value="${valorT}"/>
-                        <button type="submit" class="btn btn-primary">Finalizar</button>
-                    </form>
+                    <button type="submit" onclick="cadastrarVendaServlet()" class="btn btn-primary">Finalizar</button>
                 </div>
             </div>
         </div>
     </center>
 </body>
-</html>
 
 <!-- Modal venda -->
 <div class="modal fade" id="modalVenda" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -181,3 +178,5 @@
         </div>
     </div>
 </div>
+
+</html>

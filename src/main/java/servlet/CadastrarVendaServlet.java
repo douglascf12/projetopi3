@@ -2,17 +2,23 @@ package servlet;
 
 import dao.VendaDAO;
 import entidade.Cliente;
+import entidade.DetalheVenda;
 import entidade.Funcionario;
+import entidade.Produto;
 import entidade.Venda;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import utils.dataAtual;
 
 public class CadastrarVendaServlet extends HttpServlet {
 
@@ -22,20 +28,31 @@ public class CadastrarVendaServlet extends HttpServlet {
 
         Funcionario funcionario;
         Cliente cliente;
-        Float totalVenda = (Float) sessao.getAttribute("valorTotal");
+        Float totalVenda = Float.parseFloat(request.getParameter("valorTotal"));
         funcionario = (Funcionario) sessao.getAttribute("user");
         cliente = (Cliente) sessao.getAttribute("cliente");
+         
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+        String formatted = format1.format(cal.getTime());        
+        String data_venda=formatted;
         
-        String dataVenda = "2020-11-14";
-
-        Venda venda = new Venda(cliente.getCpf_cliente(), funcionario.getCpfFunc(), funcionario.getCodFilial(), dataVenda, totalVenda);
+        List<Produto>  listaProdutos= (List<Produto>) sessao.getAttribute("listaProdutos");
+        
+        Venda venda = new Venda(cliente.getCpf_cliente(), funcionario.getCpfFunc(), funcionario.getCodFilial(), data_venda, totalVenda);
         try {
-            VendaDAO.finalizarVenda(venda);
+            int cod_venda = VendaDAO.finalizarVenda(venda);
+            System.err.println(cod_venda);
+            for (Produto p : listaProdutos) {
+                DetalheVenda d=new DetalheVenda(cod_venda, p.getCod_produto(), p.getQtd_vendida(), p.getSubTotal(), p.getNome_produto());
+                VendaDAO.finalizarDetalheVenda(d);
+            }
         } catch (SQLException ex) {
             Logger.getLogger(CadastrarVendaServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParseException ex) {
             Logger.getLogger(CadastrarVendaServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         response.sendRedirect("sucesso.jsp");
     }
 }

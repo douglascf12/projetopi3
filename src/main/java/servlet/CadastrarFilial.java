@@ -28,7 +28,7 @@ public class CadastrarFilial extends HttpServlet {
 
         try {
             FilialDAO.addFilial(filial);
-            response.sendRedirect("sucesso.jsp");
+            response.sendRedirect("/sucesso.jsp");
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(cadastrarProduto.class.getName()).log(Level.SEVERE, null, ex);
             Utils.mostrarTelaErro(ex, request, response);

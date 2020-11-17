@@ -109,10 +109,6 @@
         <servlet-class>servlet.x_VendaCarrinho</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>VendaFinalizar</servlet-name>
-        <servlet-class>servlet.x_VendaFinalizar</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>DetalharVendaCliente</servlet-name>
         <servlet-class>servlet.DetalharVendaCliente</servlet-class>
     </servlet>
@@ -279,10 +275,6 @@
     <servlet-mapping>
         <servlet-name>VendaCarrinho</servlet-name>
         <url-pattern>/VendaCarrinho</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>VendaFinalizar</servlet-name>
-        <url-pattern>/VendaFinalizar</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DetalharVendaCliente</servlet-name>
