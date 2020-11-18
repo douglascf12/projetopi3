@@ -14,16 +14,16 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import utils.dataAtual;
 
 public class CadastrarVendaServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         HttpSession sessao = request.getSession();
 
         Funcionario funcionario;
@@ -36,10 +36,10 @@ public class CadastrarVendaServlet extends HttpServlet {
         SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
         String formatted = format1.format(cal.getTime());
         String data_venda = formatted;
-        
+
         List<Produto> listaProdutos = (List<Produto>) sessao.getAttribute("listaProdutos");
 
-        Venda venda = new Venda(cliente.getCpf_cliente(), funcionario.getCpfFunc(),data_venda, funcionario.getCodFilial(), totalVenda);
+        Venda venda = new Venda(cliente.getCpf_cliente(), funcionario.getCpfFunc(), data_venda, funcionario.getCodFilial(), totalVenda);
         try {
             int cod_venda = VendaDAO.finalizarVenda(venda);
             System.err.println(cod_venda);
@@ -53,6 +53,6 @@ public class CadastrarVendaServlet extends HttpServlet {
             Logger.getLogger(CadastrarVendaServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         sessao.removeAttribute("listaProdutos");
-        response.sendRedirect("sucesso.jsp");
+        response.sendRedirect(request.getContextPath() + "/sucesso.jsp");
     }
 }

@@ -35,12 +35,10 @@
 
         function cadastrarVendaServlet() {
             var valor = document.getElementById("valorTo").value;
-            console.log(valor);
             $.post("CadastrarVendaServlet?valorTotal=" + valor, function () {
-                alert("success");
             });
             window.location.reload();
-            //  location.href = "sucesso.jsp"
+            window.location.href = "sucesso.jsp";
         }
 
         function excluirProdutoCarrinho(codigo) {
