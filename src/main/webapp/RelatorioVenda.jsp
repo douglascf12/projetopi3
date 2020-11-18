@@ -107,6 +107,7 @@
             <th>Cód. Venda</th>
             <th>Cliente Cpf </th>
             <th>Funcionário Cpf</th>
+            <th>Data</th>
             <th>Valor Total</th>
             <th>Detalhe Venda</th>
             </thead>
@@ -116,6 +117,7 @@
                         <td>${v.id_venda}</td>
                         <td>${v.cpf_cliente}</td>
                         <td>${v.cpf_func}</td>
+                        <td>${v.data_venda}</td>
                         <td>${v.total_venda}</td>
                         <td><a href="DetalharVenda?id_venda=${v.id_venda}"><button type="button" class="btn btn-danger">Detalhes</button></a></td>
                     </tr>

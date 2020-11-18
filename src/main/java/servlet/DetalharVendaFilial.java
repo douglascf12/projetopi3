@@ -6,8 +6,7 @@
 package servlet;
 
 import dao.RelatorioVendaDAO;
-import entidade.DetalheVenda;
-import entidade.ItemVenda;
+import entidade.Venda;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -23,21 +22,23 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author w_olv
  */
-//public class DetalharVendaFilial extends HttpServlet {
-//
-//    @Override
-//    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-//            throws ServletException, IOException {
-//
-//        int cod_filial = Integer.parseInt(request.getParameter("cod_filial"));
-//        List<ItemVenda> detalheVendas = null;
-//        try {
-//            detalheVendas = RelatorioVendaDAO.getDetalheRelatorioVendaPorFilial(cod_filial);
-//        } catch (SQLException ex) {
-//            Logger.getLogger(ListarVendas.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        request.setAttribute("listaDetalheVendas", detalheVendas);
-//        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/RelatorioDetalheVendaFilial.jsp");
-//        requestDispatcher.forward(request, response);
-//    }
-//}
+public class DetalharVendaFilial extends HttpServlet {
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        int cod_filial = Integer.parseInt(request.getParameter("cod_filial"));
+        List<Venda> Vendas = null;
+        try {
+            Vendas = RelatorioVendaDAO.getDetalheRelatorioVendaPorFilial(cod_filial);
+        } catch (SQLException ex) {
+            Logger.getLogger(DetalharVendaFilial.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        request.setAttribute("listaVendas", Vendas);
+        request.setAttribute("cod_filial", cod_filial);
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/RelatorioDetalheVendaFilial.jsp");
+        requestDispatcher.forward(request, response);
+    }
+    
+}

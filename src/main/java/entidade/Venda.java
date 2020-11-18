@@ -1,6 +1,6 @@
 package entidade;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.ArrayList;
 
 public class Venda {
@@ -13,44 +13,21 @@ public class Venda {
     String data_venda;
     ArrayList detalheVenda = new ArrayList<DetalheVenda>();
 
-    public Venda(int id_venda, double total_venda, String cpf_cliente, int cod_filial) {
-        this.id_venda = id_venda;
-        this.total_venda = total_venda;
-        this.cpf_cliente = cpf_cliente;
-        this.cod_filial = cod_filial;
-    }
-
-    public Venda(int id_venda, double total_venda, String cpf_cliente, String cpf_func) {
-        this.id_venda = id_venda;
-        this.total_venda = total_venda;
+    public Venda(int id_venda, String cpf_cliente, String cpf_func, String data_venda, double total_venda) {
+        this.id_venda=id_venda;
         this.cpf_cliente = cpf_cliente;
         this.cpf_func = cpf_func;
-    }
-
-    public Venda(int id_venda, double total_venda, String cpf_cliente, String cpf_func, int cod_filial, String data_venda) {
-        this.id_venda = id_venda;
-        this.total_venda = total_venda;
-        this.cpf_cliente = cpf_cliente;
-        this.cpf_func = cpf_func;
-        this.cod_filial = cod_filial;
-        this.data_venda = data_venda;
-    }
-
-    public Venda(String cpf_cliente, String cpf_func, int cod_filial, String data_venda, double total_venda) {
-        this.cpf_cliente = cpf_cliente;
-        this.cpf_func = cpf_func;
-        this.cod_filial = cod_filial;
-        this.data_venda = data_venda;
+        this.data_venda=data_venda;
         this.total_venda = total_venda;
     }
-    
-
-    public Venda(String cpf_cliente, int cod_filial, String data_venda) {
+    public Venda( String cpf_cliente, String cpf_func, String data_venda, int cod_filial, double total_venda) {
         this.cpf_cliente = cpf_cliente;
-        this.cod_filial = cod_filial;
-        this.data_venda = data_venda;
+        this.cpf_func = cpf_func;
+        this.data_venda=data_venda;
+        this.total_venda = total_venda;
+        this.cod_filial=cod_filial;
     }
-
+   
     public int getCod_filial() {
         return cod_filial;
     }
@@ -58,14 +35,19 @@ public class Venda {
     public void setCod_filial(int cod_filial) {
         this.cod_filial = cod_filial;
     }
-
+    
     public String getData_venda() {
         return data_venda;
     }
 
-    public void setData_venda(String data_venda) {
+    public void setData_venda(String data_venda) {        
         this.data_venda = data_venda;
     }
+
+    public ArrayList getDetalheVenda() {
+        return detalheVenda;
+    }
+
 
     public void setId_venda(int id_venda) {
         this.id_venda = id_venda;

@@ -30,7 +30,7 @@ public class DetalharVenda extends HttpServlet {
             throws ServletException, IOException {
 
         int id_venda = Integer.parseInt(request.getParameter("id_venda"));
-        List<ItemVenda> detalheVendas = null;
+        List<DetalheVenda> detalheVendas = null;
         try {
             detalheVendas = RelatorioVendaDAO.getDetalheRelatorioVenda(id_venda);
         } catch (SQLException ex) {

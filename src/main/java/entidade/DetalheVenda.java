@@ -15,19 +15,20 @@ public class DetalheVenda {
 
     int id_venda;
     int cod_produto;
-    Date data_venda;
+    String data_venda;
     int qtd_vendida;
     String Categoria;
     String cpf_cliente;
     float subTotal;
-    String nomeProduto;
+    String nome;
 
-    public DetalheVenda(int id_venda, int cod_produto, int qtd_vendida, float subTotal, String nomeProduto) {
+    public DetalheVenda(int cod_produto, String nome, int id_venda, int qtd_vendida, float subTotal, String data_venda) {
         this.id_venda = id_venda;
         this.cod_produto = cod_produto;
         this.qtd_vendida = qtd_vendida;
         this.subTotal = subTotal;
-        this.nomeProduto = nomeProduto;
+        this.nome = nome;
+        this.data_venda=data_venda;
     }
 
     public float getSubTotal() {
@@ -38,15 +39,13 @@ public class DetalheVenda {
         this.subTotal = subTotal;
     }
 
-    public String getNomeProduto() {
-        return nomeProduto;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomeProduto(String nomeProduto) {
-        this.nomeProduto = nomeProduto;
+    public void setNome(String nomeProduto) {
+        this.nome = nomeProduto;
     }
-    
-    
 
     public String getCpf_cliente() {
         return cpf_cliente;
@@ -80,13 +79,15 @@ public class DetalheVenda {
         this.cod_produto = cod_produto;
     }
 
-    public Date getData_venda() {
+    public String getData_venda() {
         return data_venda;
     }
 
-    public void setData_venda(Date data_venda) {
+    public void setData_venda(String data_venda) {
         this.data_venda = data_venda;
     }
+
+    
 
     public int getQtd_vendida() {
         return qtd_vendida;

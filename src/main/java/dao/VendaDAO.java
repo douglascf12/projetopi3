@@ -11,7 +11,6 @@ import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.sql.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.Servlet;
@@ -75,7 +74,7 @@ public class VendaDAO {
             ps.setInt(2, detalheVenda.getCod_produto());
             ps.setInt(3, detalheVenda.getQtd_vendida());
             ps.setFloat(4, detalheVenda.getSubTotal());
-            ps.setString(5, detalheVenda.getNomeProduto());
+            ps.setString(5, detalheVenda.getNome());
             ps.execute();
 
         } catch (SQLException ex) {

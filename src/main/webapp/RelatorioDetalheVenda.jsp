@@ -11,6 +11,7 @@
         <table class="table">
             <thead>
             <th>Cód. Produto</th>
+            <th>Nome</th>
             <th>Cód. Venda</th>
             <th>Qtd. Vendida</th>
             <th>Sub Total</th>
@@ -19,9 +20,10 @@
             <tbody>
                 <c:forEach var="v" items="${listaDetalheVendas}">
                     <tr>
-                        <td>${v.codProduto}</td>
-                        <td>${v.codVenda}</td>
-                        <td>${v.quantidade}</td>                
+                        <td>${v.cod_produto}</td>
+                        <td>${v.nome}</td>
+                        <td>${v.id_venda}</td>
+                        <td>${v.qtd_vendida}</td>                
                         <td>${v.subTotal}</td>                
                     </tr>
                 </c:forEach>
