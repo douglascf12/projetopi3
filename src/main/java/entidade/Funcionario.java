@@ -1,5 +1,7 @@
 package entidade;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
+
 public class Funcionario {
 
     String cpfFunc;
@@ -52,6 +54,18 @@ public class Funcionario {
         this.nomeFunc = nome;
         this.cargo = cargo;
         this.usuario = usuario;
+    }
+
+    public Funcionario() {
+    }
+    
+    public String codificarSenha(String senha) {
+        return BCrypt.withDefaults().hashToString(12, senha.toCharArray());
+    }
+    
+    public boolean validarSenha(String senha) {
+        BCrypt.Result response = BCrypt.verifyer().verify(senha.toCharArray(), this.getSenha());
+        return response.verified;
     }
     
     public boolean isAdmin() {

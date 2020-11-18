@@ -19,21 +19,17 @@ public class cadastrarFuncionario extends HttpServlet {
             throws ServletException, IOException {
 
         String cpf = request.getParameter("cpf");
-        //int cpf = Integer.parseInt(cpfStr);
         String nome = request.getParameter("nome");
         int codFilial = Integer.parseInt(request.getParameter("cod_filial"));
-//        String codFiliStr = request.getParameter("cod_filial");
-//        int codFili = Integer.parseInt(codFiliStr);
         String cargo = request.getParameter("cargo");
         String telefone = request.getParameter("telefone");
-        //int telefone = Integer.parseInt(telefoneStr);
         String endereco = request.getParameter("endereco");
         String dataNasc = request.getParameter("data_nasc");
         String sexo = request.getParameter("sexo");
         String usuario = request.getParameter("usuario");
         String senha = request.getParameter("senha");
 
-        Funcionario funcionario = new Funcionario(cpf, nome, codFilial, cargo, telefone, endereco, dataNasc,  sexo , usuario , senha);
+        Funcionario funcionario = new Funcionario(cpf, nome, codFilial, cargo, telefone, endereco, dataNasc, sexo, usuario, senha);
 
         try {
             FuncionarioDAO.addFuncionario(funcionario);

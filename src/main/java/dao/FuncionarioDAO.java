@@ -85,14 +85,14 @@ public class FuncionarioDAO {
         return funcionario;
     }
 
-    public static Funcionario getFunc(String usuario, String senha) {
+    public static Funcionario getFuncLogin(String usuario) {
         Funcionario funcionario = null;
         try {
             java.sql.Connection con = ConexaoDB.getConexao();
-            String query = "select * from funcionario where usuario=? and senha=?";
+            String query = "select * from funcionario where usuario=?";
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, usuario);
-            ps.setString(2, senha);
+            //ps.setString(2, senha);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 String cpf = rs.getString("cpf_func");
@@ -103,6 +103,7 @@ public class FuncionarioDAO {
                 String endereco = rs.getString("endereco");
                 String datanasc = rs.getString("data_nasc");
                 String sexo = rs.getString("sexo");
+                String senha = rs.getString("senha");
                 funcionario = new Funcionario(cpf, nome, codFilial, cargo, telefone, endereco, datanasc, sexo, usuario, senha);
             }
         } catch (SQLException ex) {
@@ -114,6 +115,7 @@ public class FuncionarioDAO {
     public static void addFuncionario(Funcionario funcionario) throws SQLException {
 
         Connection con = ConexaoDB.getConexao();
+        
 
         String query = "insert into funcionario(cpf_func, nome, cod_filial, cargo, telefone, endereco, data_nasc, sexo, usuario, senha) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement ps = con.prepareStatement(query);
@@ -126,7 +128,9 @@ public class FuncionarioDAO {
         ps.setString(7, funcionario.getDataNascFunc());
         ps.setString(8, funcionario.getSexoFunc());
         ps.setString(9, funcionario.getUsuario());
-        ps.setString(10, funcionario.getSenha());
+//        String senha = funcionario.;
+//        senha = 
+        ps.setString(10, funcionario.codificarSenha(funcionario.getSenha()));
         ps.execute();
     }
 

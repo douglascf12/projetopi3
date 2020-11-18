@@ -21,8 +21,8 @@ public class LoginServlet extends HttpServlet {
         
         //HttpSession sessao = httpRequest.getSession();
 
-        Funcionario user = FuncionarioDAO.getFunc(usuario, senha);
-        if(user == null) {
+        Funcionario user = FuncionarioDAO.getFuncLogin(usuario);
+        if(user == null || !user.validarSenha(senha)) {
             response.sendRedirect(request.getContextPath() + "/login.jsp?erro=login");
         } else {
             HttpSession sessao = request.getSession();
