@@ -37,7 +37,7 @@
                 <input class="form-control" name="nome" value="${func.cpfFunc}" readonly="true"/><br/>
             </div>-->
             <div class="form-group">
-                <label>Nome do Funcioanrio</label>
+                <label>Nome do Funcionario</label>
                 <input class="form-control" name="nome" value="${func.nomeFunc}"/><br/>
             </div>
 

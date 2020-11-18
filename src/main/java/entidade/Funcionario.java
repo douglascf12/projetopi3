@@ -1,5 +1,7 @@
 package entidade;
 
+import utils.CargoEnum;
+
 public class Funcionario {
 
     String cpfFunc;
@@ -8,10 +10,13 @@ public class Funcionario {
     String cargo;
     String telefoneFunc;
     String enderecoFunc;
-    String dataNascFunc;    
+    String dataNascFunc;
     String sexoFunc;
     String usuario;
     String senha;
+
+    public Funcionario() {
+    }
 
     public Funcionario(String cpfFunc, String nomeFunc, int codFilial, String cargo, String telefoneFunc, String enderecoFunc, String dataNascFunc, String sexoFunc, String usuario, String senha) {
         this.cpfFunc = cpfFunc;
@@ -25,7 +30,7 @@ public class Funcionario {
         this.usuario = usuario;
         this.senha = senha;
     }
-    
+
     public Funcionario(String cpfFunc, String nomeFunc, int codFilial, String cargo, String telefoneFunc, String enderecoFunc, String dataNascFunc, String sexoFunc, String usuario) {
         this.cpfFunc = cpfFunc;
         this.nomeFunc = nomeFunc;
@@ -38,24 +43,24 @@ public class Funcionario {
         this.usuario = usuario;
     }
 
-    public Funcionario(String cpfFunc, String nomeFunc, String dataNascFunc, String telefoneFunc, String enderecoFunc, String sexoFunc) {
-        this.cpfFunc = cpfFunc;
-        this.nomeFunc = nomeFunc;
-        this.telefoneFunc = telefoneFunc;
-        this.enderecoFunc = enderecoFunc;
-        this.dataNascFunc = dataNascFunc;
-        this.sexoFunc = sexoFunc;
-    }
-
-    public Funcionario(String cpf, String nome, String cargo, String usuario) {
-        this.cpfFunc = cpf;
-        this.nomeFunc = nome;
-        this.cargo = cargo;
-        this.usuario = usuario;
-    }
-    
     public boolean isAdmin() {
         return this.cargo.equalsIgnoreCase("admin");
+    }
+
+    public boolean isGerenteG() {
+        return this.cargo.equalsIgnoreCase("Gerente Geral");
+    }
+
+    public boolean isGerenteF() {
+        return this.cargo.equalsIgnoreCase("Gerente Filial");
+    }
+
+    public boolean isAnalista() {
+        return this.cargo.equalsIgnoreCase("Gerente Filial");
+    }
+
+    public boolean isVendedor() {
+        return this.cargo.equalsIgnoreCase("Vendedor");
     }
 
     public String getCpfFunc() {
@@ -137,5 +142,5 @@ public class Funcionario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
+
 }

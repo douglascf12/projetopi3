@@ -3,14 +3,25 @@
 
 <!DOCTYPE html>
 <html>
+    <script>
+        function validarForm() {
+            var optionSelect = document.getElementById("cargoSelect").value;
+
+            if (optionSelect === "Gerente Geral" || optionSelect=="1") {
+                document.getElementById("filialSelect").value = null;
+                document.getElementById("filialSelect").disabled = true;
+            } else {
+                document.getElementById("filialSelect").disabled = false;
+            }
+        }
+    </script>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro de Cliente</title>
     </head>
     <div class="container">
         <h1>Cadastro de Funcionario</h1>
-        </br>
-        </br>
+
         <form method="POST" action="cadastrarFuncionario">
 
             <div class="row form-group">
@@ -26,10 +37,10 @@
                     <input name="cpf" class="form-control" required="true" placeholder="000.000.000-00"></input>
                 </div>
                 <div class="col-6 " > 
-                    <select name="sexo" class="form-control" id="sexo">
-                        <option value="op">-</option>
-                        <option value="op">Masculino</option>
-                        <option value="op">Feminino</option>
+                    <select name="sexo" class="form-control" id="sexo" required>
+                        <option value="" selected></option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Feminino">Feminino</option>
                     </select>
                 </div>
             </div>
@@ -62,7 +73,7 @@
                 <label for="endereco">Endereço</label>
                 <input name="endereco" class="form-control" required="true"></input>
             </div>
-            
+
             <div class="row form-group">
                 <div class="col-6">
                     <label for="cargo">Cargo do Funcionario</label>                    
@@ -75,13 +86,19 @@
 
             <div class="row form-group">
                 <div class="col-6">
-                    <input name="cargo" class="form-control" required="true" ></input>
+                    <select id="cargoSelect" name="cargoSelect" onchange="validarForm()" class="form-control" required>
+                        <option value="1" selected></option> 
+                        <option value="Vendedor">Vendedor</option> 
+                        <option value="Analista de Rede">Analista de Rede</option> 
+                        <option value="Gerente Filial">Gerente Filial</option>
+                        <option value="Gerente Geral">Gerente Geral</option>
+                    </select>  
                 </div>
                 <div class="col-6">
-                    <input name="cod_filial" class="form-control" required="true" ></input>
+                    <input id="filialSelect" name="cod_filial" class="form-control" required="true" disabled></input>
                 </div>
             </div>  
-             <div class="row form-group">
+            <div class="row form-group">
                 <div class="col-6">
                     <label for="cargo">Usuário</label>                    
                 </div>
