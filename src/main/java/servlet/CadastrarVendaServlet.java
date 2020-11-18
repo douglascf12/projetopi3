@@ -31,20 +31,20 @@ public class CadastrarVendaServlet extends HttpServlet {
         Float totalVenda = Float.parseFloat(request.getParameter("valorTotal"));
         funcionario = (Funcionario) sessao.getAttribute("user");
         cliente = (Cliente) sessao.getAttribute("cliente");
-         
+
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
-        String formatted = format1.format(cal.getTime());        
-        String data_venda=formatted;
+        String formatted = format1.format(cal.getTime());
+        String data_venda = formatted;
         
-        List<Produto>  listaProdutos= (List<Produto>) sessao.getAttribute("listaProdutos");
-        
-        Venda venda = new Venda(cliente.getCpf_cliente(), funcionario.getCpfFunc(), funcionario.getCodFilial(), data_venda, totalVenda);
+        List<Produto> listaProdutos = (List<Produto>) sessao.getAttribute("listaProdutos");
+
+        Venda venda = new Venda(cliente.getCpf_cliente(), funcionario.getCpfFunc(),data_venda, funcionario.getCodFilial(), totalVenda);
         try {
             int cod_venda = VendaDAO.finalizarVenda(venda);
             System.err.println(cod_venda);
             for (Produto p : listaProdutos) {
-                DetalheVenda d=new DetalheVenda(cod_venda, p.getCod_produto(), p.getQtd_vendida(), p.getSubTotal(), p.getNome_produto());
+                DetalheVenda d = new DetalheVenda(p.getCod_produto(), p.getNome_produto(), cod_venda, p.getQtd_vendida(), p.getSubTotal(), null);
                 VendaDAO.finalizarDetalheVenda(d);
             }
         } catch (SQLException ex) {

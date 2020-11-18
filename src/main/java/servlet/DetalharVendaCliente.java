@@ -6,8 +6,7 @@
 package servlet;
 
 import dao.RelatorioVendaDAO;
-import entidade.DetalheVenda;
-import entidade.ItemVenda;
+import entidade.Venda;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -30,13 +29,14 @@ public class DetalharVendaCliente extends HttpServlet {
             throws ServletException, IOException {
 
         String cpf_cliente = request.getParameter("cpf_cliente");
-        List<ItemVenda> detalheVendas = null;
+        List<Venda> Vendas = null;
         try {
-            detalheVendas = RelatorioVendaDAO.getDetalheRelatorioVendaPorCliente(cpf_cliente);
+            Vendas = RelatorioVendaDAO.getDetalheRelatorioVendaPorCliente(cpf_cliente);
         } catch (SQLException ex) {
-            Logger.getLogger(ListarVendas.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DetalharVendaCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
-        request.setAttribute("listaDetalheVendas", detalheVendas);
+        request.setAttribute("listaVendas", Vendas);
+        request.setAttribute("cpf_cliente", cpf_cliente);
         RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/RelatorioDetalheVendaCliente.jsp");
         requestDispatcher.forward(request, response);
     }

@@ -30,13 +30,14 @@ public class DetalharVendaProduto extends HttpServlet {
             throws ServletException, IOException {
 
         String categoria = request.getParameter("Categoria");
-        List<ItemVenda> detalheVendas = null;
+        List<DetalheVenda> detalheVendas = null;
         try {
             detalheVendas = RelatorioVendaDAO.getDetalheRelatorioVendaPorCategoria(categoria);
         } catch (SQLException ex) {
             Logger.getLogger(ListarVendas.class.getName()).log(Level.SEVERE, null, ex);
         }
-        request.setAttribute("listaDetalheVendas", detalheVendas);
+        request.setAttribute("listaVendas", detalheVendas);
+        request.setAttribute("Categoria", categoria);
         RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/RelatorioDetalheVendaProduto.jsp");
         requestDispatcher.forward(request, response);
     }

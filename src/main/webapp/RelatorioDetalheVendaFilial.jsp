@@ -8,23 +8,25 @@
         <title>JSP Page</title>
     </head>
     <div class="container">
-        <table class="table">
+        <h3>Vendas da Filial: ${cod_filial}</h3>
+         <table id="table" class="table">
             <thead>
-            <th>Cód. Filial</th>
-            <th>Cód. Produto</th>
+            <th>Cód. Venda</th>
+            <th>Cliente Cpf </th>
+            <th>Funcionário Cpf</th>
             <th>Data</th>
-            <th>Qtd. Vendida</th>
-            <th>Categoria</th>
+            <th>Valor Total</th>
+            <th>Detalhe Venda</th>
             </thead>
-            <h4>Vendas Filtradas</h4> 
             <tbody>
-                <c:forEach var="v" items="${listaDetalheVendas}">
+                <c:forEach var="v" items="${listaVendas}">
                     <tr>
-                        <td>${v.cod_filial}</td>
-                        <td>${v.cod_produto}</td>
+                        <td>${v.id_venda}</td>
+                        <td>${v.cpf_cliente}</td>
+                        <td>${v.cpf_func}</td>
                         <td>${v.data_venda}</td>
-                        <td>${v.qtd_vendida}</td>                
-                        <td>${v.categoria}</td>                
+                        <td>${v.total_venda}</td>
+                        <td><a href="DetalharVenda?id_venda=${v.id_venda}"><button type="button" class="btn btn-danger">Detalhes</button></a></td>
                     </tr>
                 </c:forEach>
             </tbody>

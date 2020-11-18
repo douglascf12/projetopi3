@@ -8,23 +8,21 @@
         <title>JSP Page</title>
     </head>
     <div class="container">
+        <h3>Categoria:${Categoria}</h3>
         <table class="table">
             <thead>
-            <th>Categoria</th>
-            <th>Cód. Produto</th>
-            <th>Cód. Venda</th>
+            <th>Nome</th>
+            <th>Data</th>
             <th>Qtd. Vendida</th>
             <th>Sub Total</th>
-
             </thead>
             <h4>Detalhes da Venda</h4> 
             <tbody>
-                <c:forEach var="v" items="${listaDetalheVendas}">
+                <c:forEach var="v" items="${listaVendas}">
                     <tr>
-                        <td>${v.categoria}</td>
-                        <td>${v.codProduto}</td>
-                        <td>${v.codVenda}</td>
-                        <td>${v.quantidade}</td>                
+                        <td>${v.nome}</td>
+                        <td>${v.data_venda}</td>
+                        <td>${v.qtd_vendida}</td>                
                         <td>${v.subTotal}</td>                
                     </tr>
                 </c:forEach>
