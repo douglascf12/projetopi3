@@ -22,7 +22,7 @@ public class AlterarFuncionario extends HttpServlet {
         Funcionario func = FuncionarioDAO.getFunc(cpf);
 
         request.setAttribute("func", func);
-        RequestDispatcher rd = getServletContext().getRequestDispatcher("/AlterarFuncionario.jsp");
+        RequestDispatcher rd = getServletContext().getRequestDispatcher("/protegido/admin/alterarFuncionario.jsp");
         rd.forward(request, response);
     }
 
@@ -55,7 +55,7 @@ public class AlterarFuncionario extends HttpServlet {
         try {
             FuncionarioDAO.updateFuncionario(func);
         } catch (SQLException ex) {
-            Logger.getLogger(AlterarProduto.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AlterarFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
         response.sendRedirect("sucesso.jsp");
     }

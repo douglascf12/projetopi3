@@ -53,8 +53,8 @@
         <servlet-class>servlet.AlterarFuncionario</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>cadastrarFuncionario</servlet-name>
-        <servlet-class>servlet.cadastrarFuncionario</servlet-class>
+        <servlet-name>CadastrarFuncionario</servlet-name>
+        <servlet-class>servlet.CadastrarFuncionario</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ExcluirFuncionario</servlet-name>
@@ -229,8 +229,8 @@
         <url-pattern>/AlterarFuncionario</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>cadastrarFuncionario</servlet-name>
-        <url-pattern>/cadastrarFuncionario</url-pattern>
+        <servlet-name>CadastrarFuncionario</servlet-name>
+        <url-pattern>/CadastrarFuncionario</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ExcluirFuncionario</servlet-name>
