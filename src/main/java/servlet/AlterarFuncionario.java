@@ -30,7 +30,7 @@ public class AlterarFuncionario extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String cpf = request.getParameter("cpf_func");
+        String cpf = request.getParameter("cpf");
         String nome = request.getParameter("nome");
         int codFilial = Integer.parseInt(request.getParameter("cod_filial"));
         String cargo = request.getParameter("cargo");
@@ -42,6 +42,7 @@ public class AlterarFuncionario extends HttpServlet {
         String senha = request.getParameter("senha");
         
         Funcionario func = FuncionarioDAO.getFunc(cpf);
+        func.setCpfFunc(cpf);
         func.setNomeFunc(nome);
         func.setCodFilial(codFilial);
         func.setCargo(cargo);
