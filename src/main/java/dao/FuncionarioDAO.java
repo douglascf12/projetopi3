@@ -71,6 +71,7 @@ public class FuncionarioDAO {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 funcionario = new Funcionario();
+                funcionario.setCpfFunc(cpf);
                 funcionario.setNomeFunc(rs.getString("nome"));
                 funcionario.setCodFilial(rs.getInt("cod_filial"));
                 funcionario.setCargo(rs.getString("cargo"));

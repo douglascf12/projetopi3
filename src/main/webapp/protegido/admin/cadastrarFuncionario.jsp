@@ -23,7 +23,7 @@
         <div class="container">
             <h1>Cadastro de Funcionario</h1>
 
-            <form method="POST" action="CadastrarFuncionario">
+            <form action="<c:url value="/CadastrarFuncionario"/>" method="POST">
 
                 <div class="row form-group">
                     <div class="col-6">
