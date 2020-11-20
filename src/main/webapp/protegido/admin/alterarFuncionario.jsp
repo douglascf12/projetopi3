@@ -20,7 +20,7 @@
             </div>
             <div class="row form-group">
                 <div class="col-6 " > 
-                    <input class="form-control" name="cpf_func" value="${func.cpfFunc}" readonly="true"/><br/>
+                    <input class="form-control" name="cpf" value="${func.cpfFunc}" readonly="true"/><br/>
                 </div>
                 <div class="col-6 " > 
                     <select name="sexo" class="form-control"  id="sexo">

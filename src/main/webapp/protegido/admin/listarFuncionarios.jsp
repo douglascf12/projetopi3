@@ -50,7 +50,7 @@
                                     <td>${funcionario.codFilial}</td>
                                     <td>${funcionario.usuario}</td>
                                     <td>
-                                        <a href="<c:url value="/protegido/admin/alterarFuncionario?cpf=${funcionario.cpfFunc}">"><img src="imagens/icon_editar.png" alt="Editar"></a>
+                                        <a href="AlterarFuncionario?cpf=${funcionario.cpfFunc}"><img src="imagens/icon_editar.png" alt="Editar"></a>
                                         <a><img onclick="mostrarModalExclusao(${funcionario.cpfFunc}, '${funcionario.nomeFunc}')" src="imagens/icon_excluir.png" alt="Excluir"></a>
                                     </td>
                                 </tr>

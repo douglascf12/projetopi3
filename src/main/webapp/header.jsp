@@ -47,7 +47,7 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="<c:url value="/ListarFuncionario"/>">Listar Colaboradores</a>
-                                <a class="dropdown-item" href="<c:url value="/cadastrarFuncionario.jsp"/>">Cadastrar Colaborador</a>
+                                <a class="dropdown-item" href="<c:url value="/protegido/admin/cadastrarFuncionario.jsp"/>">Cadastrar Colaborador</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
