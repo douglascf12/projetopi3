@@ -7,9 +7,20 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
+    <c:if test="${sessionScope.user.isGerenteF()}">
+        <c:if test="${sessionScope.user.codFilial}!=${cod_filial}}">
+            <script> window.location.href = "DetalharVendaFilial?cod_filial=" + ${sessionScope.user.codFilial}</script>;
+        </c:if>
+    </c:if>
+
+    <c:if test="${!sessionScope.user.isGerenteG()}">
+        <c:if test="${!sessionScope.user.isGerenteF()}">
+            <script>window.location.href = "acessoNaoAutorizado.jsp"</script>
+        </c:if>
+    </c:if>
     <div class="container">
         <h3>Vendas da Filial: ${cod_filial}</h3>
-         <table id="table" class="table">
+        <table id="table" class="table">
             <thead>
             <th>Cód. Venda</th>
             <th>Cliente Cpf </th>

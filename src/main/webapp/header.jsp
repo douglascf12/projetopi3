@@ -38,7 +38,12 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="<c:url value="/VendaServlet"/>">Realizar Venda</a>
-                                <a class="dropdown-item" href="<c:url value="/ListarVendas"/>">Relatórios de Vendas</a>
+                                <c:if test="${sessionScope.user.isGerenteG()}">
+                                    <a class="dropdown-item" href="<c:url value="/ListarVendas"/>">Relatórios de Vendas</a>
+                                </c:if>
+                                <c:if test="${sessionScope.user.isGerenteF()}">
+                                    <a class="dropdown-item" href="<c:url value="/ListarVendas"/>">Relatórios de Vendas</a>
+                                </c:if>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -47,7 +52,7 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="<c:url value="/ListarFuncionario"/>">Listar Colaboradores</a>
-                                <a class="dropdown-item" href="<c:url value="/protegido/admin/cadastrarFuncionario.jsp"/>">Cadastrar Colaborador</a>
+                                <a class="dropdown-item" href="<c:url value="/cadastrarFuncionario.jsp"/>">Cadastrar Colaborador</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -74,7 +79,7 @@
                 </div>
             </nav>
         </c:when>
-        <c:when test="${sessionScope.user.cargo eq 'vendedor'}">
+        <c:when test="${sessionScope.user.cargo eq 'Vendedor'}">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="protegido/index.jsp">TáLigado</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

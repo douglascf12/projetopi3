@@ -59,10 +59,23 @@
 
                 }
             }
-
         </script>
     </head>
-
+    <c:if test="${sessionScope.user.isGerenteF()}">
+        <script>
+            window.location.href = "DetalharVendaFilial?cod_filial=" + ${sessionScope.user.codFilial};
+        </script>
+    </c:if>
+    <c:if test="${sessionScope.user.isVendedor()}">
+        <script>
+            window.location.href = "acessoNaoAutorizado.jsp";
+        </script>
+    </c:if>
+    <c:if test="${sessionScope.user.isAnalista()}">
+        <script>
+            window.location.href = "acessoNaoAutorizado.jsp";
+        </script>
+    </c:if>
     <div class="container">
         <div>
             <h6>Filtrar por:</h6>

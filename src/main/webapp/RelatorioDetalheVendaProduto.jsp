@@ -7,6 +7,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
+   
+    <c:if test="${!sessionScope.user.isGerenteG()}">
+            <script>window.location.href = "acessoNaoAutorizado.jsp"</script>
+    </c:if>
+            
     <div class="container">
         <h3>Categoria:${Categoria}</h3>
         <table class="table">

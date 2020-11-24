@@ -7,6 +7,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
+    <c:if test="${!sessionScope.user.isGerenteG()}">
+        <script>window.location.href = "acessoNaoAutorizado.jsp"</script>
+    </c:if>
     <div class="container">
         <h3>Vendas no CPF: ${cpf_cliente}</h3>
         <table id="table" class="table">
@@ -31,5 +34,5 @@
                 </c:forEach>
             </tbody>
         </table>
-            <a href="ListarVendas"><button type="button" class="btn btn-warning">Vendas</button></a>
+        <a href="ListarVendas"><button type="button" class="btn btn-warning">Vendas</button></a>
     </div>
