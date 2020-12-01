@@ -22,12 +22,10 @@
     <body>
         <div class="container">
             <h1>Cadastro de Funcionario</h1>
-
             <form action="<c:url value="/CadastrarFuncionario"/>" method="POST">
-
                 <div class="row form-group">
                     <div class="col-6">
-                        <label for="cpf">Cpf do Funcionario</label>
+                        <label for="cpf">CPF do Funcionário</label>
                     </div>
                     <div class="col-6">
                         <label for="sexo">Sexo</label>
@@ -108,7 +106,6 @@
                         <label for="cod_filial">Senha</label>
                     </div>
                 </div>
-
                 <div class="row form-group">
                     <div class="col-6">
                         <input name="usuario" class="form-control" required="true" ></input>
@@ -120,7 +117,6 @@
                 <br/>
                 <button type="submit"  class="btn btn-primary">Enviar</button>
             </form>
-
         </div>
         <script type="text/javascript" src="//code.jquery.com/jquery-2.0.3.min.js"></script>
         <script type="text/javascript" src="//assets.locaweb.com.br/locastyle/2.0.6/javascripts/locastyle.js"></script>

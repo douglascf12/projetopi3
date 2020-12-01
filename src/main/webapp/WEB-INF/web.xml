@@ -140,10 +140,6 @@
         <servlet-name>ExcluirProdutoCarrinho</servlet-name>
         <servlet-class>servlet.ExcluirProdutoCarrinho</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>CadastrarFuncionario</servlet-name>
-        <servlet-class>servlet.CadastrarFuncionario</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>Servlet</servlet-name>
         <url-pattern>/Servlet</url-pattern>
@@ -311,10 +307,6 @@
     <servlet-mapping>
         <servlet-name>ExcluirProdutoCarrinho</servlet-name>
         <url-pattern>/ExcluirProdutoCarrinho</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CadastrarFuncionario</servlet-name>
-        <url-pattern>/CadastrarFuncionario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
