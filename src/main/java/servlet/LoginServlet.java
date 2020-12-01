@@ -12,23 +12,18 @@ import javax.servlet.http.HttpSession;
 public class LoginServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        //HttpServletRequest httpRequest = (HttpServletRequest) request;
-        
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String usuario = request.getParameter("usuario");
         String senha = request.getParameter("senha");
-        
-        //HttpSession sessao = httpRequest.getSession();
 
-        Funcionario user = FuncionarioDAO.getFunc(usuario, senha);
-        if(user == null) {
+        Funcionario user = FuncionarioDAO.getFuncLogin(usuario);
+        if(user == null || !user.validarSenha(senha)) {
             response.sendRedirect(request.getContextPath() + "/login.jsp?erro=login");
         } else {
             HttpSession sessao = request.getSession();
             sessao.setAttribute("user", user);
             response.sendRedirect(request.getContextPath() + "/protegido/index.jsp");
         }
-
     }
+
 }

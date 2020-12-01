@@ -1,5 +1,6 @@
 package entidade;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import utils.CargoEnum;
 
 public class Funcionario {
@@ -41,6 +42,15 @@ public class Funcionario {
         this.dataNascFunc = dataNascFunc;
         this.sexoFunc = sexoFunc;
         this.usuario = usuario;
+    }
+    
+    public String codificarSenha(String senha) {
+        return BCrypt.withDefaults().hashToString(12, senha.toCharArray());
+    }
+    
+    public boolean validarSenha(String senha) {
+        BCrypt.Result response = BCrypt.verifyer().verify(senha.toCharArray(), this.getSenha());
+        return response.verified;
     }
 
     public boolean isAdmin() {
