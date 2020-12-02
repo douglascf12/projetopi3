@@ -1,7 +1,5 @@
 package entidade;
 
-import java.text.DecimalFormat;
-
 public class Produto {
 
     private int cod_produto;
@@ -12,7 +10,8 @@ public class Produto {
     private String categoria;
     private int qtd_vendida;
     private float subTotal;
-    
+    private int cod_filial;
+
     public Produto(int cod_produto, String descricao, String nome_produto, int qtd_estoque, float preco, String categoria) {
         this.cod_produto = cod_produto;
         this.descricao = descricao;
@@ -31,6 +30,24 @@ public class Produto {
         this.categoria = categoria;
     }
 
+    public Produto(int cod_produto, String descricao, String nome_produto, int qtd_estoque, float preco, String categoria, int codFilial) {
+        this.cod_produto = cod_produto;
+        this.descricao = descricao;
+        this.nome_produto = nome_produto;
+        this.qtd_estoque = qtd_estoque;
+        this.preco = preco;
+        this.categoria = categoria;
+        this.cod_filial = codFilial;
+    }
+
+    public int getCod_filial() {
+        return cod_filial;
+    }
+
+    public void setCod_filial(int cod_filial) {
+        this.cod_filial = cod_filial;
+    }
+
     public float getSubTotal() {
         return subTotal;
     }
@@ -39,7 +56,6 @@ public class Produto {
         this.subTotal = subTotal;
     }
 
-    
     public int getQtd_vendida() {
         return qtd_vendida;
     }
