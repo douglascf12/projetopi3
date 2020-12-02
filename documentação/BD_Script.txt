@@ -1,0 +1,67 @@
+create database artigostlg;
+
+use artigostlg;
+
+CREATE TABLE cliente (
+    cpf_cliente varchar(14) PRIMARY KEY,
+    nome varchar(40),
+    data_nasc date,
+    telefone varchar(14),
+    endereco varchar(40),
+    sexo varchar(15)
+);
+
+CREATE TABLE filial (
+    cod_filial int auto_increment PRIMARY KEY,
+    nome varchar(30),
+    estado varchar(20),
+    cidade varchar(30)
+);
+
+CREATE TABLE funcionario (
+    cpf_func varchar(14) PRIMARY KEY,
+    nome varchar(40),
+    cod_filial int,
+    cargo varchar(20),
+    telefone varchar(13),
+    endereco varchar(30),
+    data_nasc date,
+    sexo varchar(15),
+    usuario varchar(30),
+    senha varchar(100),
+    FOREIGN KEY(cod_filial) REFERENCES filial (cod_filial)
+);
+
+CREATE TABLE venda (
+    id_venda int auto_increment PRIMARY KEY,
+    cod_filial int,
+    total_venda decimal(6,2),
+    cpf_cliente varchar(11),
+    cpf_func varchar(11),
+    data_venda date,
+    FOREIGN KEY(cpf_cliente) REFERENCES cliente (cpf_cliente),
+    FOREIGN KEY(cpf_func) REFERENCES funcionario (cpf_func),
+    FOREIGN KEY(cod_filial) REFERENCES filial (cod_filial)
+);
+
+CREATE TABLE produto (
+    cod_produto int auto_increment PRIMARY KEY,
+    nome_produto varchar(20),
+    cod_filial int,
+    preco decimal(6,2),
+    descricao varchar(40),
+    qtd_estoque int,
+    categoria varchar(10),
+    FOREIGN KEY(cod_filial) REFERENCES filial (cod_filial)
+);
+
+create table detalhe_venda (
+    id_detalhevenda int auto_increment PRIMARY KEY,
+    id_venda int,
+    nome varchar(30),
+    sub_total decimal(6,2),
+    qtd_vendida int,
+    cod_produto int,
+    FOREIGN KEY(id_venda) REFERENCES venda (id_venda),
+    FOREIGN KEY(cod_produto) REFERENCES produto (cod_produto)
+);
