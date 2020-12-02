@@ -2,7 +2,6 @@ package dao;
 
 import bd.ConexaoDB;
 import entidade.Produto;
-import entidade.Produto.Categoria;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -29,8 +28,10 @@ public class ProdutoDAO {
                 int qtd_estoque = rs.getInt("qtd_estoque");
                 String nome_produto = rs.getString("nome_produto");
                 String categoria = rs.getString("categoria");
+                int codFilial = rs.getInt("cod_filial");
+                
               //  Categoria cat = Enum.valueOf(Categoria.class, categoria);
-                listaProdutos.add(new Produto(cod_produto, descricao, nome_produto, qtd_estoque,  preco, categoria));
+                listaProdutos.add(new Produto(cod_produto, descricao, nome_produto, qtd_estoque,  preco, categoria, codFilial));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Servlet.class.getName()).
@@ -41,13 +42,14 @@ public class ProdutoDAO {
 
     public static void addProduto(Produto produto) throws SQLException, ClassNotFoundException {
         Connection con = ConexaoDB.getConexao();
-        String query = "insert into produto(preco,descricao,qtd_estoque,nome_produto,categoria) values (?,?,?,?,?)";
+        String query = "insert into produto(preco,descricao,qtd_estoque,nome_produto,categoria, cod_filial) values (?,?,?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setFloat(1, produto.getPreco());
         ps.setString(2, produto.getDescricao());
         ps.setInt(3, produto.getQtd_estoque());
         ps.setString(4, produto.getNome_produto());
         ps.setString(5, produto.getCategoria());
+        ps.setInt(6, produto.getCod_filial());
         ps.execute();
     }
 
@@ -86,8 +88,9 @@ public class ProdutoDAO {
                 int qtd_estoque = rs.getInt("qtd_estoque");
                 String nome_produto = rs.getString("nome_produto");
                 String categoria = rs.getString("categoria");
+                int codFilial = rs.getInt("cod_filial");
                // Categoria cat = Enum.valueOf(Categoria.class, categoria);
-                produto = new Produto(cod_produto,descricao, nome_produto, qtd_estoque,  preco,categoria);
+                produto = new Produto(cod_produto,descricao, nome_produto, qtd_estoque,  preco,categoria, codFilial);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Servlet.class.getName()).

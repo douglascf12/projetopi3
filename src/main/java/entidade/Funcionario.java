@@ -1,7 +1,6 @@
 package entidade;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
-import utils.CargoEnum;
 
 public class Funcionario {
 

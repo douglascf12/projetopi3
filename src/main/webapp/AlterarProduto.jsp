@@ -3,6 +3,11 @@
 
 <!DOCTYPE html>
 <html>
+    <c:if test="${sessionScope.user.codFilial != produto.cod_filial}">
+        <script>
+            window.location.href = "acessoNaoAutorizado.jsp"
+        </script>
+    </c:if>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Alterar Produto</title>

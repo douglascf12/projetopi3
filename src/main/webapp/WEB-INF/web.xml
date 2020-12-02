@@ -68,6 +68,10 @@
         <servlet-name>CadastrarFilial</servlet-name>
         <servlet-class>servlet.CadastrarFilial</servlet-class>
     </servlet>
+     <servlet>
+        <servlet-name>cadastrarFuncionario</servlet-name>
+        <servlet-class>servlet.cadastrarFuncionario</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>AlterarFilial</servlet-name>
         <servlet-class>servlet.AlterarFilial</servlet-class>
@@ -239,6 +243,10 @@
     <servlet-mapping>
         <servlet-name>CadastrarFilial</servlet-name>
         <url-pattern>/CadastrarFilial</url-pattern>
+    </servlet-mapping>
+       <servlet-mapping>
+        <servlet-name>cadastrarFuncionario</servlet-name>
+        <url-pattern>/cadastrarFuncionario</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AlterarFilial</servlet-name>

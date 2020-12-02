@@ -22,7 +22,7 @@
     <body>
         <div class="container">
             <h1>Cadastro de Funcionario</h1>
-            <form action="<c:url value="/CadastrarFuncionario"/>" method="POST">
+            <form action="<c:url value="/cadastrarFuncionario"/>" method="POST">
                 <div class="row form-group">
                     <div class="col-6">
                         <label for="cpf">CPF do Funcionário</label>

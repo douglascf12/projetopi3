@@ -30,7 +30,7 @@
         </script>
     </head>
     <div class="container">
-        <h1>Lista de Produtos</h1>
+        <h1>Lista de Produtos da Filial: ${sessionScope.user.getCodFilial()}</h1>
         <table class="table">
             <thead>
             <th>Codigo</th>
@@ -42,16 +42,18 @@
             </thead>
             <tbody> 
                 <c:forEach var="produto" items="${listaProdutos}">
-                    <tr>
-                        <td>${produto.cod_produto}</td>
-                        <td>${produto.preco}</td>
-                        <td>${produto.descricao}</td>
-                        <td>${produto.qtd_estoque}</td>
-                        <td>${produto.nome_produto}</td>
-                        <td>${produto.categoria}</td>
-                        <td><a href="AlterarProduto?cod_produto=${produto.cod_produto}">Alterar</a></td>
-                        <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao(${produto.cod_produto}, '${produto.nome_produto}')">Excluir</button></td>
-                    </tr>
+                    <c:if test="${sessionScope.user.codFilial == produto.cod_filial}">
+                        <tr>
+                            <td>${produto.cod_produto}</td>
+                            <td>${produto.preco}</td>
+                            <td>${produto.descricao}</td>
+                            <td>${produto.qtd_estoque}</td>
+                            <td>${produto.nome_produto}</td>
+                            <td>${produto.categoria}</td>
+                            <td><a href="AlterarProduto?cod_produto=${produto.cod_produto}">Alterar</a></td>
+                            <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao(${produto.cod_produto}, '${produto.nome_produto}')">Excluir</button></td>
+                        </tr>
+                    </c:if>
                 </c:forEach>
 
             </tbody>
