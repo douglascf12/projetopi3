@@ -12,7 +12,7 @@
                 $("#codigo").val(codigo);
                 $('#modalExclusao').modal('show');
             }
-            function excluirProduto() {
+            function excluirFilial() {
                 var codigo = $("#codigo").val();
                 $.get("ExcluirFilial?codigo=" + codigo, function (resposta) {
                     $('#modalExclusao').modal('hide')
@@ -77,7 +77,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" onclick="excluirProduto()">Confirmar</button>
+                    <button type="button" class="btn btn-primary" onclick="excluirFilial()">Confirmar</button>
                 </div>
             </div>
         </div>

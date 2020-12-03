@@ -55,7 +55,7 @@ public class FuncionarioDAO {
         ps.setString(6, funcionario.getDataNascFunc());
         ps.setString(7, funcionario.getSexoFunc());
         ps.setString(8, funcionario.getUsuario());
-        ps.setString(9, funcionario.getSenha());
+        ps.setString(9, funcionario.codificarSenha(funcionario.getSenha()));
         ps.setString(10, funcionario.getCpfFunc());
         ps.execute();
     }
