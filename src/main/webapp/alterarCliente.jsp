@@ -10,7 +10,7 @@
     <body>
     <center>
         <div class="card w-75">
-            <h5 class="card-header">Alteração de Cadastro: ${cliente.cpf_cliente}</h5>
+            <h5 class="card-header">Alteração de Cadastro: ${cliente.nome}</h5>
             <div class="card-body">
                 <form action="AlterarCliente" method="POST">
                     <div class="form-group row">
@@ -34,7 +34,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Data de Nascimento</label>
                         <div class="col-sm-10">
-                            <input name="data_nasc" class="form-control date-mask" value="${cliente.data_nasc}"/>
+                            <input type="date" name="data_nasc" class="form-control" value="${cliente.data_nasc}"/>
                         </div>                            
                     </div>
                     <div class="form-group row">
@@ -46,8 +46,8 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Sexo</label>
                         <div class="col-sm-10">
-                            <select name="sexo" class="form-control" required="true"/><br/>
-                            <option value=" "></option>
+                            <select name="sexo" value="${cliente.sexo}" class="form-control" required="true"/><br/>
+                            <option value=""></option>
                             <option value="Feminino">Feminino</option>
                             <option value="Masculino">Masculino</option>              
                             </select><br/> 
