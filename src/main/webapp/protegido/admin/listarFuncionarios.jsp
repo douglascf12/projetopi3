@@ -41,20 +41,40 @@
                         <th>Usuário</th>
                         <th>Ações</th>
                         </thead>
-                        <tbody> 
-                            <c:forEach var="funcionario" items="${listaFuncionarios}">
-                                <tr>
-                                    <td>${funcionario.cpfFunc}</td>
-                                    <td>${funcionario.nomeFunc}</td>
-                                    <td>${funcionario.cargo}</td>
-                                    <td>${funcionario.codFilial}</td>
-                                    <td>${funcionario.usuario}</td>
-                                    <td>
-                                        <a href="AlterarFuncionario?cpf=${funcionario.cpfFunc}"><img src="imagens/icon_editar.png" alt="Editar"></a>
-                                        <a><img onclick="mostrarModalExclusao(${funcionario.cpfFunc}, '${funcionario.nomeFunc}')" src="imagens/icon_excluir.png" alt="Excluir"></a>
-                                    </td>
-                                </tr>
-                            </c:forEach>
+                        <tbody>
+                            <c:choose>
+                                <c:when test="${sessionScope.user.cargo eq 'Gerente Geral'}">
+                                    <c:forEach var="funcionario" items="${listaFuncionarios}">
+                                            <tr>
+                                                <td>${funcionario.cpfFunc}</td>
+                                                <td>${funcionario.nomeFunc}</td>
+                                                <td>${funcionario.cargo}</td>
+                                                <td>${funcionario.codFilial}</td>
+                                                <td>${funcionario.usuario}</td>
+                                                <td>
+                                                    <a href="AlterarFuncionario?cpf=${funcionario.cpfFunc}"><img src="imagens/icon_editar.png" alt="Editar"></a>
+                                                </td>
+                                            </tr>
+                                    </c:forEach>
+                                </c:when>
+                                <c:when test="${sessionScope.user.cargo eq 'Gerente Filial'}">
+                                    <c:forEach var="funcionario" items="${listaFuncionarios}">
+                                        <c:if test="${sessionScope.user.codFilial == funcionario.codFilial}">
+                                            <tr>
+                                                <td>${funcionario.cpfFunc}</td>
+                                                <td>${funcionario.nomeFunc}</td>
+                                                <td>${funcionario.cargo}</td>
+                                                <td>${funcionario.codFilial}</td>
+                                                <td>${funcionario.usuario}</td>
+                                                <td>
+                                                    <a href="AlterarFuncionario?cpf=${funcionario.cpfFunc}"><img src="imagens/icon_editar.png" alt="Editar"></a>
+                                                    <a><img onclick="mostrarModalExclusao(${funcionario.cpfFunc}, '${funcionario.nomeFunc}')" src="imagens/icon_excluir.png" alt="Excluir"></a>
+                                                </td>
+                                            </tr>
+                                        </c:if>
+                                    </c:forEach>
+                                </c:when>
+                            </c:choose>
                         </tbody>
                     </table>
                 </div>

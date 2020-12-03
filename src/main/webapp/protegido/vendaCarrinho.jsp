@@ -43,8 +43,8 @@
             $.post("CadastrarVendaServlet?valorTotal=" + valor, function () {
                 alert("success");
             });
-            window.location.reload();
-            //  location.href = "sucesso.jsp"
+            //window.location.reload();
+            location.href = "sucesso.jsp"
         }
 
         function excluirProdutoCarrinho(codigo) {

@@ -41,19 +41,38 @@
                         <th>Cidade</th>
                         <th>Ações</th>
                         </thead>
-                        <tbody> 
-                            <c:forEach var="filial" items="${listaFiliais}">
-                                <tr>
-                                    <td>${filial.codigo}</td>
-                                    <td>${filial.nome}</td>
-                                    <td>${filial.estado}</td>
-                                    <td>${filial.cidade}</td>
-                                    <td>
-                                        <a href="AlterarFilial?codigo=${filial.codigo}"><img src="imagens/icon_editar.png" alt="Editar"></a>
-                                        <a><img onclick="mostrarModalExclusao(${filial.codigo}, '${filial.nome}')" src="imagens/icon_excluir.png" alt="Excluir"></a>
-                                    </td>
-                                </tr>
-                            </c:forEach>
+                        <tbody>
+                            <c:choose>
+                                <c:when test="${sessionScope.user.cargo eq 'Gerente Geral'}">
+                                    <c:forEach var="filial" items="${listaFiliais}">
+                                        <tr>
+                                            <td>${filial.codigo}</td>
+                                            <td>${filial.nome}</td>
+                                            <td>${filial.estado}</td>
+                                            <td>${filial.cidade}</td>
+                                            <td>
+                                                <a href="AlterarFilial?codigo=${filial.codigo}"><img src="imagens/icon_editar.png" alt="Editar"></a>
+                                                <a><img onclick="mostrarModalExclusao(${filial.codigo}, '${filial.nome}')" src="imagens/icon_excluir.png" alt="Excluir"></a>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                </c:when>
+                                <c:when test="${sessionScope.user.cargo eq 'Gerente Filial'}">
+                                    <c:forEach var="filial" items="${listaFiliais}">
+                                        <c:if test="${sessionScope.user.codFilial == filial.codigo}">
+                                            <tr>
+                                                <td>${filial.codigo}</td>
+                                                <td>${filial.nome}</td>
+                                                <td>${filial.estado}</td>
+                                                <td>${filial.cidade}</td>
+                                                <td>
+                                                    <a href="AlterarFilial?codigo=${filial.codigo}"><img src="imagens/icon_editar.png" alt="Editar"></a>
+                                                </td>
+                                            </tr>
+                                        </c:if>
+                                    </c:forEach>
+                                </c:when>
+                            </c:choose>
                         </tbody>
                     </table>
                 </div>

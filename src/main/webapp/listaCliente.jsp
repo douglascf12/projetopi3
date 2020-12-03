@@ -12,7 +12,6 @@
                 $("#cpf_cliente").val(cpf_cliente);
                 $('#modalExclusao').modal('show');
             }
-
             function excluirCliente() {
                 var cpf_cliente = $("#cpf_cliente").val();
                 $.get("ExcluirCliente?cpf_cliente=" + cpf_cliente, function (resposta) {
