@@ -14,17 +14,23 @@
                 <p>Nome</p>
                 <input name="nome" class="form-control" required="true"/><br/>            
                 <p>CPF</p>
-                <input type="text" name="cpf_cliente"  class="form-control" required="true"/><br/>
+                <input type="text" name="cpf_cliente"  class="form-control cpf-mask" required="true"/><br/>
                 <p>Telefone</p>
-                <input name="telefone" class="form-control" required="true"/><br/>
-                <p>data de Nascimento</p>
-                <input name="data_nasc" class="form-control" required="true"/><br/>
+                <input name="telefone" class="form-control phone-ddd-mask" required="true"/><br/>
+                <p>data de Nascimento</p>                
+                <input name="data_nasc" type="date" class="form-control date-mask" required="true" placeholder="YY/mm/dd">
                 <p>Endereço</p>
                 <input name="endereco" class="form-control" required="true"/><br/>
-                <p>Sexo</p>
-                <input name="sexo" class="form-control" required="true"/><br/>
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <p>Sexo</p>                
+               <select name="sexo" class="form-control" required="true"/><br/>
+               <option value=" "></option>
+               <option value="Feminino">Feminino</option>
+               <option value="Masculino">Masculino</option>              
+            </select><br/>                
+                               
             </form>
+            <button type="submit" class="btn btn-primary">Enviar</button>
         </div>
+        
     </body>
 </html>
