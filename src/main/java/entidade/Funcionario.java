@@ -65,7 +65,7 @@ public class Funcionario {
     }
 
     public boolean isAnalista() {
-        return this.cargo.equalsIgnoreCase("Gerente Filial");
+        return this.cargo.equalsIgnoreCase("Analista de Rede");
     }
 
     public boolean isVendedor() {
