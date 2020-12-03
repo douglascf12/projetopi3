@@ -9,7 +9,7 @@
     </head>
     <c:if test="${sessionScope.user.isGerenteF()}">
         <script>
-            window.location.href = "DetalharVendaFilial?cod_filial=" + ${sessionScope.user.codFilial};
+            window.location.href = "DetalharVendaFilial?id_venda=" + ${id_venda};
         </script>
     </c:if>
     <c:if test="${sessionScope.user.isVendedor()}">
