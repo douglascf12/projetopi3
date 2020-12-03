@@ -36,8 +36,8 @@ public class DetalharVendaFilial extends HttpServlet {
             Logger.getLogger(DetalharVendaFilial.class.getName()).log(Level.SEVERE, null, ex);
         }
         request.setAttribute("listaVendas", Vendas);
-        request.setAttribute("cod_filial", cod_filial);
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/RelatorioDetalheVendaFilial.jsp");
+        request.setAttribute("filial", cod_filial);
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protegido/Gerencia/RelatorioDetalheVendaFilial.jsp");
         requestDispatcher.forward(request, response);
     }
     

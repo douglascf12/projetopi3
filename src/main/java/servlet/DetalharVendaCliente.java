@@ -37,7 +37,7 @@ public class DetalharVendaCliente extends HttpServlet {
         }
         request.setAttribute("listaVendas", Vendas);
         request.setAttribute("cpf_cliente", cpf_cliente);
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/RelatorioDetalheVendaCliente.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protegido/Gerencia/RelatorioDetalheVendaCliente.jsp");
         requestDispatcher.forward(request, response);
     }
 }

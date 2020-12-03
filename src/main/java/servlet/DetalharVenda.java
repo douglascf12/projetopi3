@@ -37,7 +37,7 @@ public class DetalharVenda extends HttpServlet {
             Logger.getLogger(ListarVendas.class.getName()).log(Level.SEVERE, null, ex);
         }
         request.setAttribute("listaDetalheVendas", detalheVendas);
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/RelatorioDetalheVenda.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protegido/Gerencia/RelatorioDetalheVenda.jsp");
         requestDispatcher.forward(request, response);
     }
 }

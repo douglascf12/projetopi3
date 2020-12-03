@@ -78,7 +78,7 @@
     </c:if>
     <div class="container">
         <div>
-            <h6>Filtrar por:</h6>
+            <h6>${sessionScope.user.isGerenteF()}</h6>
             <select class="form-control col-5" id="filtro">
                 <option value="op">-</option>
                 <option value="op">Filial</option>
