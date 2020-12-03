@@ -1,4 +1,3 @@
-
 package dao;
 
 import bd.ConexaoDB;
@@ -14,23 +13,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import servlet.ClienteServlet;
 
-/**
- *
- * @author andre
- */
 public class ClienteDAO {
-    
-      public static List<Cliente> getClientes() {
-          
+
+    public static List<Cliente> getClientes() {
+
         List<Cliente> listaClientes = new ArrayList();
         try {
             Connection con = ConexaoDB.getConexao();
             String query = "select * from cliente";
             PreparedStatement ps = con.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
-            
+
             while (rs.next()) {
-                String nome = rs.getString("nome");                
+                String nome = rs.getString("nome");
                 String cpf_cliente = rs.getString("cpf_cliente");
                 String telefone = rs.getString("telefone");
                 String data_nasc = rs.getString("data_nasc");
@@ -44,29 +39,29 @@ public class ClienteDAO {
         }
         return listaClientes;
     }
-      
-       public static void addCliente(Cliente cliente) throws SQLException, ClassNotFoundException {
-           
+
+    public static void addCliente(Cliente cliente) throws SQLException, ClassNotFoundException {
+
         Connection con = ConexaoDB.getConexao();
-        
+
         String query = "insert into cliente(nome, cpf_cliente, telefone, data_nasc, endereco, sexo) values (?,?,?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(query);
-        ps.setString(1, cliente.getNome());       
-        ps.setString(2, cliente.getCpf_cliente());       
+        ps.setString(1, cliente.getNome());
+        ps.setString(2, cliente.getCpf_cliente());
         ps.setString(3, cliente.getTelefone());
-        ps.setString(4, cliente.getData_nasc());        
+        ps.setString(4, cliente.getData_nasc());
         ps.setString(5, cliente.getEndereco());
         ps.setString(6, cliente.getSexo());
         ps.execute();
     }
-       
-        public static void updateCliente(Cliente cliente) throws ClassNotFoundException, SQLException {
-            
+
+    public static void updateCliente(Cliente cliente) throws ClassNotFoundException, SQLException {
+
         Connection con = ConexaoDB.getConexao();
-        
+
         String query = "update cliente set nome=?, telefone=?,  data_nasc=?, endereco=?,  sexo=? where cpf_cliente=?";
         PreparedStatement ps = con.prepareStatement(query);
-        ps.setString(1, cliente.getNome());    
+        ps.setString(1, cliente.getNome());
         ps.setString(2, cliente.getTelefone());
         ps.setString(3, cliente.getData_nasc());
         ps.setString(4, cliente.getEndereco());
@@ -74,21 +69,19 @@ public class ClienteDAO {
         ps.setString(6, cliente.getCpf_cliente());
         ps.execute();
     }
-        
-        public static void deleteCliente(String cpf_cliente) throws ClassNotFoundException, SQLException {
-            
+
+    public static void deleteCliente(String cpf_cliente) throws ClassNotFoundException, SQLException {
         Connection con = ConexaoDB.getConexao();
-        
         String query = "delete from cliente where cpf_cliente=?";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setString(1, cpf_cliente);
         ps.execute();
     }
-        
-        public static Cliente getCliente(String cpf_cliente) {
-            
+
+    public static Cliente getCliente(String cpf_cliente) {
+
         Cliente cliente = null;
-        
+
         try {
             Connection con = ConexaoDB.getConexao();
             String query = "select * from cliente where cpf_cliente=?";
@@ -110,5 +103,4 @@ public class ClienteDAO {
         return cliente;
     }
 
-    
 }

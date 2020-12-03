@@ -18,19 +18,20 @@
                 <p>Telefone</p>
                 <input name="telefone" class="form-control phone-ddd-mask" required="true"/><br/>
                 <p>data de Nascimento</p>                
-                <input name="data_nasc" type="date" class="form-control date-mask" required="true" placeholder="YY/mm/dd">
+                <input name="data_nasc" type="date" class="form-control" required="true" placeholder="01/01/2000">
                 <p>Endereço</p>
                 <input name="endereco" class="form-control" required="true"/><br/>
                 <p>Sexo</p>                
-               <select name="sexo" class="form-control" required="true"/><br/>
-               <option value=" "></option>
-               <option value="Feminino">Feminino</option>
-               <option value="Masculino">Masculino</option>              
-            </select><br/>                
-                               
+                <select name="sexo" class="form-control" required="true"/><br/>
+                <option value=" "></option>
+                <option value="Feminino">Feminino</option>
+                <option value="Masculino">Masculino</option>              
+                </select><br/>
+                <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
-            <button type="submit" class="btn btn-primary">Enviar</button>
         </div>
-        
+        <script type="text/javascript" src="//code.jquery.com/jquery-2.0.3.min.js"></script>
+        <script type="text/javascript" src="//assets.locaweb.com.br/locastyle/2.0.6/javascripts/locastyle.js"></script>
+        <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
     </body>
 </html>
