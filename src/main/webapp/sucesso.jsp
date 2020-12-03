@@ -9,5 +9,5 @@
     </head>
     <div class="container">
         <h1>Operação executada com sucesso!</h1><br/>
-        <a href="index.jsp">Voltar</a>
+        <a href="protegido/index.jsp">Voltar</a>
     </div>

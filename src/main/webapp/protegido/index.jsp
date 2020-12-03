@@ -8,6 +8,14 @@
         <title>T·Ligado - Home</title>
     </head>
     <body>
-        
-    </body>
+        <br>
+        <br>
+    <center>
+        <h1>Seja bem-vinda(o) a rede T·Ligado!</h1>
+        <br>
+        <c:if test="${sessionScope.user.cargo != 'Gerente Geral'}">
+            <h2>Loja: ${sessionScope.f.nome}</h2>
+        </c:if>
+    </center>
+</body>
 </html>
