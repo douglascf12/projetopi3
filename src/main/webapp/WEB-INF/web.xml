@@ -68,7 +68,7 @@
         <servlet-name>CadastrarFilial</servlet-name>
         <servlet-class>servlet.CadastrarFilial</servlet-class>
     </servlet>
-     <servlet>
+    <servlet>
         <servlet-name>cadastrarFuncionario</servlet-name>
         <servlet-class>servlet.cadastrarFuncionario</servlet-class>
     </servlet>
@@ -85,24 +85,12 @@
         <servlet-class>servlet.VendaPesquisarCliente</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>VendaPesquisarFilial</servlet-name>
-        <servlet-class>servlet.x_VendaPesquisarFilial</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>VendaPedido</servlet-name>
         <servlet-class>servlet.VendaPedido</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>VendaProduto</servlet-name>
         <servlet-class>servlet.VendaProduto</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>VendaGerarPedido</servlet-name>
-        <servlet-class>servlet.x_VendaGerarPedido</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>VendaInserirProduto</servlet-name>
-        <servlet-class>servlet.x_VendaInserirProduto</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>VendaCarrinho</servlet-name>
@@ -244,7 +232,7 @@
         <servlet-name>CadastrarFilial</servlet-name>
         <url-pattern>/CadastrarFilial</url-pattern>
     </servlet-mapping>
-       <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>cadastrarFuncionario</servlet-name>
         <url-pattern>/cadastrarFuncionario</url-pattern>
     </servlet-mapping>
@@ -257,28 +245,12 @@
         <url-pattern>/ListarFilial</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>VendaPesquisarFilial</servlet-name>
-        <url-pattern>/VendaPesquisarFilial</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>VendaPedido</servlet-name>
         <url-pattern>/VendaPedido</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>VendaProduto</servlet-name>
         <url-pattern>/VendaProduto</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>VendaGerarPedido</servlet-name>
-        <url-pattern>/VendaGerarPedido</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>VendaInserirProduto</servlet-name>
-        <url-pattern>/VendaInserirProduto</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>VendaCarrinho</servlet-name>
-        <url-pattern>/VendaCarrinho</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DetalharVendaCliente</servlet-name>
