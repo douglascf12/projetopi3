@@ -25,11 +25,15 @@
         function adicionarProdutoNaSessao(codigo) {
             var qtdVendida = parseInt(document.getElementById('qtdVendida').value, 10);
             var subTotal = parseFloat(document.getElementById('subTotal').value, 10);
-            console.log(qtdVendida);
-            $.get("CarrinhoServlet?codigo=" + codigo + "&qtdVendida=" + qtdVendida + "&subTotal=" + subTotal, function (resposta) {
-                $('.toast').toast('show');
-            });
+            var qtdEstoque = parseInt(document.getElementById('qtdEstoque').value, 10);
 
+            if (qtdVendida > qtdEstoque) {
+                alert("A quantidade em estoque é menor que a quantidade vendida!!!");
+            } else {
+                $.get("CarrinhoServlet?codigo=" + codigo + "&qtdVendida=" + qtdVendida + "&subTotal=" + subTotal, function (resposta) {
+                    $('.toast').toast('show');
+                });
+            }
             window.location.reload();
         }
 
@@ -72,7 +76,7 @@
     </head>
     <body>
     <center>
-        <div class="card w-50">
+        <div class="card w-75">
             <h5 class="card-header">Pesquisar Produto</h5>
             <div class="card-body">
                 <form action="VendaProduto" method="GET">
@@ -85,7 +89,6 @@
                     <button type="submit" class="btn btn-primary">Pesquisar</button>
                 </form>
                 <br>
-
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Nome</label>
                     <div class="col-sm-10">
@@ -93,15 +96,15 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Valor</label>
+                    <label class="col-sm-2 col-form-label">Valor (R$)</label>
                     <div class="col-sm-10">
-                        <input name="preco" class="form-control" value="${produto.preco}" readonly="true"/>
+                        <input type="number" name="preco" class="form-control" value="${produto.preco}" readonly="true"/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Estoque</label>
                     <div class="col-sm-10">
-                        <input name="qtdEstoque" class="form-control" value="${produto.qtd_estoque}" readonly="true"/>
+                        <input name="qtdEstoque" id="qtdEstoque" class="form-control" value="${produto.qtd_estoque}" readonly="true"/>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -112,16 +115,16 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Sub-total</label>
+                    <label class="col-sm-2 col-form-label">Sub-total (R$)</label>
                     <div class="col-sm-10">
-                        <input id="subTotal" name="subTotal" class="form-control" readonly="true"/>
+                        <input type="number" id="subTotal" name="subTotal" class="form-control" readonly="true"/>
                     </div>
                 </div>
                 <button type="button" class="btn btn-primary" onclick="adicionarProdutoNaSessao(${produto.cod_produto})">Adicionar no carrinho</button>
             </div>
         </div>
         <br>
-        <div class="card w-50">
+        <div class="card w-75">
             <h5 class="card-header">Carrinho de Compras</h5>
             <div class="card-body">
                 <div class="container">
@@ -129,9 +132,9 @@
                         <thead>
                         <th>Código</th>
                         <th>Nome</th>
-                        <th>Preço</th>
+                        <th>Preço (R$)</th>
                         <th>Quantidade</th>
-                        <th>Sub-Total</th>
+                        <th>Sub-Total (R$)</th>
                         <th>Remover</th>
                         </thead>
                         <tbody> 
@@ -200,7 +203,6 @@
                 <form action="CadastrarVendaServlet" method="POST">
                     <button type="button" class="btn btn-primary" >Confirmar</button>
                 </form>
-
             </div>
         </div>
     </div>
