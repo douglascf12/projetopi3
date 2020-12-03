@@ -53,7 +53,7 @@
                                     <td>${cliente.sexo}</td>
                                     <td>
                                         <a href="AlterarCliente?cpf_cliente=${cliente.cpf_cliente}"><img src="imagens/icon_editar.png" alt="Editar"></a>
-                                        <a><img onclick="mostrarModalExclusao(${cliente.cpf_cliente}, '${cliente.nome}')" src="imagens/icon_excluir.png" alt="Excluir"></a>
+                                        <a><img onclick="mostrarModalExclusao('${cliente.cpf_cliente}', '${cliente.nome}')" src="imagens/icon_excluir.png" alt="Excluir"></a>
                                     </td>
                                 </tr>
                             </c:forEach>
