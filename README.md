@@ -1,4 +1,4 @@
-![Logo of the project](https://github.com/douglascf12/projetopi3/blob/master/public/readme_images/logo%20200x200.png)
+![Logo of the project](https://github.com/douglascf12/projetopi3/blob/master/public/readme_images/logo.png)
 
 ## TáLigado
 
