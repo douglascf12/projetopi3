@@ -175,6 +175,53 @@
                 </div>
             </nav>
         </c:when>
+        <c:when test="${sessionScope.user.cargo eq 'Gerente Filial'}">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="protegido/index.jsp">T·Ligado</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">                       
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Venda
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="<c:url value="/ListarVendas"/>">RelatÛrios de Vendas</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Colaborador
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="<c:url value="/ListarFuncionario"/>">Listar Colaboradores</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Filial
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="<c:url value="/ListarFilial"/>">Listar Filiais</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav navbar-right">
+                        <li class="nav-item">
+                            <a class="nav-link">Seja bem-vindo(a) ${user.nomeFunc}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">|</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<c:url value="/SairServlet"/>">Sair</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </c:when>
         <c:when test="${sessionScope.user.cargo eq 'Analista de Rede'}">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="protegido/index.jsp">T·Ligado</a>

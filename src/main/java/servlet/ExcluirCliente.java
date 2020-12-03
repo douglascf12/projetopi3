@@ -15,7 +15,6 @@ public class ExcluirCliente extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         String cpf_cliente = request.getParameter("cpf_cliente");
         try {
             ClienteDAO.deleteCliente(cpf_cliente);

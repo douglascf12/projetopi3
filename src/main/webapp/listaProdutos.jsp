@@ -3,18 +3,15 @@
 
 <!DOCTYPE html>
 <html>
-
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Lista de Produtos</title>
         <script lang="text/javascript">
-
             function mostrarModalExclusao(cod_produto, nome_produto) {
                 $("#nome_produto").html(nome_produto);
                 $("#cod_produto").val(cod_produto);
                 $('#modalExclusao').modal('show');
             }
-
             function excluirProduto() {
                 var cod_produto = $("#cod_produto").val();
                 $.get("ExcluirProduto?cod_produto=" + cod_produto, function (resposta) {
