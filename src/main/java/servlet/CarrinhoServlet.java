@@ -1,6 +1,7 @@
 package servlet;
 
 import dao.ProdutoDAO;
+import entidade.Funcionario;
 import entidade.Produto;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,30 +22,35 @@ public class CarrinhoServlet extends HttpServlet {
         int codProduto = Integer.parseInt(request.getParameter("codigo"));
         int qtdVendida = Integer.parseInt(request.getParameter("qtdVendida"));
         float subTotal = Float.parseFloat(request.getParameter("subTotal"));
-        
+
         Produto produto = ProdutoDAO.getProduto(codProduto);
         produto.setQtd_vendida(qtdVendida);
         produto.setSubTotal(subTotal);
 
-        List<Produto> listaProdutos;
-        if(sessao.getAttribute("listaProdutos") == null) {
-            listaProdutos = new ArrayList<>();
-        } else {
-            listaProdutos = (List<Produto>) sessao.getAttribute("listaProdutos");
-        }
-        
-        boolean contem = false;
-        for(Produto p: listaProdutos) {
-            if(p.getCod_produto() == codProduto) {
-                contem = true;
-                break;
-            }
-        }
-        if(!contem) {
-            listaProdutos.add(produto);
-        }
+        Funcionario user = (Funcionario) sessao.getAttribute("user");
 
-        sessao.setAttribute("listaProdutos", listaProdutos);
+        if (user.getCodFilial() == produto.getCod_filial()) {
+            List<Produto> listaProdutos;
+            if (sessao.getAttribute("listaProdutos") == null) {
+                listaProdutos = new ArrayList<>();
+            } else {
+                listaProdutos = (List<Produto>) sessao.getAttribute("listaProdutos");
+            }
+
+            boolean contem = false;
+            for (Produto p : listaProdutos) {
+                if (p.getCod_produto() == codProduto) {
+                    contem = true;
+                    break;
+                }
+            }
+            if (!contem) {
+                listaProdutos.add(produto);
+            }
+            sessao.setAttribute("listaProdutos", listaProdutos);
+        } else {
+            
+        }
     }
 
 }
